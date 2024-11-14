@@ -1,0 +1,1 @@
+{% load markdown_filters %}{{ body|plaintext }}

@@ -1,0 +1,4019 @@
+{
+	"info": {
+		"_postman_id": "ad398fea-9b6f-4cf1-8a06-63e12e1075ac",
+		"name": "Signals",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "V1",
+			"item": [
+				{
+					"name": "Private",
+					"item": [
+						{
+							"name": "Areas",
+							"item": [
+								{
+									"name": "List",
+									"event": [
+										{
+											"listen": "prerequest",
+											"script": {
+												"exec": [
+													""
+												],
+												"type": "text/javascript"
+											}
+										}
+									],
+									"protocolProfileBehavior": {
+										"disableBodyPruning": true
+									},
+									"request": {
+										"auth": {
+											"type": "bearer",
+											"bearer": [
+												{
+													"key": "token",
+													"value": "{{bearer_token}}",
+													"type": "string"
+												}
+											]
+										},
+										"method": "GET",
+										"header": [
+											{
+												"key": "Content-Type",
+												"name": "Content-Type",
+												"value": "application/json",
+												"type": "text"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n\t\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{endpoint}}/signals/v1/private/areas/",
+											"host": [
+												"{{endpoint}}"
+											],
+											"path": [
+												"signals",
+												"v1",
+												"private",
+												"areas",
+												""
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Geography",
+									"event": [
+										{
+											"listen": "prerequest",
+											"script": {
+												"exec": [
+													""
+												],
+												"type": "text/javascript"
+											}
+										}
+									],
+									"protocolProfileBehavior": {
+										"disableBodyPruning": true
+									},
+									"request": {
+										"auth": {
+											"type": "bearer",
+											"bearer": [
+												{
+													"key": "token",
+													"value": "{{bearer_token}}",
+													"type": "string"
+												}
+											]
+										},
+										"method": "GET",
+										"header": [
+											{
+												"key": "Content-Type",
+												"name": "Content-Type",
+												"type": "text",
+												"value": "application/json"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n\t\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{endpoint}}/signals/v1/private/areas/geography/",
+											"host": [
+												"{{endpoint}}"
+											],
+											"path": [
+												"signals",
+												"v1",
+												"private",
+												"areas",
+												"geography",
+												""
+											]
+										}
+									},
+									"response": []
+								}
+							]
+						},
+						{
+							"name": "Categories",
+							"item": [
+								{
+									"name": "Status message templates",
+									"item": [
+										{
+											"name": "Patch (Afval/Asbest-Accu)",
+											"event": [
+												{
+													"listen": "prerequest",
+													"script": {
+														"exec": [
+															""
+														],
+														"type": "text/javascript"
+													}
+												}
+											],
+											"request": {
+												"auth": {
+													"type": "bearer",
+													"bearer": [
+														{
+															"key": "token",
+															"value": "{{bearer_token}}",
+															"type": "string"
+														}
+													]
+												},
+												"method": "PATCH",
+												"header": [
+													{
+														"key": "Content-Type",
+														"name": "Content-Type",
+														"value": "application/json",
+														"type": "text"
+													}
+												],
+												"body": {
+													"mode": "raw",
+													"raw": "[\n    {\n        \"state\": \"b\",\n        \"templates\": [\n            {\n                \"title\": \"{{ $randomLoremWords }}\",\n                \"text\": \"{{ $randomLoremSentences }}\"\n            },\n            {\n                \"title\": \"{{ $randomLoremWords }}\",\n                \"text\": \"{{ $randomLoremSentences }}\"\n            }\n        ]\n    }\n]"
+												},
+												"url": {
+													"raw": "{{endpoint}}/signals/v1/private/terms/categories/afval/sub_categories/asbest-accu/status-message-templates/",
+													"host": [
+														"{{endpoint}}"
+													],
+													"path": [
+														"signals",
+														"v1",
+														"private",
+														"terms",
+														"categories",
+														"afval",
+														"sub_categories",
+														"asbest-accu",
+														"status-message-templates",
+														""
+													]
+												}
+											},
+											"response": []
+										},
+										{
+											"name": "List (Afval/Asbest-Accu)",
+											"event": [
+												{
+													"listen": "prerequest",
+													"script": {
+														"exec": [
+															""
+														],
+														"type": "text/javascript"
+													}
+												}
+											],
+											"protocolProfileBehavior": {
+												"disableBodyPruning": true
+											},
+											"request": {
+												"auth": {
+													"type": "bearer",
+													"bearer": [
+														{
+															"key": "token",
+															"value": "{{bearer_token}}",
+															"type": "string"
+														}
+													]
+												},
+												"method": "GET",
+												"header": [
+													{
+														"key": "Content-Type",
+														"name": "Content-Type",
+														"value": "application/json",
+														"type": "text"
+													}
+												],
+												"body": {
+													"mode": "raw",
+													"raw": "{\n\t\n}"
+												},
+												"url": {
+													"raw": "{{endpoint}}/signals/v1/private/terms/categories/afval/sub_categories/asbest-accu/status-message-templates/",
+													"host": [
+														"{{endpoint}}"
+													],
+													"path": [
+														"signals",
+														"v1",
+														"private",
+														"terms",
+														"categories",
+														"afval",
+														"sub_categories",
+														"asbest-accu",
+														"status-message-templates",
+														""
+													]
+												}
+											},
+											"response": []
+										}
+									]
+								},
+								{
+									"name": "List",
+									"event": [
+										{
+											"listen": "prerequest",
+											"script": {
+												"exec": [
+													""
+												],
+												"type": "text/javascript"
+											}
+										},
+										{
+											"listen": "test",
+											"script": {
+												"exec": [
+													"var jsonData = JSON.parse(responseBody)",
+													"postman.setEnvironmentVariable('category_id', jsonData.results[0].id)"
+												],
+												"type": "text/javascript"
+											}
+										}
+									],
+									"request": {
+										"auth": {
+											"type": "bearer",
+											"bearer": [
+												{
+													"key": "token",
+													"value": "{{bearer_token}}",
+													"type": "string"
+												}
+											]
+										},
+										"method": "GET",
+										"header": [
+											{
+												"key": "Content-Type",
+												"name": "Content-Type",
+												"value": "application/json",
+												"type": "text"
+											}
+										],
+										"url": {
+											"raw": "{{endpoint}}/signals/v1/private/categories/",
+											"host": [
+												"{{endpoint}}"
+											],
+											"path": [
+												"signals",
+												"v1",
+												"private",
+												"categories",
+												""
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Detail",
+									"event": [
+										{
+											"listen": "prerequest",
+											"script": {
+												"exec": [
+													""
+												],
+												"type": "text/javascript"
+											}
+										}
+									],
+									"protocolProfileBehavior": {
+										"disableBodyPruning": true
+									},
+									"request": {
+										"auth": {
+											"type": "bearer",
+											"bearer": [
+												{
+													"key": "token",
+													"value": "{{bearer_token}}",
+													"type": "string"
+												}
+											]
+										},
+										"method": "GET",
+										"header": [
+											{
+												"key": "Content-Type",
+												"name": "Content-Type",
+												"type": "text",
+												"value": "application/json"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{endpoint}}/signals/v1/private/categories/{{category_id}}",
+											"host": [
+												"{{endpoint}}"
+											],
+											"path": [
+												"signals",
+												"v1",
+												"private",
+												"categories",
+												"{{category_id}}"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Update a category",
+									"event": [
+										{
+											"listen": "prerequest",
+											"script": {
+												"exec": [
+													""
+												],
+												"type": "text/javascript"
+											}
+										}
+									],
+									"request": {
+										"auth": {
+											"type": "bearer",
+											"bearer": [
+												{
+													"key": "token",
+													"value": "{{bearer_token}}",
+													"type": "string"
+												}
+											]
+										},
+										"method": "PATCH",
+										"header": [
+											{
+												"key": "Content-Type",
+												"name": "Content-Type",
+												"value": "application/json",
+												"type": "text"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n\t\"name\": \"{{ $randomLoremWords }}\",\n\t\"description\": \"{{ $randomLoremSentences }}\",\n\t\"is_active\": {{ $randomBoolean }}\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{endpoint}}/signals/v1/private/categories/{{category_id}}",
+											"host": [
+												"{{endpoint}}"
+											],
+											"path": [
+												"signals",
+												"v1",
+												"private",
+												"categories",
+												"{{category_id}}"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "History",
+									"event": [
+										{
+											"listen": "prerequest",
+											"script": {
+												"exec": [
+													""
+												],
+												"type": "text/javascript"
+											}
+										}
+									],
+									"protocolProfileBehavior": {
+										"disableBodyPruning": true
+									},
+									"request": {
+										"auth": {
+											"type": "bearer",
+											"bearer": [
+												{
+													"key": "token",
+													"value": "{{bearer_token}}",
+													"type": "string"
+												}
+											]
+										},
+										"method": "GET",
+										"header": [
+											{
+												"key": "Content-Type",
+												"name": "Content-Type",
+												"value": "application/json",
+												"type": "text"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{endpoint}}/signals/v1/private/categories/{{category_id}}/history",
+											"host": [
+												"{{endpoint}}"
+											],
+											"path": [
+												"signals",
+												"v1",
+												"private",
+												"categories",
+												"{{category_id}}",
+												"history"
+											]
+										}
+									},
+									"response": []
+								}
+							]
+						},
+						{
+							"name": "Departments",
+							"item": [
+								{
+									"name": "Filter",
+									"item": [
+										{
+											"name": "can_direct=true",
+											"event": [
+												{
+													"listen": "prerequest",
+													"script": {
+														"exec": [
+															""
+														],
+														"type": "text/javascript"
+													}
+												},
+												{
+													"listen": "test",
+													"script": {
+														"exec": [
+															"var jsonData = JSON.parse(responseBody)",
+															"postman.setEnvironmentVariable('department_id', jsonData.results[0].id)"
+														],
+														"type": "text/javascript"
+													}
+												}
+											],
+											"request": {
+												"auth": {
+													"type": "bearer",
+													"bearer": [
+														{
+															"key": "token",
+															"value": "{{bearer_token}}",
+															"type": "string"
+														}
+													]
+												},
+												"method": "GET",
+												"header": [],
+												"url": {
+													"raw": "{{endpoint}}/signals/v1/private/departments/?can_direct=true",
+													"host": [
+														"{{endpoint}}"
+													],
+													"path": [
+														"signals",
+														"v1",
+														"private",
+														"departments",
+														""
+													],
+													"query": [
+														{
+															"key": "can_direct",
+															"value": "true"
+														}
+													]
+												}
+											},
+											"response": []
+										},
+										{
+											"name": "no filters",
+											"event": [
+												{
+													"listen": "prerequest",
+													"script": {
+														"exec": [
+															""
+														],
+														"type": "text/javascript"
+													}
+												},
+												{
+													"listen": "test",
+													"script": {
+														"exec": [
+															"var jsonData = JSON.parse(responseBody)",
+															"postman.setEnvironmentVariable('department_id', jsonData.results[0].id)"
+														],
+														"type": "text/javascript"
+													}
+												}
+											],
+											"request": {
+												"auth": {
+													"type": "bearer",
+													"bearer": [
+														{
+															"key": "token",
+															"value": "{{bearer_token}}",
+															"type": "string"
+														}
+													]
+												},
+												"method": "GET",
+												"header": [],
+												"url": {
+													"raw": "{{endpoint}}/signals/v1/private/departments/",
+													"host": [
+														"{{endpoint}}"
+													],
+													"path": [
+														"signals",
+														"v1",
+														"private",
+														"departments",
+														""
+													]
+												}
+											},
+											"response": []
+										}
+									]
+								},
+								{
+									"name": "Create",
+									"event": [
+										{
+											"listen": "prerequest",
+											"script": {
+												"exec": [
+													"pm.variables.set('random_department_code', 'R' + Math.floor(Math.random() * 10) + Math.floor(Math.random() * 10))"
+												],
+												"type": "text/javascript"
+											}
+										},
+										{
+											"listen": "test",
+											"script": {
+												"exec": [
+													"var jsonData = JSON.parse(responseBody)",
+													"postman.setEnvironmentVariable('department_id', jsonData.id)"
+												],
+												"type": "text/javascript"
+											}
+										}
+									],
+									"request": {
+										"auth": {
+											"type": "bearer",
+											"bearer": [
+												{
+													"key": "token",
+													"value": "{{bearer_token}}",
+													"type": "string"
+												}
+											]
+										},
+										"method": "POST",
+										"header": [
+											{
+												"key": "Content-Type",
+												"name": "Content-Type",
+												"value": "application/json",
+												"type": "text"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n\t\"name\": \"Random #{{$randomInt}}\",\n    \"code\": \"{{random_department_code}}\",\n    \"is_intern\": {{$randomBoolean}},\n    \"can_direct\": {{$randomBoolean}},\n    \"categories\": [\n    \t{\n    \t\t\"category_id\": {{category_id}},\n    \t\t\"is_responsible\": {{$randomBoolean}},\n    \t\t\"can_view\": {{$randomBoolean}}\n    \t}\n    ]\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{endpoint}}/signals/v1/private/departments/",
+											"host": [
+												"{{endpoint}}"
+											],
+											"path": [
+												"signals",
+												"v1",
+												"private",
+												"departments",
+												""
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "List",
+									"event": [
+										{
+											"listen": "prerequest",
+											"script": {
+												"exec": [
+													""
+												],
+												"type": "text/javascript"
+											}
+										},
+										{
+											"listen": "test",
+											"script": {
+												"exec": [
+													"var jsonData = JSON.parse(responseBody)",
+													"postman.setEnvironmentVariable('department_id', jsonData.results[0].id)"
+												],
+												"type": "text/javascript"
+											}
+										}
+									],
+									"request": {
+										"auth": {
+											"type": "bearer",
+											"bearer": [
+												{
+													"key": "token",
+													"value": "{{bearer_token}}",
+													"type": "string"
+												}
+											]
+										},
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{endpoint}}/signals/v1/private/departments/",
+											"host": [
+												"{{endpoint}}"
+											],
+											"path": [
+												"signals",
+												"v1",
+												"private",
+												"departments",
+												""
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Detail",
+									"request": {
+										"auth": {
+											"type": "bearer",
+											"bearer": [
+												{
+													"key": "token",
+													"value": "{{bearer_token}}",
+													"type": "string"
+												}
+											]
+										},
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{endpoint}}/signals/v1/private/departments/{{department_id}}",
+											"host": [
+												"{{endpoint}}"
+											],
+											"path": [
+												"signals",
+												"v1",
+												"private",
+												"departments",
+												"{{department_id}}"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Update",
+									"request": {
+										"auth": {
+											"type": "bearer",
+											"bearer": [
+												{
+													"key": "token",
+													"value": "{{bearer_token}}",
+													"type": "string"
+												}
+											]
+										},
+										"method": "PATCH",
+										"header": [
+											{
+												"key": "Content-Type",
+												"name": "Content-Type",
+												"value": "application/json",
+												"type": "text"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n\t\"name\": \"David van Buiten #{{$randomInt}}\",\n    \"code\": \"DVB\",\n    \"is_intern\": false,\n    \"can_direct\": true\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{endpoint}}/signals/v1/private/departments/{{department_id}}",
+											"host": [
+												"{{endpoint}}"
+											],
+											"path": [
+												"signals",
+												"v1",
+												"private",
+												"departments",
+												"{{department_id}}"
+											]
+										}
+									},
+									"response": []
+								}
+							]
+						},
+						{
+							"name": "Permissions",
+							"item": [
+								{
+									"name": "List",
+									"request": {
+										"auth": {
+											"type": "bearer",
+											"bearer": [
+												{
+													"key": "token",
+													"value": "{{bearer_token}}",
+													"type": "string"
+												}
+											]
+										},
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{endpoint}}/signals/v1/private/permissions/",
+											"host": [
+												"{{endpoint}}"
+											],
+											"path": [
+												"signals",
+												"v1",
+												"private",
+												"permissions",
+												""
+											]
+										}
+									},
+									"response": []
+								}
+							]
+						},
+						{
+							"name": "Me",
+							"item": [
+								{
+									"name": "Filters",
+									"item": [
+										{
+											"name": "Create",
+											"event": [
+												{
+													"listen": "test",
+													"script": {
+														"exec": [
+															"var jsonData = JSON.parse(responseBody)",
+															"postman.setEnvironmentVariable('me_filter_id', jsonData.id)"
+														],
+														"type": "text/javascript"
+													}
+												}
+											],
+											"request": {
+												"auth": {
+													"type": "bearer",
+													"bearer": [
+														{
+															"key": "token",
+															"value": "{{bearer_token}}",
+															"type": "string"
+														}
+													]
+												},
+												"method": "POST",
+												"header": [],
+												"body": {
+													"mode": "raw",
+													"raw": "{\n    \"name\": \"{{$randomLoremWord}}\",\n    \"options\": {\n        \"status\": [\n            \"m\"\n        ]\n    },\n    \"refresh\": {{$randomBoolean}}\n}",
+													"options": {
+														"raw": {
+															"language": "json"
+														}
+													}
+												},
+												"url": {
+													"raw": "{{endpoint}}/signals/v1/private/me/filters/",
+													"host": [
+														"{{endpoint}}"
+													],
+													"path": [
+														"signals",
+														"v1",
+														"private",
+														"me",
+														"filters",
+														""
+													]
+												}
+											},
+											"response": []
+										},
+										{
+											"name": "List",
+											"event": [
+												{
+													"listen": "test",
+													"script": {
+														"exec": [
+															"var jsonData = JSON.parse(responseBody)",
+															"if (jsonData.results.length) {",
+															"    postman.setEnvironmentVariable('me_filter_id', jsonData.results[0].id)",
+															"}"
+														],
+														"type": "text/javascript"
+													}
+												}
+											],
+											"request": {
+												"auth": {
+													"type": "bearer",
+													"bearer": [
+														{
+															"key": "token",
+															"value": "{{bearer_token}}",
+															"type": "string"
+														}
+													]
+												},
+												"method": "GET",
+												"header": [],
+												"url": {
+													"raw": "{{endpoint}}/signals/v1/private/me/filters",
+													"host": [
+														"{{endpoint}}"
+													],
+													"path": [
+														"signals",
+														"v1",
+														"private",
+														"me",
+														"filters"
+													]
+												}
+											},
+											"response": []
+										},
+										{
+											"name": "Detail",
+											"request": {
+												"auth": {
+													"type": "bearer",
+													"bearer": [
+														{
+															"key": "token",
+															"value": "{{bearer_token}}",
+															"type": "string"
+														}
+													]
+												},
+												"method": "GET",
+												"header": [],
+												"url": {
+													"raw": "{{endpoint}}/signals/v1/private/me/filters/{{me_filter_id}}",
+													"host": [
+														"{{endpoint}}"
+													],
+													"path": [
+														"signals",
+														"v1",
+														"private",
+														"me",
+														"filters",
+														"{{me_filter_id}}"
+													]
+												}
+											},
+											"response": []
+										},
+										{
+											"name": "Update",
+											"event": [
+												{
+													"listen": "test",
+													"script": {
+														"exec": [
+															"var jsonData = JSON.parse(responseBody)",
+															"postman.setEnvironmentVariable('me_filter_id', jsonData.id)"
+														],
+														"type": "text/javascript"
+													}
+												}
+											],
+											"request": {
+												"auth": {
+													"type": "bearer",
+													"bearer": [
+														{
+															"key": "token",
+															"value": "{{bearer_token}}",
+															"type": "string"
+														}
+													]
+												},
+												"method": "PATCH",
+												"header": [],
+												"body": {
+													"mode": "raw",
+													"raw": "{\n    \"name\": \"{{$randomLoremWord}}\",\n    \"options\": {\n        \"status\": [\n            \"m\"\n        ]\n    },\n    \"refresh\": {{$randomBoolean}}\n}",
+													"options": {
+														"raw": {
+															"language": "json"
+														}
+													}
+												},
+												"url": {
+													"raw": "{{endpoint}}/signals/v1/private/me/filters/{{me_filter_id}}",
+													"host": [
+														"{{endpoint}}"
+													],
+													"path": [
+														"signals",
+														"v1",
+														"private",
+														"me",
+														"filters",
+														"{{me_filter_id}}"
+													]
+												}
+											},
+											"response": []
+										}
+									]
+								},
+								{
+									"name": "detail",
+									"request": {
+										"auth": {
+											"type": "bearer",
+											"bearer": [
+												{
+													"key": "token",
+													"value": "{{bearer_token}}",
+													"type": "string"
+												}
+											]
+										},
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{endpoint}}/signals/v1/private/me/",
+											"host": [
+												"{{endpoint}}"
+											],
+											"path": [
+												"signals",
+												"v1",
+												"private",
+												"me",
+												""
+											]
+										}
+									},
+									"response": []
+								}
+							]
+						},
+						{
+							"name": "Roles",
+							"item": [
+								{
+									"name": "List",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"exec": [
+													"var jsonData = JSON.parse(responseBody)",
+													"if (jsonData.results.length) {",
+													"    postman.setEnvironmentVariable('role_id', jsonData.results[0].id)",
+													"}"
+												],
+												"type": "text/javascript"
+											}
+										}
+									],
+									"request": {
+										"auth": {
+											"type": "bearer",
+											"bearer": [
+												{
+													"key": "token",
+													"value": "{{bearer_token}}",
+													"type": "string"
+												}
+											]
+										},
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{endpoint}}/signals/v1/private/roles/",
+											"host": [
+												"{{endpoint}}"
+											],
+											"path": [
+												"signals",
+												"v1",
+												"private",
+												"roles",
+												""
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Create",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"exec": [
+													"var jsonData = JSON.parse(responseBody)",
+													"postman.setEnvironmentVariable('role_id', jsonData.id)"
+												],
+												"type": "text/javascript"
+											}
+										}
+									],
+									"request": {
+										"auth": {
+											"type": "bearer",
+											"bearer": [
+												{
+													"key": "token",
+													"value": "{{bearer_token}}",
+													"type": "string"
+												}
+											]
+										},
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"name\": \"{{$randomWord}}\"\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{endpoint}}/signals/v1/private/roles/",
+											"host": [
+												"{{endpoint}}"
+											],
+											"path": [
+												"signals",
+												"v1",
+												"private",
+												"roles",
+												""
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Update",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"exec": [
+													""
+												],
+												"type": "text/javascript"
+											}
+										}
+									],
+									"request": {
+										"auth": {
+											"type": "bearer",
+											"bearer": [
+												{
+													"key": "token",
+													"value": "{{bearer_token}}",
+													"type": "string"
+												}
+											]
+										},
+										"method": "PATCH",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"name\": \"{{$randomWord}}\"\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{endpoint}}/signals/v1/private/roles/{{role_id}}",
+											"host": [
+												"{{endpoint}}"
+											],
+											"path": [
+												"signals",
+												"v1",
+												"private",
+												"roles",
+												"{{role_id}}"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Detail",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"exec": [
+													""
+												],
+												"type": "text/javascript"
+											}
+										}
+									],
+									"request": {
+										"auth": {
+											"type": "bearer",
+											"bearer": [
+												{
+													"key": "token",
+													"value": "{{bearer_token}}",
+													"type": "string"
+												}
+											]
+										},
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{endpoint}}/signals/v1/private/roles/{{role_id}}",
+											"host": [
+												"{{endpoint}}"
+											],
+											"path": [
+												"signals",
+												"v1",
+												"private",
+												"roles",
+												"{{role_id}}"
+											]
+										}
+									},
+									"response": []
+								}
+							]
+						},
+						{
+							"name": "Search",
+							"item": [
+								{
+									"name": "List",
+									"event": [
+										{
+											"listen": "prerequest",
+											"script": {
+												"exec": [
+													""
+												],
+												"type": "text/javascript"
+											}
+										}
+									],
+									"protocolProfileBehavior": {
+										"disableBodyPruning": true
+									},
+									"request": {
+										"auth": {
+											"type": "bearer",
+											"bearer": [
+												{
+													"key": "token",
+													"value": "{{bearer_token}}",
+													"type": "string"
+												}
+											]
+										},
+										"method": "GET",
+										"header": [
+											{
+												"key": "Content-Type",
+												"name": "Content-Type",
+												"value": "application/json",
+												"type": "text"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{endpoint}}/signals/v1/private/search/?q={{$randomLoremWord}}",
+											"host": [
+												"{{endpoint}}"
+											],
+											"path": [
+												"signals",
+												"v1",
+												"private",
+												"search",
+												""
+											],
+											"query": [
+												{
+													"key": "q",
+													"value": "{{$randomLoremWord}}"
+												}
+											]
+										}
+									},
+									"response": []
+								}
+							]
+						},
+						{
+							"name": "Signals",
+							"item": [
+								{
+									"name": "Update",
+									"item": [
+										{
+											"name": "Status",
+											"event": [
+												{
+													"listen": "prerequest",
+													"script": {
+														"exec": [
+															"pm.request.headers.remove('Authorization')",
+															"authorizatio_token = postman.getEnvironmentVariable(\"authorization\")",
+															"if (authorizatio_token) {",
+															"    pm.request.headers.add({key: 'Authorization', value: authorizatio_token })",
+															"}"
+														],
+														"type": "text/javascript"
+													}
+												}
+											],
+											"request": {
+												"auth": {
+													"type": "bearer",
+													"bearer": [
+														{
+															"key": "token",
+															"value": "{{bearer_token}}",
+															"type": "string"
+														}
+													]
+												},
+												"method": "PATCH",
+												"header": [
+													{
+														"key": "Content-Type",
+														"name": "Content-Type",
+														"type": "text",
+														"value": "application/json"
+													},
+													{
+														"key": "",
+														"type": "text",
+														"value": "",
+														"disabled": true
+													}
+												],
+												"body": {
+													"mode": "raw",
+													"raw": "{\n    \"status\": {\n        \"text\": \"{{$randomLoremWords}}\",\n        \"state\": \"m\"\n    }\n}",
+													"options": {
+														"raw": {
+															"language": "json"
+														}
+													}
+												},
+												"url": {
+													"raw": "{{endpoint}}/signals/v1/private/signals/{{signal_id}}",
+													"host": [
+														"{{endpoint}}"
+													],
+													"path": [
+														"signals",
+														"v1",
+														"private",
+														"signals",
+														"{{signal_id}}"
+													]
+												}
+											},
+											"response": []
+										},
+										{
+											"name": "Location",
+											"event": [
+												{
+													"listen": "prerequest",
+													"script": {
+														"exec": [
+															"pm.request.headers.remove('Authorization')",
+															"authorizatio_token = postman.getEnvironmentVariable(\"authorization\")",
+															"if (authorizatio_token) {",
+															"    pm.request.headers.add({key: 'Authorization', value: authorizatio_token })",
+															"}"
+														],
+														"type": "text/javascript"
+													}
+												}
+											],
+											"request": {
+												"auth": {
+													"type": "bearer",
+													"bearer": [
+														{
+															"key": "token",
+															"value": "{{bearer_token}}",
+															"type": "string"
+														}
+													]
+												},
+												"method": "PATCH",
+												"header": [
+													{
+														"key": "Content-Type",
+														"name": "Content-Type",
+														"type": "text",
+														"value": "application/json"
+													},
+													{
+														"key": "",
+														"type": "text",
+														"value": "",
+														"disabled": true
+													}
+												],
+												"body": {
+													"mode": "raw",
+													"raw": "{\n    \"location\": {\n        \"geometrie\": {\n            \"type\": \"Point\",\n            \"coordinates\": [\n                4.90022563,\n                52.36768424\n            ]\n        },\n        \"stadsdeel\": \"A\",\n        \"buurt_code\": \"A04i\",\n        \"address\": {\n            \"openbare_ruimte\": \"Amstel\",\n            \"huisnummer\": 1,\n            \"huisletter\": \"\",\n            \"huisnummer_toevoeging\": \"\",\n            \"postcode\": \"1011PN\",\n            \"woonplaats\": \"Amsterdam\"\n        }\n    }\n}",
+													"options": {
+														"raw": {
+															"language": "json"
+														}
+													}
+												},
+												"url": {
+													"raw": "{{endpoint}}/signals/v1/private/signals/{{signal_id}}",
+													"host": [
+														"{{endpoint}}"
+													],
+													"path": [
+														"signals",
+														"v1",
+														"private",
+														"signals",
+														"{{signal_id}}"
+													]
+												}
+											},
+											"response": []
+										},
+										{
+											"name": "Category",
+											"event": [
+												{
+													"listen": "prerequest",
+													"script": {
+														"exec": [
+															"pm.request.headers.remove('Authorization')",
+															"authorizatio_token = postman.getEnvironmentVariable(\"authorization\")",
+															"if (authorizatio_token) {",
+															"    pm.request.headers.add({key: 'Authorization', value: authorizatio_token })",
+															"}"
+														],
+														"type": "text/javascript"
+													}
+												}
+											],
+											"request": {
+												"auth": {
+													"type": "bearer",
+													"bearer": [
+														{
+															"key": "token",
+															"value": "{{bearer_token}}",
+															"type": "string"
+														}
+													]
+												},
+												"method": "PATCH",
+												"header": [
+													{
+														"key": "Content-Type",
+														"name": "Content-Type",
+														"type": "text",
+														"value": "application/json"
+													},
+													{
+														"key": "",
+														"type": "text",
+														"value": "",
+														"disabled": true
+													}
+												],
+												"body": {
+													"mode": "raw",
+													"raw": "{\n    \"category\": {\n        \"sub_category\": \"/signals/v1/public/terms/categories/overig/sub_categories/overig\"\n    }\n}",
+													"options": {
+														"raw": {
+															"language": "json"
+														}
+													}
+												},
+												"url": {
+													"raw": "{{endpoint}}/signals/v1/private/signals/{{signal_id}}",
+													"host": [
+														"{{endpoint}}"
+													],
+													"path": [
+														"signals",
+														"v1",
+														"private",
+														"signals",
+														"{{signal_id}}"
+													]
+												}
+											},
+											"response": []
+										},
+										{
+											"name": "Note",
+											"event": [
+												{
+													"listen": "prerequest",
+													"script": {
+														"exec": [
+															"pm.request.headers.remove('Authorization')",
+															"authorizatio_token = postman.getEnvironmentVariable(\"authorization\")",
+															"if (authorizatio_token) {",
+															"    pm.request.headers.add({key: 'Authorization', value: authorizatio_token })",
+															"}"
+														],
+														"type": "text/javascript"
+													}
+												}
+											],
+											"request": {
+												"auth": {
+													"type": "bearer",
+													"bearer": [
+														{
+															"key": "token",
+															"value": "{{bearer_token}}",
+															"type": "string"
+														}
+													]
+												},
+												"method": "PATCH",
+												"header": [
+													{
+														"key": "Content-Type",
+														"name": "Content-Type",
+														"type": "text",
+														"value": "application/json"
+													},
+													{
+														"key": "",
+														"type": "text",
+														"value": "",
+														"disabled": true
+													}
+												],
+												"body": {
+													"mode": "raw",
+													"raw": "{\n    \"notes\": [\n        {\n            \"text\": \"{{$randomLoremParagraph\"\n        }\n    ]\n}",
+													"options": {
+														"raw": {
+															"language": "json"
+														}
+													}
+												},
+												"url": {
+													"raw": "{{endpoint}}/signals/v1/private/signals/{{signal_id}}",
+													"host": [
+														"{{endpoint}}"
+													],
+													"path": [
+														"signals",
+														"v1",
+														"private",
+														"signals",
+														"{{signal_id}}"
+													]
+												}
+											},
+											"response": []
+										},
+										{
+											"name": "Priority",
+											"event": [
+												{
+													"listen": "prerequest",
+													"script": {
+														"exec": [
+															"pm.request.headers.remove('Authorization')",
+															"authorizatio_token = postman.getEnvironmentVariable(\"authorization\")",
+															"if (authorizatio_token) {",
+															"    pm.request.headers.add({key: 'Authorization', value: authorizatio_token })",
+															"}"
+														],
+														"type": "text/javascript"
+													}
+												}
+											],
+											"request": {
+												"auth": {
+													"type": "bearer",
+													"bearer": [
+														{
+															"key": "token",
+															"value": "{{bearer_token}}",
+															"type": "string"
+														}
+													]
+												},
+												"method": "PATCH",
+												"header": [
+													{
+														"key": "Content-Type",
+														"name": "Content-Type",
+														"type": "text",
+														"value": "application/json"
+													},
+													{
+														"key": "",
+														"type": "text",
+														"value": "",
+														"disabled": true
+													}
+												],
+												"body": {
+													"mode": "raw",
+													"raw": "{\n    \"priority\": {\n        \"priority\": \"normal\"\n    }\n}",
+													"options": {
+														"raw": {
+															"language": "json"
+														}
+													}
+												},
+												"url": {
+													"raw": "{{endpoint}}/signals/v1/private/signals/{{signal_id}}",
+													"host": [
+														"{{endpoint}}"
+													],
+													"path": [
+														"signals",
+														"v1",
+														"private",
+														"signals",
+														"{{signal_id}}"
+													]
+												}
+											},
+											"response": []
+										},
+										{
+											"name": "Type",
+											"event": [
+												{
+													"listen": "prerequest",
+													"script": {
+														"exec": [
+															"pm.request.headers.remove('Authorization')",
+															"authorizatio_token = postman.getEnvironmentVariable(\"authorization\")",
+															"if (authorizatio_token) {",
+															"    pm.request.headers.add({key: 'Authorization', value: authorizatio_token })",
+															"}"
+														],
+														"type": "text/javascript"
+													}
+												}
+											],
+											"request": {
+												"auth": {
+													"type": "bearer",
+													"bearer": [
+														{
+															"key": "token",
+															"value": "{{bearer_token}}",
+															"type": "string"
+														}
+													]
+												},
+												"method": "PATCH",
+												"header": [
+													{
+														"key": "Content-Type",
+														"name": "Content-Type",
+														"type": "text",
+														"value": "application/json"
+													},
+													{
+														"key": "",
+														"type": "text",
+														"value": "",
+														"disabled": true
+													}
+												],
+												"body": {
+													"mode": "raw",
+													"raw": "{\n    \"type\": {\n        \"name\": \"SIG\"\n    }\n}",
+													"options": {
+														"raw": {
+															"language": "json"
+														}
+													}
+												},
+												"url": {
+													"raw": "{{endpoint}}/signals/v1/private/signals/{{signal_id}}",
+													"host": [
+														"{{endpoint}}"
+													],
+													"path": [
+														"signals",
+														"v1",
+														"private",
+														"signals",
+														"{{signal_id}}"
+													]
+												}
+											},
+											"response": []
+										},
+										{
+											"name": "Directing department(s)",
+											"event": [
+												{
+													"listen": "prerequest",
+													"script": {
+														"exec": [
+															"pm.request.headers.remove('Authorization')",
+															"authorizatio_token = postman.getEnvironmentVariable(\"authorization\")",
+															"if (authorizatio_token) {",
+															"    pm.request.headers.add({key: 'Authorization', value: authorizatio_token })",
+															"}"
+														],
+														"type": "text/javascript"
+													}
+												}
+											],
+											"request": {
+												"auth": {
+													"type": "bearer",
+													"bearer": [
+														{
+															"key": "token",
+															"value": "{{bearer_token}}",
+															"type": "string"
+														}
+													]
+												},
+												"method": "PATCH",
+												"header": [
+													{
+														"key": "Content-Type",
+														"name": "Content-Type",
+														"type": "text",
+														"value": "application/json"
+													},
+													{
+														"key": "",
+														"type": "text",
+														"value": "",
+														"disabled": true
+													}
+												],
+												"body": {
+													"mode": "raw",
+													"raw": "{\n    \"directing_departments\": [\n        {\n            \"id\": \"6\"\n        }\n    ]\n}",
+													"options": {
+														"raw": {
+															"language": "json"
+														}
+													}
+												},
+												"url": {
+													"raw": "{{endpoint}}/signals/v1/private/signals/{{signal_id}}",
+													"host": [
+														"{{endpoint}}"
+													],
+													"path": [
+														"signals",
+														"v1",
+														"private",
+														"signals",
+														"{{signal_id}}"
+													]
+												}
+											},
+											"response": []
+										},
+										{
+											"name": "Update multiple",
+											"event": [
+												{
+													"listen": "prerequest",
+													"script": {
+														"exec": [
+															"pm.request.headers.remove('Authorization')",
+															"authorizatio_token = postman.getEnvironmentVariable(\"authorization\")",
+															"if (authorizatio_token) {",
+															"    pm.request.headers.add({key: 'Authorization', value: authorizatio_token })",
+															"}"
+														],
+														"type": "text/javascript"
+													}
+												}
+											],
+											"request": {
+												"auth": {
+													"type": "bearer",
+													"bearer": [
+														{
+															"key": "token",
+															"value": "{{bearer_token}}",
+															"type": "string"
+														}
+													]
+												},
+												"method": "PATCH",
+												"header": [
+													{
+														"key": "Content-Type",
+														"name": "Content-Type",
+														"type": "text",
+														"value": "application/json"
+													},
+													{
+														"key": "",
+														"type": "text",
+														"value": "",
+														"disabled": true
+													}
+												],
+												"body": {
+													"mode": "raw",
+													"raw": "{\n    \"status\": {\n        \"text\": \"{{$randomLoremWords}}\",\n        \"state\": \"m\"\n    }\n    ,\n    \"location\": {\n        \"geometrie\": {\n            \"type\": \"Point\",\n            \"coordinates\": [\n                4.90022563,\n                52.36768424\n            ]\n        },\n        \"stadsdeel\": \"A\",\n        \"buurt_code\": \"A04i\",\n        \"address\": {\n            \"openbare_ruimte\": \"Amstel\",\n            \"huisnummer\": 1,\n            \"huisletter\": \"\",\n            \"huisnummer_toevoeging\": \"\",\n            \"postcode\": \"1011PN\",\n            \"woonplaats\": \"Amsterdam\"\n        }\n    }\n    ,\n    \"category\": {\n        \"sub_category\": \"/signals/v1/public/terms/categories/overig/sub_categories/overig\"\n    }\n    ,\n    \"notes\": [\n        {\n            \"text\": \"{{$randomLoremParagraph\"\n        }\n    ]\n    ,\n    \"priority\": {\n        \"priority\": \"normal\"\n    }\n    ,\n    \"type\": {\n        \"name\": \"SIG\"\n    }\n}",
+													"options": {
+														"raw": {
+															"language": "json"
+														}
+													}
+												},
+												"url": {
+													"raw": "{{endpoint}}/signals/v1/private/signals/{{signal_id}}",
+													"host": [
+														"{{endpoint}}"
+													],
+													"path": [
+														"signals",
+														"v1",
+														"private",
+														"signals",
+														"{{signal_id}}"
+													]
+												}
+											},
+											"response": []
+										}
+									]
+								},
+								{
+									"name": "Filter",
+									"item": [
+										{
+											"name": "status",
+											"event": [
+												{
+													"listen": "prerequest",
+													"script": {
+														"exec": [
+															""
+														],
+														"type": "text/javascript"
+													}
+												}
+											],
+											"protocolProfileBehavior": {
+												"disableBodyPruning": true
+											},
+											"request": {
+												"auth": {
+													"type": "bearer",
+													"bearer": [
+														{
+															"key": "token",
+															"value": "{{bearer_token}}",
+															"type": "string"
+														}
+													]
+												},
+												"method": "GET",
+												"header": [
+													{
+														"key": "Content-Type",
+														"name": "Content-Type",
+														"type": "text",
+														"value": "application/json"
+													}
+												],
+												"body": {
+													"mode": "raw",
+													"raw": "",
+													"options": {
+														"raw": {
+															"language": "json"
+														}
+													}
+												},
+												"url": {
+													"raw": "{{endpoint}}/signals/v1/private/signals/?state=m",
+													"host": [
+														"{{endpoint}}"
+													],
+													"path": [
+														"signals",
+														"v1",
+														"private",
+														"signals",
+														""
+													],
+													"query": [
+														{
+															"key": "state",
+															"value": "m"
+														}
+													]
+												}
+											},
+											"response": []
+										},
+										{
+											"name": "no filters",
+											"event": [
+												{
+													"listen": "prerequest",
+													"script": {
+														"exec": [
+															""
+														],
+														"type": "text/javascript"
+													}
+												}
+											],
+											"protocolProfileBehavior": {
+												"disableBodyPruning": true
+											},
+											"request": {
+												"auth": {
+													"type": "bearer",
+													"bearer": [
+														{
+															"key": "token",
+															"value": "{{bearer_token}}",
+															"type": "string"
+														}
+													]
+												},
+												"method": "GET",
+												"header": [
+													{
+														"key": "Content-Type",
+														"name": "Content-Type",
+														"type": "text",
+														"value": "application/json"
+													}
+												],
+												"body": {
+													"mode": "raw",
+													"raw": "",
+													"options": {
+														"raw": {
+															"language": "json"
+														}
+													}
+												},
+												"url": {
+													"raw": "{{endpoint}}/signals/v1/private/signals/",
+													"host": [
+														"{{endpoint}}"
+													],
+													"path": [
+														"signals",
+														"v1",
+														"private",
+														"signals",
+														""
+													]
+												}
+											},
+											"response": []
+										}
+									]
+								},
+								{
+									"name": "Removed from category",
+									"item": [
+										{
+											"name": "Between now and 5 days ago",
+											"event": [
+												{
+													"listen": "prerequest",
+													"script": {
+														"exec": [
+															"var now = new Date()",
+															"var dateOffset = (24*60*60*1000) * 5; //5 days",
+															"var minusfivedays = new Date(now.getTime() - dateOffset);",
+															"var minustendays = new Date(now.getTime() - (dateOffset * 2));",
+															"",
+															"pm.variables.set('isoTimestampMinusFiveDays', minusfivedays.toISOString());",
+															"pm.variables.set('isoTimestampMinusTenDays', minustendays.toISOString());"
+														],
+														"type": "text/javascript"
+													}
+												}
+											],
+											"protocolProfileBehavior": {
+												"disableBodyPruning": true
+											},
+											"request": {
+												"auth": {
+													"type": "bearer",
+													"bearer": [
+														{
+															"key": "token",
+															"value": "{{bearer_token}}",
+															"type": "string"
+														}
+													]
+												},
+												"method": "GET",
+												"header": [
+													{
+														"key": "Content-Type",
+														"name": "Content-Type",
+														"value": "application/json",
+														"type": "text"
+													}
+												],
+												"body": {
+													"mode": "raw",
+													"raw": "",
+													"options": {
+														"raw": {
+															"language": "json"
+														}
+													}
+												},
+												"url": {
+													"raw": "{{endpoint}}/signals/v1/private/signals/promoted/parent/",
+													"host": [
+														"{{endpoint}}"
+													],
+													"path": [
+														"signals",
+														"v1",
+														"private",
+														"signals",
+														"promoted",
+														"parent",
+														""
+													]
+												}
+											},
+											"response": []
+										},
+										{
+											"name": "Between 5 and 10 days ago",
+											"event": [
+												{
+													"listen": "prerequest",
+													"script": {
+														"exec": [
+															"var now = new Date()",
+															"var dateOffset = (24*60*60*1000) * 5; //5 days",
+															"var minusfivedays = new Date(now.getTime() - dateOffset);",
+															"var minustendays = new Date(now.getTime() - (dateOffset * 2));",
+															"",
+															"pm.variables.set('isoTimestampMinusFiveDays', minusfivedays.toISOString());",
+															"pm.variables.set('isoTimestampMinusTenDays', minustendays.toISOString());"
+														],
+														"type": "text/javascript"
+													}
+												}
+											],
+											"protocolProfileBehavior": {
+												"disableBodyPruning": true
+											},
+											"request": {
+												"auth": {
+													"type": "bearer",
+													"bearer": [
+														{
+															"key": "token",
+															"value": "{{bearer_token}}",
+															"type": "string"
+														}
+													]
+												},
+												"method": "GET",
+												"header": [
+													{
+														"key": "Content-Type",
+														"name": "Content-Type",
+														"type": "text",
+														"value": "application/json"
+													}
+												],
+												"body": {
+													"mode": "raw",
+													"raw": "",
+													"options": {
+														"raw": {
+															"language": "json"
+														}
+													}
+												},
+												"url": {
+													"raw": "{{endpoint}}/signals/v1/private/signals/category/removed/?after={{isoTimestampMinusTenDays}}&before={{isoTimestampMinusFiveDays}}",
+													"host": [
+														"{{endpoint}}"
+													],
+													"path": [
+														"signals",
+														"v1",
+														"private",
+														"signals",
+														"category",
+														"removed",
+														""
+													],
+													"query": [
+														{
+															"key": "after",
+															"value": "{{isoTimestampMinusTenDays}}"
+														},
+														{
+															"key": "before",
+															"value": "{{isoTimestampMinusFiveDays}}"
+														}
+													]
+												}
+											},
+											"response": []
+										}
+									]
+								},
+								{
+									"name": "Attachments",
+									"item": [
+										{
+											"name": "List",
+											"event": [
+												{
+													"listen": "prerequest",
+													"script": {
+														"exec": [
+															""
+														],
+														"type": "text/javascript"
+													}
+												},
+												{
+													"listen": "test",
+													"script": {
+														"exec": [
+															"var jsonData = JSON.parse(responseBody)",
+															"if (jsonData.results.length) {",
+															"    postman.setEnvironmentVariable('attachment_id', jsonData.results[0].id)",
+															"}"
+														],
+														"type": "text/javascript"
+													}
+												}
+											],
+											"protocolProfileBehavior": {
+												"disableBodyPruning": true
+											},
+											"request": {
+												"auth": {
+													"type": "bearer",
+													"bearer": [
+														{
+															"key": "token",
+															"value": "{{bearer_token}}",
+															"type": "string"
+														}
+													]
+												},
+												"method": "GET",
+												"header": [
+													{
+														"key": "Content-Type",
+														"name": "Content-Type",
+														"value": "application/json",
+														"type": "text"
+													}
+												],
+												"body": {
+													"mode": "raw",
+													"raw": "",
+													"options": {
+														"raw": {
+															"language": "json"
+														}
+													}
+												},
+												"url": {
+													"raw": "{{endpoint}}/signals/v1/private/signals/{{signal_id}}/attachments/",
+													"host": [
+														"{{endpoint}}"
+													],
+													"path": [
+														"signals",
+														"v1",
+														"private",
+														"signals",
+														"{{signal_id}}",
+														"attachments",
+														""
+													]
+												}
+											},
+											"response": []
+										},
+										{
+											"name": "Detail",
+											"protocolProfileBehavior": {
+												"disableBodyPruning": true
+											},
+											"request": {
+												"method": "GET",
+												"header": [
+													{
+														"key": "Authorization",
+														"value": "Bearer eyJhbGciOiJFUzI1NiIsImtpZCI6IjM4OWE5ZjY4LWUyNGUtNDcxNi1hMTFjLTFlZWY0NzgwNGNjNiJ9.eyJpc3MiOiJodHRwczovL2FwaS5kYXRhLmFtc3RlcmRhbS5ubC9vYXV0aDIvYXV0aG9yaXplIiwic3ViIjoiZC52YW4uYnVpdGVuQGFtc3RlcmRhbS5ubCIsImlhdCI6MTU3NzEwNjAyMCwibmJmIjoxNTc3MTA2MDEwLCJleHAiOjE1NzcxNDIwMjAsImp0aSI6ImJlZWFhMTI4LTA3NTctNDVmNC1hZjRjLWM2YmJlYzYwZDZkNCIsInNjb3BlcyI6WyJTSUcvQUxMIl19.I6daztW0JNthiiKzRpgyQWtVZtAtIAkSwvsRxiDqSoTIx8pRibbrdsbE51lf2CnfwHnNIQPBA3piHq_WQg0XaQ",
+														"type": "text"
+													},
+													{
+														"key": "Referer",
+														"value": "https://meldingen.amsterdam.nl/",
+														"type": "text",
+														"disabled": true
+													}
+												],
+												"body": {
+													"mode": "formdata",
+													"formdata": []
+												},
+												"url": {
+													"raw": "{{endpoint}}/signals/v1/private/signals/{{signal_id}}/attachments/{{attachment_id}}",
+													"host": [
+														"{{endpoint}}"
+													],
+													"path": [
+														"signals",
+														"v1",
+														"private",
+														"signals",
+														"{{signal_id}}",
+														"attachments",
+														"{{attachment_id}}"
+													]
+												}
+											},
+											"response": []
+										}
+									]
+								},
+								{
+									"name": "Geography Filter",
+									"item": [
+										{
+											"name": "status",
+											"event": [
+												{
+													"listen": "prerequest",
+													"script": {
+														"exec": [
+															""
+														],
+														"type": "text/javascript"
+													}
+												}
+											],
+											"protocolProfileBehavior": {
+												"disableBodyPruning": true
+											},
+											"request": {
+												"auth": {
+													"type": "bearer",
+													"bearer": [
+														{
+															"key": "token",
+															"value": "{{bearer_token}}",
+															"type": "string"
+														}
+													]
+												},
+												"method": "GET",
+												"header": [
+													{
+														"key": "Content-Type",
+														"name": "Content-Type",
+														"type": "text",
+														"value": "application/json"
+													}
+												],
+												"body": {
+													"mode": "raw",
+													"raw": "",
+													"options": {
+														"raw": {
+															"language": "json"
+														}
+													}
+												},
+												"url": {
+													"raw": "{{endpoint}}/signals/v1/private/signals/geography/?state=m",
+													"host": [
+														"{{endpoint}}"
+													],
+													"path": [
+														"signals",
+														"v1",
+														"private",
+														"signals",
+														"geography",
+														""
+													],
+													"query": [
+														{
+															"key": "state",
+															"value": "m"
+														}
+													]
+												}
+											},
+											"response": []
+										},
+										{
+											"name": "no filters",
+											"event": [
+												{
+													"listen": "prerequest",
+													"script": {
+														"exec": [
+															""
+														],
+														"type": "text/javascript"
+													}
+												}
+											],
+											"protocolProfileBehavior": {
+												"disableBodyPruning": true
+											},
+											"request": {
+												"auth": {
+													"type": "bearer",
+													"bearer": [
+														{
+															"key": "token",
+															"value": "{{bearer_token}}",
+															"type": "string"
+														}
+													]
+												},
+												"method": "GET",
+												"header": [
+													{
+														"key": "Content-Type",
+														"name": "Content-Type",
+														"type": "text",
+														"value": "application/json"
+													}
+												],
+												"body": {
+													"mode": "raw",
+													"raw": "",
+													"options": {
+														"raw": {
+															"language": "json"
+														}
+													}
+												},
+												"url": {
+													"raw": "{{endpoint}}/signals/v1/private/signals/geography/",
+													"host": [
+														"{{endpoint}}"
+													],
+													"path": [
+														"signals",
+														"v1",
+														"private",
+														"signals",
+														"geography",
+														""
+													]
+												}
+											},
+											"response": []
+										}
+									]
+								},
+								{
+									"name": "Create",
+									"event": [
+										{
+											"listen": "prerequest",
+											"script": {
+												"exec": [
+													"pm.request.headers.remove('Authorization')",
+													"authorizatio_token = postman.getEnvironmentVariable(\"authorization\")",
+													"if (authorizatio_token) {",
+													"    pm.request.headers.add({key: 'Authorization', value: authorizatio_token })",
+													"}"
+												],
+												"type": "text/javascript"
+											}
+										},
+										{
+											"listen": "test",
+											"script": {
+												"exec": [
+													"var jsonData = JSON.parse(responseBody)",
+													"postman.setEnvironmentVariable('signal_id', jsonData.id)"
+												],
+												"type": "text/javascript"
+											}
+										}
+									],
+									"request": {
+										"auth": {
+											"type": "bearer",
+											"bearer": [
+												{
+													"key": "token",
+													"value": "{{bearer_token}}",
+													"type": "string"
+												}
+											]
+										},
+										"method": "POST",
+										"header": [
+											{
+												"key": "Content-Type",
+												"name": "Content-Type",
+												"type": "text",
+												"value": "application/json"
+											},
+											{
+												"key": "",
+												"type": "text",
+												"value": "",
+												"disabled": true
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"text\": \"Just a text containtin http://google.com links https://nu.nl \\n Also on the next line there is a http://example.com link\",\n    \"text_extra\": \"{{$randomLoremSentences}}\",\n    \"location\": {\n        \"geometrie\": {\n            \"type\": \"Point\",\n            \"coordinates\": [\n                4.90022563,\n                52.36768424\n            ]\n        },\n        \"stadsdeel\": \"A\",\n        \"buurt_code\": \"A04i\",\n        \"address\": {\n            \"openbare_ruimte\": \"Amstel\",\n            \"huisnummer\": 1,\n            \"huisletter\": \"\",\n            \"huisnummer_toevoeging\": \"\",\n            \"postcode\": \"1011PN\",\n            \"woonplaats\": \"Amsterdam\"\n        }\n    },\n    \"category\": {\n        \"sub_category\": \"/signals/v1/public/terms/categories/overig/sub_categories/overig\"\n    },\n    \"reporter\": {\n        \"email\": \"{{$randomExampleEmail}}\",\n        \"phone\": \"{{random_phonenumber}}\",\n        \"sharing_allowed\": true\n    },\n    \"created_at\": \"{{$isoTimestamp}}\",\n    \"incident_date_start\": \"{{$isoTimestamp}}\",\n    \"source\": \"Telefoon – Adoptant\"\n}\n",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{endpoint}}/signals/v1/private/signals/",
+											"host": [
+												"{{endpoint}}"
+											],
+											"path": [
+												"signals",
+												"v1",
+												"private",
+												"signals",
+												""
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "List",
+									"event": [
+										{
+											"listen": "prerequest",
+											"script": {
+												"exec": [
+													""
+												],
+												"type": "text/javascript"
+											}
+										}
+									],
+									"protocolProfileBehavior": {
+										"disableBodyPruning": true
+									},
+									"request": {
+										"auth": {
+											"type": "bearer",
+											"bearer": [
+												{
+													"key": "token",
+													"value": "{{bearer_token}}",
+													"type": "string"
+												}
+											]
+										},
+										"method": "GET",
+										"header": [
+											{
+												"key": "Content-Type",
+												"name": "Content-Type",
+												"value": "application/json",
+												"type": "text"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{endpoint}}/signals/v1/private/signals/",
+											"host": [
+												"{{endpoint}}"
+											],
+											"path": [
+												"signals",
+												"v1",
+												"private",
+												"signals",
+												""
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Detail",
+									"protocolProfileBehavior": {
+										"disableBodyPruning": true
+									},
+									"request": {
+										"method": "GET",
+										"header": [
+											{
+												"key": "Authorization",
+												"value": "Bearer eyJhbGciOiJFUzI1NiIsImtpZCI6IjM4OWE5ZjY4LWUyNGUtNDcxNi1hMTFjLTFlZWY0NzgwNGNjNiJ9.eyJpc3MiOiJodHRwczovL2FwaS5kYXRhLmFtc3RlcmRhbS5ubC9vYXV0aDIvYXV0aG9yaXplIiwic3ViIjoiZC52YW4uYnVpdGVuQGFtc3RlcmRhbS5ubCIsImlhdCI6MTU3NzEwNjAyMCwibmJmIjoxNTc3MTA2MDEwLCJleHAiOjE1NzcxNDIwMjAsImp0aSI6ImJlZWFhMTI4LTA3NTctNDVmNC1hZjRjLWM2YmJlYzYwZDZkNCIsInNjb3BlcyI6WyJTSUcvQUxMIl19.I6daztW0JNthiiKzRpgyQWtVZtAtIAkSwvsRxiDqSoTIx8pRibbrdsbE51lf2CnfwHnNIQPBA3piHq_WQg0XaQ",
+												"type": "text"
+											},
+											{
+												"key": "Referer",
+												"value": "https://meldingen.amsterdam.nl/",
+												"type": "text",
+												"disabled": true
+											}
+										],
+										"body": {
+											"mode": "formdata",
+											"formdata": []
+										},
+										"url": {
+											"raw": "{{endpoint}}/signals/v1/private/signals/{{signal_id}}",
+											"host": [
+												"{{endpoint}}"
+											],
+											"path": [
+												"signals",
+												"v1",
+												"private",
+												"signals",
+												"{{signal_id}}"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "PDF",
+									"protocolProfileBehavior": {
+										"disableBodyPruning": true
+									},
+									"request": {
+										"method": "GET",
+										"header": [
+											{
+												"key": "Authorization",
+												"type": "text",
+												"value": "Bearer eyJhbGciOiJFUzI1NiIsImtpZCI6IjM4OWE5ZjY4LWUyNGUtNDcxNi1hMTFjLTFlZWY0NzgwNGNjNiJ9.eyJpc3MiOiJodHRwczovL2FwaS5kYXRhLmFtc3RlcmRhbS5ubC9vYXV0aDIvYXV0aG9yaXplIiwic3ViIjoiZC52YW4uYnVpdGVuQGFtc3RlcmRhbS5ubCIsImlhdCI6MTU3NzEwNjAyMCwibmJmIjoxNTc3MTA2MDEwLCJleHAiOjE1NzcxNDIwMjAsImp0aSI6ImJlZWFhMTI4LTA3NTctNDVmNC1hZjRjLWM2YmJlYzYwZDZkNCIsInNjb3BlcyI6WyJTSUcvQUxMIl19.I6daztW0JNthiiKzRpgyQWtVZtAtIAkSwvsRxiDqSoTIx8pRibbrdsbE51lf2CnfwHnNIQPBA3piHq_WQg0XaQ"
+											},
+											{
+												"key": "Referer",
+												"type": "text",
+												"value": "https://meldingen.amsterdam.nl/",
+												"disabled": true
+											}
+										],
+										"body": {
+											"mode": "formdata",
+											"formdata": []
+										},
+										"url": {
+											"raw": "{{endpoint}}/signals/v1/private/signals/{{signal_id}}/pdf",
+											"host": [
+												"{{endpoint}}"
+											],
+											"path": [
+												"signals",
+												"v1",
+												"private",
+												"signals",
+												"{{signal_id}}",
+												"pdf"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "History",
+									"protocolProfileBehavior": {
+										"disableBodyPruning": true
+									},
+									"request": {
+										"method": "GET",
+										"header": [
+											{
+												"key": "Authorization",
+												"type": "text",
+												"value": "Bearer eyJhbGciOiJFUzI1NiIsImtpZCI6IjM4OWE5ZjY4LWUyNGUtNDcxNi1hMTFjLTFlZWY0NzgwNGNjNiJ9.eyJpc3MiOiJodHRwczovL2FwaS5kYXRhLmFtc3RlcmRhbS5ubC9vYXV0aDIvYXV0aG9yaXplIiwic3ViIjoiZC52YW4uYnVpdGVuQGFtc3RlcmRhbS5ubCIsImlhdCI6MTU3NzEwNjAyMCwibmJmIjoxNTc3MTA2MDEwLCJleHAiOjE1NzcxNDIwMjAsImp0aSI6ImJlZWFhMTI4LTA3NTctNDVmNC1hZjRjLWM2YmJlYzYwZDZkNCIsInNjb3BlcyI6WyJTSUcvQUxMIl19.I6daztW0JNthiiKzRpgyQWtVZtAtIAkSwvsRxiDqSoTIx8pRibbrdsbE51lf2CnfwHnNIQPBA3piHq_WQg0XaQ"
+											},
+											{
+												"key": "Referer",
+												"type": "text",
+												"value": "https://meldingen.amsterdam.nl/",
+												"disabled": true
+											}
+										],
+										"body": {
+											"mode": "formdata",
+											"formdata": []
+										},
+										"url": {
+											"raw": "{{endpoint}}/signals/v1/private/signals/{{signal_id}}/history",
+											"host": [
+												"{{endpoint}}"
+											],
+											"path": [
+												"signals",
+												"v1",
+												"private",
+												"signals",
+												"{{signal_id}}",
+												"history"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Children",
+									"protocolProfileBehavior": {
+										"disableBodyPruning": true
+									},
+									"request": {
+										"method": "GET",
+										"header": [
+											{
+												"key": "Authorization",
+												"type": "text",
+												"value": "Bearer eyJhbGciOiJFUzI1NiIsImtpZCI6IjM4OWE5ZjY4LWUyNGUtNDcxNi1hMTFjLTFlZWY0NzgwNGNjNiJ9.eyJpc3MiOiJodHRwczovL2FwaS5kYXRhLmFtc3RlcmRhbS5ubC9vYXV0aDIvYXV0aG9yaXplIiwic3ViIjoiZC52YW4uYnVpdGVuQGFtc3RlcmRhbS5ubCIsImlhdCI6MTU3NzEwNjAyMCwibmJmIjoxNTc3MTA2MDEwLCJleHAiOjE1NzcxNDIwMjAsImp0aSI6ImJlZWFhMTI4LTA3NTctNDVmNC1hZjRjLWM2YmJlYzYwZDZkNCIsInNjb3BlcyI6WyJTSUcvQUxMIl19.I6daztW0JNthiiKzRpgyQWtVZtAtIAkSwvsRxiDqSoTIx8pRibbrdsbE51lf2CnfwHnNIQPBA3piHq_WQg0XaQ"
+											},
+											{
+												"key": "Referer",
+												"type": "text",
+												"value": "https://meldingen.amsterdam.nl/",
+												"disabled": true
+											}
+										],
+										"body": {
+											"mode": "formdata",
+											"formdata": []
+										},
+										"url": {
+											"raw": "{{endpoint}}/signals/v1/private/signals/{{signal_id}}/children",
+											"host": [
+												"{{endpoint}}"
+											],
+											"path": [
+												"signals",
+												"v1",
+												"private",
+												"signals",
+												"{{signal_id}}",
+												"children"
+											]
+										}
+									},
+									"response": []
+								}
+							]
+						},
+						{
+							"name": "Sources",
+							"item": [
+								{
+									"name": "List",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"exec": [
+													"var jsonData = JSON.parse(responseBody)",
+													"if (jsonData.results.length) {",
+													"    postman.setEnvironmentVariable('source_id', jsonData.results[0].id)",
+													"}"
+												],
+												"type": "text/javascript"
+											}
+										}
+									],
+									"request": {
+										"auth": {
+											"type": "bearer",
+											"bearer": [
+												{
+													"key": "token",
+													"value": "{{bearer_token}}",
+													"type": "string"
+												}
+											]
+										},
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{endpoint}}/signals/v1/private/sources/",
+											"host": [
+												"{{endpoint}}"
+											],
+											"path": [
+												"signals",
+												"v1",
+												"private",
+												"sources",
+												""
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Detail",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"exec": [
+													"var jsonData = JSON.parse(responseBody)",
+													"if (jsonData.results.length) {",
+													"    postman.setEnvironmentVariable('id', jsonData.results[0].id)",
+													"}"
+												],
+												"type": "text/javascript"
+											}
+										}
+									],
+									"request": {
+										"auth": {
+											"type": "bearer",
+											"bearer": [
+												{
+													"key": "token",
+													"value": "{{bearer_token}}",
+													"type": "string"
+												}
+											]
+										},
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{endpoint}}/signals/v1/private/sources/{{source_id}}",
+											"host": [
+												"{{endpoint}}"
+											],
+											"path": [
+												"signals",
+												"v1",
+												"private",
+												"sources",
+												"{{source_id}}"
+											]
+										}
+									},
+									"response": []
+								}
+							]
+						},
+						{
+							"name": "Users",
+							"item": [
+								{
+									"name": "List",
+									"request": {
+										"auth": {
+											"type": "bearer",
+											"bearer": [
+												{
+													"key": "token",
+													"value": "{{bearer_token}}",
+													"type": "string"
+												}
+											]
+										},
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{endpoint}}/signals/v1/private/users/",
+											"host": [
+												"{{endpoint}}"
+											],
+											"path": [
+												"signals",
+												"v1",
+												"private",
+												"users",
+												""
+											]
+										}
+									},
+									"response": []
+								}
+							]
+						},
+						{
+							"name": "Questionnaires",
+							"item": [
+								{
+									"name": "Questionnaire",
+									"item": [
+										{
+											"name": "List",
+											"event": [
+												{
+													"listen": "test",
+													"script": {
+														"exec": [
+															"var jsonData = JSON.parse(responseBody)",
+															"postman.setEnvironmentVariable('questionnaire_id', jsonData.results[0].id)"
+														],
+														"type": "text/javascript"
+													}
+												}
+											],
+											"request": {
+												"method": "GET",
+												"header": [],
+												"url": {
+													"raw": "{{endpoint}}/signals/v1/private/qa/questionnaires/",
+													"host": [
+														"{{endpoint}}"
+													],
+													"path": [
+														"signals",
+														"v1",
+														"private",
+														"qa",
+														"questionnaires",
+														""
+													]
+												}
+											},
+											"response": []
+										},
+										{
+											"name": "Get",
+											"event": [
+												{
+													"listen": "test",
+													"script": {
+														"exec": [
+															""
+														],
+														"type": "text/javascript"
+													}
+												}
+											],
+											"request": {
+												"auth": {
+													"type": "bearer",
+													"bearer": [
+														{
+															"key": "token",
+															"value": "{{bearer_token}}",
+															"type": "string"
+														}
+													]
+												},
+												"method": "GET",
+												"header": [],
+												"url": {
+													"raw": "{{endpoint}}/signals/v1/private/qa/questionnaires/{{questionnaire_id}}",
+													"host": [
+														"{{endpoint}}"
+													],
+													"path": [
+														"signals",
+														"v1",
+														"private",
+														"qa",
+														"questionnaires",
+														"{{questionnaire_id}}"
+													]
+												}
+											},
+											"response": []
+										}
+									]
+								},
+								{
+									"name": "Quesiton",
+									"item": [
+										{
+											"name": "List",
+											"event": [
+												{
+													"listen": "test",
+													"script": {
+														"exec": [
+															"var jsonData = JSON.parse(responseBody)",
+															"postman.setEnvironmentVariable('question_id', jsonData.results[0].id)"
+														],
+														"type": "text/javascript"
+													}
+												}
+											],
+											"request": {
+												"method": "GET",
+												"header": [],
+												"url": {
+													"raw": "{{endpoint}}/signals/v1/private/qa/question/",
+													"host": [
+														"{{endpoint}}"
+													],
+													"path": [
+														"signals",
+														"v1",
+														"private",
+														"qa",
+														"question",
+														""
+													]
+												}
+											},
+											"response": []
+										},
+										{
+											"name": "Detail",
+											"request": {
+												"method": "GET",
+												"header": [],
+												"url": {
+													"raw": "{{endpoint}}/signals/v1/private/qa/question/{{question_id}}",
+													"host": [
+														"{{endpoint}}"
+													],
+													"path": [
+														"signals",
+														"v1",
+														"private",
+														"qa",
+														"question",
+														"{{question_id}}"
+													]
+												}
+											},
+											"response": []
+										}
+									]
+								}
+							]
+						}
+					]
+				},
+				{
+					"name": "Public",
+					"item": [
+						{
+							"name": "Areas",
+							"item": [
+								{
+									"name": "List",
+									"event": [
+										{
+											"listen": "prerequest",
+											"script": {
+												"exec": [
+													""
+												],
+												"type": "text/javascript"
+											}
+										}
+									],
+									"protocolProfileBehavior": {
+										"disableBodyPruning": true
+									},
+									"request": {
+										"auth": {
+											"type": "bearer",
+											"bearer": [
+												{
+													"key": "token",
+													"value": "{{bearer_token}}",
+													"type": "string"
+												}
+											]
+										},
+										"method": "GET",
+										"header": [
+											{
+												"key": "Content-Type",
+												"name": "Content-Type",
+												"value": "application/json",
+												"type": "text"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n\t\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{endpoint}}/signals/v1/public/areas/",
+											"host": [
+												"{{endpoint}}"
+											],
+											"path": [
+												"signals",
+												"v1",
+												"public",
+												"areas",
+												""
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Geography",
+									"event": [
+										{
+											"listen": "prerequest",
+											"script": {
+												"exec": [
+													""
+												],
+												"type": "text/javascript"
+											}
+										}
+									],
+									"protocolProfileBehavior": {
+										"disableBodyPruning": true
+									},
+									"request": {
+										"auth": {
+											"type": "bearer",
+											"bearer": [
+												{
+													"key": "token",
+													"value": "{{bearer_token}}",
+													"type": "string"
+												}
+											]
+										},
+										"method": "GET",
+										"header": [
+											{
+												"key": "Content-Type",
+												"name": "Content-Type",
+												"type": "text",
+												"value": "application/json"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n\t\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{endpoint}}/signals/v1/public/areas/geography/",
+											"host": [
+												"{{endpoint}}"
+											],
+											"path": [
+												"signals",
+												"v1",
+												"public",
+												"areas",
+												"geography",
+												""
+											]
+										}
+									},
+									"response": []
+								}
+							]
+						},
+						{
+							"name": "Categories",
+							"item": [
+								{
+									"name": "List",
+									"event": [
+										{
+											"listen": "prerequest",
+											"script": {
+												"exec": [
+													""
+												],
+												"type": "text/javascript"
+											}
+										}
+									],
+									"protocolProfileBehavior": {
+										"disableBodyPruning": true
+									},
+									"request": {
+										"auth": {
+											"type": "bearer",
+											"bearer": [
+												{
+													"key": "token",
+													"value": "{{bearer_token}}",
+													"type": "string"
+												}
+											]
+										},
+										"method": "GET",
+										"header": [
+											{
+												"key": "Content-Type",
+												"name": "Content-Type",
+												"value": "application/json",
+												"type": "text"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n\t\n}"
+										},
+										"url": {
+											"raw": "{{endpoint}}/signals/v1/public/terms/categories/",
+											"host": [
+												"{{endpoint}}"
+											],
+											"path": [
+												"signals",
+												"v1",
+												"public",
+												"terms",
+												"categories",
+												""
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Detail parent (Afval)",
+									"event": [
+										{
+											"listen": "prerequest",
+											"script": {
+												"exec": [
+													""
+												],
+												"type": "text/javascript"
+											}
+										}
+									],
+									"protocolProfileBehavior": {
+										"disableBodyPruning": true
+									},
+									"request": {
+										"auth": {
+											"type": "bearer",
+											"bearer": [
+												{
+													"key": "token",
+													"value": "{{bearer_token}}",
+													"type": "string"
+												}
+											]
+										},
+										"method": "GET",
+										"header": [
+											{
+												"key": "Content-Type",
+												"name": "Content-Type",
+												"value": "application/json",
+												"type": "text"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n\t\n}"
+										},
+										"url": {
+											"raw": "{{endpoint}}/signals/v1/public/terms/categories/afval",
+											"host": [
+												"{{endpoint}}"
+											],
+											"path": [
+												"signals",
+												"v1",
+												"public",
+												"terms",
+												"categories",
+												"afval"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Detail child (Afval/Asbest-Accu)",
+									"event": [
+										{
+											"listen": "prerequest",
+											"script": {
+												"exec": [
+													""
+												],
+												"type": "text/javascript"
+											}
+										}
+									],
+									"protocolProfileBehavior": {
+										"disableBodyPruning": true
+									},
+									"request": {
+										"auth": {
+											"type": "bearer",
+											"bearer": [
+												{
+													"key": "token",
+													"value": "{{bearer_token}}",
+													"type": "string"
+												}
+											]
+										},
+										"method": "GET",
+										"header": [
+											{
+												"key": "Content-Type",
+												"name": "Content-Type",
+												"value": "application/json",
+												"type": "text"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n\t\n}"
+										},
+										"url": {
+											"raw": "{{endpoint}}/signals/v1/public/terms/categories/afval/sub_categories/asbest-accu",
+											"host": [
+												"{{endpoint}}"
+											],
+											"path": [
+												"signals",
+												"v1",
+												"public",
+												"terms",
+												"categories",
+												"afval",
+												"sub_categories",
+												"asbest-accu"
+											]
+										}
+									},
+									"response": []
+								}
+							]
+						},
+						{
+							"name": "Feedback",
+							"item": [
+								{
+									"name": "Standard Answers",
+									"item": [
+										{
+											"name": "List",
+											"event": [
+												{
+													"listen": "prerequest",
+													"script": {
+														"exec": [
+															""
+														],
+														"type": "text/javascript"
+													}
+												}
+											],
+											"protocolProfileBehavior": {
+												"disableBodyPruning": true
+											},
+											"request": {
+												"auth": {
+													"type": "bearer",
+													"bearer": [
+														{
+															"key": "token",
+															"value": "{{bearer_token}}",
+															"type": "string"
+														}
+													]
+												},
+												"method": "GET",
+												"header": [
+													{
+														"key": "Content-Type",
+														"name": "Content-Type",
+														"value": "application/json",
+														"type": "text"
+													}
+												],
+												"body": {
+													"mode": "raw",
+													"raw": "{\n\t\n}",
+													"options": {
+														"raw": {
+															"language": "json"
+														}
+													}
+												},
+												"url": {
+													"raw": "{{endpoint}}/signals/v1/public/feedback/standard_answers/",
+													"host": [
+														"{{endpoint}}"
+													],
+													"path": [
+														"signals",
+														"v1",
+														"public",
+														"feedback",
+														"standard_answers",
+														""
+													]
+												}
+											},
+											"response": []
+										}
+									]
+								},
+								{
+									"name": "Form",
+									"item": [
+										{
+											"name": "Detail",
+											"event": [
+												{
+													"listen": "prerequest",
+													"script": {
+														"exec": [
+															""
+														],
+														"type": "text/javascript"
+													}
+												}
+											],
+											"protocolProfileBehavior": {
+												"disableBodyPruning": true
+											},
+											"request": {
+												"auth": {
+													"type": "bearer",
+													"bearer": [
+														{
+															"key": "token",
+															"value": "{{bearer_token}}",
+															"type": "string"
+														}
+													]
+												},
+												"method": "GET",
+												"header": [
+													{
+														"key": "Content-Type",
+														"name": "Content-Type",
+														"value": "application/json",
+														"type": "text"
+													}
+												],
+												"body": {
+													"mode": "raw",
+													"raw": "{\n\t\n}",
+													"options": {
+														"raw": {
+															"language": "json"
+														}
+													}
+												},
+												"url": {
+													"raw": "{{endpoint}}/signals/v1/public/feedback/forms/{{feedback_id}}",
+													"host": [
+														"{{endpoint}}"
+													],
+													"path": [
+														"signals",
+														"v1",
+														"public",
+														"feedback",
+														"forms",
+														"{{feedback_id}}"
+													]
+												}
+											},
+											"response": []
+										},
+										{
+											"name": "Update",
+											"event": [
+												{
+													"listen": "prerequest",
+													"script": {
+														"exec": [
+															""
+														],
+														"type": "text/javascript"
+													}
+												}
+											],
+											"request": {
+												"auth": {
+													"type": "bearer",
+													"bearer": [
+														{
+															"key": "token",
+															"value": "{{bearer_token}}",
+															"type": "string"
+														}
+													]
+												},
+												"method": "PATCH",
+												"header": [
+													{
+														"key": "Content-Type",
+														"name": "Content-Type",
+														"type": "text",
+														"value": "application/json"
+													}
+												],
+												"body": {
+													"mode": "raw",
+													"raw": "{\n\t\"is_satisfied\": \"{{$randomBoolean}}\",\n    \"allows_contact\": \"{{$randomBoolean}}\",\n    \"text\": \"{{$randomLoremSentence}}\",\n    \"text_extra\": \"{{$randomLoremSentence}}\"\n}",
+													"options": {
+														"raw": {
+															"language": "json"
+														}
+													}
+												},
+												"url": {
+													"raw": "{{endpoint}}/signals/v1/public/feedback/forms/{{feedback_id}}",
+													"host": [
+														"{{endpoint}}"
+													],
+													"path": [
+														"signals",
+														"v1",
+														"public",
+														"feedback",
+														"forms",
+														"{{feedback_id}}"
+													]
+												}
+											},
+											"response": []
+										}
+									]
+								}
+							]
+						},
+						{
+							"name": "Questions",
+							"item": [
+								{
+									"name": "List",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"exec": [
+													"var jsonData = JSON.parse(responseBody)",
+													"if (jsonData.results.length) {",
+													"    postman.setEnvironmentVariable('question_id', jsonData.results[0].id)",
+													"}"
+												],
+												"type": "text/javascript"
+											}
+										}
+									],
+									"request": {
+										"auth": {
+											"type": "bearer",
+											"bearer": [
+												{
+													"key": "token",
+													"value": "{{bearer_token}}",
+													"type": "string"
+												}
+											]
+										},
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{endpoint}}/signals/v1/public/questions/",
+											"host": [
+												"{{endpoint}}"
+											],
+											"path": [
+												"signals",
+												"v1",
+												"public",
+												"questions",
+												""
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Detail",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"exec": [
+													"var jsonData = JSON.parse(responseBody)",
+													"if (jsonData.results.length) {",
+													"    postman.setEnvironmentVariable('question_id', jsonData.results[0].id)",
+													"}"
+												],
+												"type": "text/javascript"
+											}
+										}
+									],
+									"request": {
+										"auth": {
+											"type": "bearer",
+											"bearer": [
+												{
+													"key": "token",
+													"value": "{{bearer_token}}",
+													"type": "string"
+												}
+											]
+										},
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{endpoint}}/signals/v1/public/questions/{{question_id}}",
+											"host": [
+												"{{endpoint}}"
+											],
+											"path": [
+												"signals",
+												"v1",
+												"public",
+												"questions",
+												"{{question_id}}"
+											]
+										}
+									},
+									"response": []
+								}
+							]
+						},
+						{
+							"name": "Signals",
+							"item": [
+								{
+									"name": "Create",
+									"request": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"text\": \"{{$randomLoremSentences}}\",\n    \"text_extra\": \"{{$randomLoremSentences}}\",\n    \"location\": {\n        \"geometrie\": {\n            \"type\": \"Point\",\n            \"coordinates\": [\n                4.90022563,\n                52.36768424\n            ]\n        },\n        \"stadsdeel\": \"E\",\n        \"extra_properties\": {}\n    },\n    \"category\": {\n        \"sub_category\": \"/signals/v1/public/terms/categories/overig/sub_categories/overig\"\n    },\n    \"reporter\": {\n        \"email\": \"{{$randomExampleEmail}}\",\n        \"phone\": \"{{random_phonenumber}}\",\n        \"sharing_allowed\": true\n    },\n    \"incident_date_start\": \"{{$isoTimestamp}}\"\n}\n",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{endpoint}}/signals/v1/public/signals/",
+											"host": [
+												"{{endpoint}}"
+											],
+											"path": [
+												"signals",
+												"v1",
+												"public",
+												"signals",
+												""
+											]
+										}
+									},
+									"response": []
+								}
+							]
+						},
+						{
+							"name": "Questionnaires",
+							"item": [
+								{
+									"name": "Questionnaire",
+									"item": [
+										{
+											"name": "List",
+											"event": [
+												{
+													"listen": "test",
+													"script": {
+														"exec": [
+															"var jsonData = JSON.parse(responseBody)",
+															"postman.setEnvironmentVariable('questionnaire_uuid', jsonData.results[0].uuid)"
+														],
+														"type": "text/javascript"
+													}
+												}
+											],
+											"request": {
+												"method": "GET",
+												"header": [],
+												"url": {
+													"raw": "{{endpoint}}/signals/v1/public/qa/questionnaires/",
+													"host": [
+														"{{endpoint}}"
+													],
+													"path": [
+														"signals",
+														"v1",
+														"public",
+														"qa",
+														"questionnaires",
+														""
+													]
+												}
+											},
+											"response": []
+										},
+										{
+											"name": "Get",
+											"event": [
+												{
+													"listen": "test",
+													"script": {
+														"exec": [
+															""
+														],
+														"type": "text/javascript"
+													}
+												}
+											],
+											"request": {
+												"auth": {
+													"type": "bearer",
+													"bearer": [
+														{
+															"key": "token",
+															"value": "{{bearer_token}}",
+															"type": "string"
+														}
+													]
+												},
+												"method": "GET",
+												"header": [],
+												"url": {
+													"raw": "{{endpoint}}/signals/v1/public/qa/questionnaires/{{questionnaire_uuid}}",
+													"host": [
+														"{{endpoint}}"
+													],
+													"path": [
+														"signals",
+														"v1",
+														"public",
+														"qa",
+														"questionnaires",
+														"{{questionnaire_uuid}}"
+													]
+												}
+											},
+											"response": []
+										}
+									]
+								},
+								{
+									"name": "Question",
+									"item": [
+										{
+											"name": "Answer",
+											"item": [
+												{
+													"name": "List (Start a Session)",
+													"event": [
+														{
+															"listen": "test",
+															"script": {
+																"exec": [
+																	"var jsonData = JSON.parse(responseBody)",
+																	"postman.setEnvironmentVariable('session_uuid', jsonData.results.session)"
+																],
+																"type": "text/javascript"
+															}
+														}
+													],
+													"request": {
+														"method": "POST",
+														"header": [],
+														"body": {
+															"mode": "raw",
+															"raw": "{\n    \"payload\": \"{{$randomLoremSentence}}\",\n    \"questionnaire\": \"{{questionnaire_uuid}}\"\n}",
+															"options": {
+																"raw": {
+																	"language": "json"
+																}
+															}
+														},
+														"url": {
+															"raw": "{{endpoint}}/signals/v1/public/qa/question/{{question_key}}/answer",
+															"host": [
+																"{{endpoint}}"
+															],
+															"path": [
+																"signals",
+																"v1",
+																"public",
+																"qa",
+																"question",
+																"{{question_key}}",
+																"answer"
+															]
+														}
+													},
+													"response": []
+												},
+												{
+													"name": "List (Continue a Session)",
+													"event": [
+														{
+															"listen": "test",
+															"script": {
+																"exec": [
+																	""
+																],
+																"type": "text/javascript"
+															}
+														}
+													],
+													"request": {
+														"method": "POST",
+														"header": [],
+														"body": {
+															"mode": "raw",
+															"raw": "{\n    \"payload\": \"{{$randomLoremSentence}}\",\n    \"session\": \"{{session_uuid}}\"\n}",
+															"options": {
+																"raw": {
+																	"language": "json"
+																}
+															}
+														},
+														"url": {
+															"raw": "{{endpoint}}/signals/v1/public/qa/question/{{question_key}}/answer",
+															"host": [
+																"{{endpoint}}"
+															],
+															"path": [
+																"signals",
+																"v1",
+																"public",
+																"qa",
+																"question",
+																"{{question_key}}",
+																"answer"
+															]
+														}
+													},
+													"response": []
+												}
+											]
+										},
+										{
+											"name": "List",
+											"event": [
+												{
+													"listen": "test",
+													"script": {
+														"exec": [
+															"var jsonData = JSON.parse(responseBody)",
+															"postman.setEnvironmentVariable('question_key', jsonData.results[0].key)",
+															"postman.setEnvironmentVariable('question_uuid', jsonData.results[0].uuid)"
+														],
+														"type": "text/javascript"
+													}
+												}
+											],
+											"request": {
+												"method": "GET",
+												"header": [],
+												"url": {
+													"raw": "{{endpoint}}/signals/v1/public/qa/question/",
+													"host": [
+														"{{endpoint}}"
+													],
+													"path": [
+														"signals",
+														"v1",
+														"public",
+														"qa",
+														"question",
+														""
+													]
+												}
+											},
+											"response": []
+										},
+										{
+											"name": "Detail (Key)",
+											"request": {
+												"method": "GET",
+												"header": [],
+												"url": {
+													"raw": "{{endpoint}}/signals/v1/public/qa/question/{{question_key}}",
+													"host": [
+														"{{endpoint}}"
+													],
+													"path": [
+														"signals",
+														"v1",
+														"public",
+														"qa",
+														"question",
+														"{{question_key}}"
+													]
+												}
+											},
+											"response": []
+										},
+										{
+											"name": "Detail (UUID)",
+											"request": {
+												"method": "GET",
+												"header": [],
+												"url": {
+													"raw": "{{endpoint}}/signals/v1/public/qa/question/{{question_uuid}}",
+													"host": [
+														"{{endpoint}}"
+													],
+													"path": [
+														"signals",
+														"v1",
+														"public",
+														"qa",
+														"question",
+														"{{question_uuid}}"
+													]
+												}
+											},
+											"response": []
+										}
+									]
+								},
+								{
+									"name": "Session",
+									"item": [
+										{
+											"name": "Get",
+											"event": [
+												{
+													"listen": "test",
+													"script": {
+														"exec": [
+															""
+														],
+														"type": "text/javascript"
+													}
+												}
+											],
+											"request": {
+												"auth": {
+													"type": "bearer",
+													"bearer": [
+														{
+															"key": "token",
+															"value": "{{bearer_token}}",
+															"type": "string"
+														}
+													]
+												},
+												"method": "GET",
+												"header": [],
+												"url": {
+													"raw": "{{endpoint}}/signals/v1/public/qa/questionnaires/{{session__uuid}}",
+													"host": [
+														"{{endpoint}}"
+													],
+													"path": [
+														"signals",
+														"v1",
+														"public",
+														"qa",
+														"questionnaires",
+														"{{session__uuid}}"
+													]
+												}
+											},
+											"response": []
+										}
+									]
+								}
+							]
+						}
+					]
+				}
+			]
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					"random_phonenumber = '+316'",
+					"while (random_phonenumber.length < 12) {",
+					"    random_phonenumber = random_phonenumber + Math.floor(Math.random() * 10);",
+					"}",
+					"pm.collectionVariables.set('random_phonenumber', random_phonenumber)"
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "random_phonenumber",
+			"value": "+31636345533"
+		}
+	]
+}
