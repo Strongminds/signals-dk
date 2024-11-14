@@ -1,0 +1,15 @@
+version: '3.8'
+
+services:
+  frontend-dev:
+    build:
+      context: .
+      target: base
+    volumes:
+      - ./app.amsterdam.json:/app/app.amsterdam.json
+      - ./app.base.json:/app/app.base.json
+      - ./src:/app/src
+      - ./internals:/app/internals
+    ports:
+      - 3001:3001
+    command: npm start

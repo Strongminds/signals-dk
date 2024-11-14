@@ -1,0 +1,249 @@
+{
+  "openbaar-groen-en-water": {
+    "_display": "Openbaar groen en water",
+    "fk":"82",
+    "sla": {
+      "n_days": null,
+      "use_calendar_days": null
+    },
+    "name": "Openbaar groen en water",
+    "slug": "openbaar-groen-en-water",
+    "handling_message": "\nWij bekijken uw melding en zorgen dat het juiste onderdeel van de gemeente deze gaat behandelen. Heeft u contactgegevens achtergelaten? Dan nemen wij bij onduidelijkheid contact met u op.",
+    "value": "Openbaar groen en water",
+    "parentKey": false,
+    "_links": {
+      "curies": {
+        "name": "sia",
+        "href": "https://acc.api.data.amsterdam.nl/signals/v1/relations"
+      },
+      "self": {
+        "href": "https://acc.api.data.amsterdam.nl/signals/v1/private/categories/82",
+        "public": "https://acc.api.data.amsterdam.nl/signals/v1/public/terms/categories/openbaar-groen-en-water"
+      },
+      "sia:status-message-templates": {
+        "href": "https://acc.api.data.amsterdam.nl/signals/v1/private/terms/categories/openbaar-groen-en-water/status-message-templates"
+      }
+    },
+    "icon": null,
+    "id": "https://acc.api.data.amsterdam.nl/signals/v1/public/terms/categories/openbaar-groen-en-water",
+    "is_active": true,
+    "description": null,
+    "key": "https://acc.api.data.amsterdam.nl/signals/v1/public/terms/categories/openbaar-groen-en-water",
+    "departments": [],
+    "note": "",
+    "sub": [
+      {
+        "_display": "Boom - boomstob (Openbaar groen en water)",
+        "fk": "131",
+        "sla": {
+          "n_days": 5,
+          "use_calendar_days": false
+        },
+        "icon": null,
+        "name": "Boom - boomstob",
+        "slug": "boom-boomstob",
+        "handling_message": "\nUw melding wordt ingepland: wij laten u binnen 5 werkdagen weten hoe en wanneer uw melding wordt afgehandeld. Dat doen we via e-mail.",
+        "value": "Boom - boomstob",
+        "parentKey": "https://acc.api.data.amsterdam.nl/signals/v1/public/terms/categories/openbaar-groen-en-water",
+        "_links": {
+          "curies": {
+            "name": "sia",
+            "href": "https://acc.api.data.amsterdam.nl/signals/v1/relations"
+          },
+          "self": {
+            "href": "https://acc.api.data.amsterdam.nl/signals/v1/private/categories/131",
+            "public": "https://acc.api.data.amsterdam.nl/signals/v1/public/terms/categories/openbaar-groen-en-water/sub_categories/boom-boomstob"
+          },
+          "sia:status-message-templates": {
+            "href": "https://acc.api.data.amsterdam.nl/signals/v1/private/terms/categories/openbaar-groen-en-water/sub_categories/boom-boomstob/status-message-templates"
+          },
+          "sia:parent": {
+            "href": "https://acc.api.data.amsterdam.nl/signals/v1/private/categories/82",
+            "public": "https://acc.api.data.amsterdam.nl/signals/v1/public/terms/categories/openbaar-groen-en-water"
+          }
+        },
+        "id": "https://acc.api.data.amsterdam.nl/signals/v1/public/terms/categories/openbaar-groen-en-water/sub_categories/boom-boomstob",
+        "is_active": true,
+        "description": null,
+        "key": "https://acc.api.data.amsterdam.nl/signals/v1/public/terms/categories/openbaar-groen-en-water/sub_categories/boom-boomstob",
+        "departments": [],
+        "note": ""
+      }
+    ]
+  },
+  "afval": {
+    "_display": "Afval",
+    "public_name": null,
+    "fk":"79",
+    "sla": {
+      "n_days": null,
+      "use_calendar_days": null
+    },
+    "icon": null,
+    "name": "Afval",
+    "slug": "afval",
+    "handling_message": "\nWij bekijken uw melding en zorgen dat het juiste onderdeel van de gemeente deze gaat behandelen. Heeft u contactgegevens achtergelaten? Dan nemen wij bij onduidelijkheid contact met u op.",
+    "value": "Afval",
+    "parentKey": false,
+    "_links": {
+      "curies": {
+        "name": "sia",
+        "href": "https://acc.api.data.amsterdam.nl/signals/v1/relations"
+      },
+      "self": {
+        "href": "https://acc.api.data.amsterdam.nl/signals/v1/private/categories/79",
+        "public": "https://acc.api.data.amsterdam.nl/signals/v1/public/terms/categories/afval"
+      },
+      "sia:status-message-templates": {
+        "href": "https://acc.api.data.amsterdam.nl/signals/v1/private/terms/categories/afval/status-message-templates"
+      }
+    },
+    "id": "https://acc.api.data.amsterdam.nl/signals/v1/public/terms/categories/afval",
+    "is_active": true,
+    "description": null,
+    "key": "https://acc.api.data.amsterdam.nl/signals/v1/public/terms/categories/afval",
+    "sub": [
+      {
+        "_display": "Container glas kapot (Afval)",
+        "fk": "132",
+        "sla": {
+          "n_days": 3,
+          "use_calendar_days": false
+        },
+        "icon": null,
+        "name": "Container glas kapot",
+        "slug": "container-glas-kapot",
+        "handling_message": "\nWe laten u binnen 3 weken weten wat we hebben gedaan. En anders hoort u wanneer wij uw melding kunnen oppakken.\nWe houden u op de hoogte via e-mail.",
+        "value": "Container glas kapot",
+        "parentKey": "https://acc.api.data.amsterdam.nl/signals/v1/public/terms/categories/afval",
+        "_links": {
+          "curies": {
+            "name": "sia",
+            "href": "https://acc.api.data.amsterdam.nl/signals/v1/relations"
+          },
+          "self": {
+            "href": "https://acc.api.data.amsterdam.nl/signals/v1/private/categories/132",
+            "public": "https://acc.api.data.amsterdam.nl/signals/v1/public/terms/categories/afval/sub_categories/container-glas-kapot"
+          },
+          "sia:status-message-templates": {
+            "href": "https://acc.api.data.amsterdam.nl/signals/v1/private/terms/categories/afval/sub_categories/container-glas-kapot/status-message-templates"
+          },
+          "sia:parent": {
+            "href": "https://acc.api.data.amsterdam.nl/signals/v1/private/categories/79",
+            "public": "https://acc.api.data.amsterdam.nl/signals/v1/public/terms/categories/afval"
+          }
+        },
+        "id": "https://acc.api.data.amsterdam.nl/signals/v1/public/terms/categories/afval/sub_categories/container-glas-kapot",
+        "is_active": true,
+        "description": null,
+        "key": "https://acc.api.data.amsterdam.nl/signals/v1/public/terms/categories/afval/sub_categories/container-glas-kapot"
+      },
+      {
+        "_display": "Container glas vol (Afval)",
+        "fk": "133",
+        "sla": {
+          "n_days": 3,
+          "use_calendar_days": false
+        },
+        "name": "Container glas vol",
+        "slug": "container-glas-vol",
+        "handling_message": "\nWe laten u binnen 3 weken weten wat we hebben gedaan. En anders hoort u wanneer wij uw melding kunnen oppakken.\nWe houden u op de hoogte via e-mail.",
+        "value": "Container glas vol",
+        "parentKey": "https://acc.api.data.amsterdam.nl/signals/v1/public/terms/categories/afval",
+        "_links": {
+          "curies": {
+            "name": "sia",
+            "href": "https://acc.api.data.amsterdam.nl/signals/v1/relations"
+          },
+          "self": {
+            "href": "https://acc.api.data.amsterdam.nl/signals/v1/private/categories/133",
+            "public": "https://acc.api.data.amsterdam.nl/signals/v1/public/terms/categories/afval/sub_categories/container-glas-vol"
+          },
+          "sia:status-message-templates": {
+            "href": "https://acc.api.data.amsterdam.nl/signals/v1/private/terms/categories/afval/sub_categories/container-glas-vol/status-message-templates"
+          },
+          "sia:parent": {
+            "href": "https://acc.api.data.amsterdam.nl/signals/v1/private/categories/79",
+            "public": "https://acc.api.data.amsterdam.nl/signals/v1/public/terms/categories/afval"
+          }
+        },
+        "id": "https://acc.api.data.amsterdam.nl/signals/v1/public/terms/categories/afval/sub_categories/container-glas-vol",
+        "is_active": true,
+        "description": null,
+        "key": "https://acc.api.data.amsterdam.nl/signals/v1/public/terms/categories/afval/sub_categories/container-glas-vol"
+      }
+    ]
+  },
+  "wegen-verkeer-straatmeubilair": {
+    "_display": "Wegen, verkeer, straatmeubilair",
+    "public_name": "Wegen, verkeer, straatmeubilair - publiek",
+    "fk":"80",
+    "sla": {
+      "n_days": null,
+      "use_calendar_days": null
+    },
+    "icon": null,
+    "name": "Wegen, verkeer, straatmeubilair",
+    "slug": "wegen-verkeer-straatmeubilair",
+    "handling_message": "\nWij bekijken uw melding en zorgen dat het juiste onderdeel van de gemeente deze gaat behandelen. Heeft u contactgegevens achtergelaten? Dan nemen wij bij onduidelijkheid contact met u op.",
+    "value": "Wegen, verkeer, straatmeubilair",
+    "parentKey": false,
+    "_links": {
+      "curies": {
+        "name": "sia",
+        "href": "https://acc.api.data.amsterdam.nl/signals/v1/relations"
+      },
+      "self": {
+        "href": "https://acc.api.data.amsterdam.nl/signals/v1/private/categories/80",
+        "public": "https://acc.api.data.amsterdam.nl/signals/v1/public/terms/categories/wegen-verkeer-straatmeubilair"
+      },
+      "sia:status-message-templates": {
+        "href": "https://acc.api.data.amsterdam.nl/signals/v1/private/terms/categories/wegen-verkeer-straatmeubilair/status-message-templates"
+      },
+      "sia:icon": {
+        "href": "https://siaweuaaks.blob.core.windows.net/files/icons/categories/0-hoofdcategorie-test/glas-icon.svg?se=2023-04-24T11%3A56%3A30Z&sp=r&sv=2021-08-06&sr=b&sig=cAl/7CfiwBu1yE/whi6bxc8BMlIxP9CHtnyO9YoapdA%3D"
+      }
+    },
+    "id": "https://acc.api.data.amsterdam.nl/signals/v1/public/terms/categories/wegen-verkeer-straatmeubilair",
+    "is_active": true,
+    "description": null,
+    "key": "https://acc.api.data.amsterdam.nl/signals/v1/public/terms/categories/wegen-verkeer-straatmeubilair",
+    "sub": [
+      {
+        "_display": "Autom. Verzinkbare palen (Wegen, verkeer, straatmeubilair)",
+        "fk":"92",
+        "sla": {
+          "n_days": 21,
+          "use_calendar_days": true
+        },
+        "icon": null,
+        "name": "Autom. Verzinkbare palen",
+        "slug": "autom-verzinkbare-palen",
+        "handling_message": "\nWij handelen uw melding binnen drie weken af. U ontvangt dan geen apart bericht meer.\nEn anders hoort u - via e-mail - wanneer wij uw melding kunnen oppakken.",
+        "value": "Autom. Verzinkbare palen",
+        "parentKey": "https://acc.api.data.amsterdam.nl/signals/v1/public/terms/categories/wegen-verkeer-straatmeubilair",
+        "_links": {
+          "curies": {
+            "name": "sia",
+            "href": "https://acc.api.data.amsterdam.nl/signals/v1/relations"
+          },
+          "self": {
+            "href": "https://acc.api.data.amsterdam.nl/signals/v1/private/categories/92",
+            "public": "https://acc.api.data.amsterdam.nl/signals/v1/public/terms/categories/wegen-verkeer-straatmeubilair/sub_categories/autom-verzinkbare-palen"
+          },
+          "sia:status-message-templates": {
+            "href": "https://acc.api.data.amsterdam.nl/signals/v1/private/terms/categories/wegen-verkeer-straatmeubilair/sub_categories/autom-verzinkbare-palen/status-message-templates"
+          },
+          "sia:parent": {
+            "href": "https://acc.api.data.amsterdam.nl/signals/v1/private/categories/80",
+            "public": "https://acc.api.data.amsterdam.nl/signals/v1/public/terms/categories/wegen-verkeer-straatmeubilair"
+          }
+        },
+        "id": "https://acc.api.data.amsterdam.nl/signals/v1/public/terms/categories/wegen-verkeer-straatmeubilair/sub_categories/autom-verzinkbare-palen",
+        "is_active": true,
+        "description": null,
+        "key": "https://acc.api.data.amsterdam.nl/signals/v1/public/terms/categories/wegen-verkeer-straatmeubilair/sub_categories/autom-verzinkbare-palen"
+      }
+    ]
+  }
+}

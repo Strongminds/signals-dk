@@ -1,0 +1,12 @@
+{
+  "id": 6010,
+  "status": "m",
+  "statusDisplayName": "Gemeld",
+  "childrenCount": 0,
+  "priority": "normal",
+  "subcategory": "https://acc.api.data.amsterdam.nl/signals/v1/public/terms/categories/civiele-constructies/sub_categories/afwatering-brug",
+  "subcategoryDisplayName": "STW",
+  "description": "Het wegdek van de oprit naar ons hotel is kapot. Kunnen jullie dit snel maken?",
+  "type": "SIG",
+  "directingDepartment": "null"
+}

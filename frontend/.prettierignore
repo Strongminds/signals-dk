@@ -1,0 +1,8 @@
+build
+coverage
+dist
+internals/generators
+node_modules
+
+package-lock.json
+stats.json
