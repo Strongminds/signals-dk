@@ -1,0 +1,143 @@
+{
+  "_links": {
+    "self": {
+      "href": "https://acc.api.data.amsterdam.nl/signals/v1/private/departments/6"
+    }
+  },
+  "_display": "ASC (Actie Service Centrum)",
+  "id": 6,
+  "name": "Actie Service Centrum",
+  "code": "ASC",
+  "is_intern": true,
+  "categories": [
+    {
+      "id": 1579,
+      "category": {
+        "_links": {
+          "curies": {
+            "name": "sia",
+            "href": "https://acc.api.data.amsterdam.nl/signals/v1/relations"
+          },
+          "self": {
+            "href": "https://acc.api.data.amsterdam.nl/signals/v1/public/terms/categories/openbaar-groen-en-water/sub_categories/boom-boomstob"
+          }
+        },
+        "_display": "Boom - boomstob (Openbaar groen en water)",
+        "id": 131,
+        "name": "Boom - boomstob",
+        "slug": "boom-boomstob",
+        "handling": "I5DMC",
+        "departments": [
+          {
+            "code": "STW",
+            "name": "Stadswerken",
+            "is_intern": true
+          }
+        ],
+        "is_active": true,
+        "description": null,
+        "handling_message": "\nUw melding wordt ingepland: wij laten u binnen 5 werkdagen weten hoe en wanneer uw melding wordt afgehandeld. Dat doen we via e-mail."
+      },
+      "is_responsible": true,
+      "can_view": true
+    },
+    {
+      "id": 1580,
+      "category": {
+        "_links": {
+          "curies": {
+            "name": "sia",
+            "href": "https://acc.api.data.amsterdam.nl/signals/v1/relations"
+          },
+          "self": {
+            "href": "https://acc.api.data.amsterdam.nl/signals/v1/public/terms/categories/afval/sub_categories/container-glas-kapot"
+          }
+        },
+        "_display": "Container glas kapot (Afval)",
+        "id": 132,
+        "name": "Container glas kapot",
+        "slug": "container-glas-kapot",
+        "handling": "A3WMC",
+        "departments": [
+          {
+            "code": "AEG",
+            "name": "Afval en Grondstoffen",
+            "is_intern": true
+          }
+        ],
+        "is_active": true,
+        "description": null,
+        "handling_message": "\nWe laten u binnen 3 weken weten wat we hebben gedaan. En anders hoort u wanneer wij uw melding kunnen oppakken.\nWe houden u op de hoogte via e-mail."
+      },
+      "is_responsible": false,
+      "can_view": false
+    },
+    {
+      "id": 1581,
+      "category": {
+        "_links": {
+          "curies": {
+            "name": "sia",
+            "href": "https://acc.api.data.amsterdam.nl/signals/v1/relations"
+          },
+          "self": {
+            "href": "https://acc.api.data.amsterdam.nl/signals/v1/public/terms/categories/afval/sub_categories/container-glas-vol"
+          }
+        },
+        "_display": "Container glas vol (Afval)",
+        "id": 133,
+        "name": "Container glas vol",
+        "slug": "container-glas-vol",
+        "handling": "A3WMC",
+        "departments": [
+          {
+            "code": "AEG",
+            "name": "Afval en Grondstoffen",
+            "is_intern": true
+          }
+        ],
+        "is_active": true,
+        "description": null,
+        "handling_message": "\nWe laten u binnen 3 weken weten wat we hebben gedaan. En anders hoort u wanneer wij uw melding kunnen oppakken.\nWe houden u op de hoogte via e-mail."
+      },
+      "is_responsible": false,
+      "can_view": false
+    },
+    {
+      "id": 1557,
+      "category": {
+        "_links": {
+          "curies": {
+            "name": "sia",
+            "href": "https://acc.api.data.amsterdam.nl/signals/v1/relations"
+          },
+          "self": {
+            "href": "https://acc.api.data.amsterdam.nl/signals/v1/public/terms/categories/wegen-verkeer-straatmeubilair/sub_categories/autom-verzinkbare-palen"
+          }
+        },
+        "_display": "Autom. Verzinkbare palen (Wegen, verkeer, straatmeubilair)",
+        "id": 103,
+        "name": "Autom. Verzinkbare palen",
+        "slug": "autom-verzinkbare-palen",
+        "handling": "I5DMC",
+        "departments": [
+          {
+            "code": "ASC",
+            "name": "Actie Service Centrum",
+            "is_intern": true
+          },
+          {
+            "code": "THO",
+            "name": "THOR",
+            "is_intern": true
+          }
+        ],
+        "is_active": true,
+        "description": null,
+        "handling_message": "\nUw melding wordt ingepland: wij laten u binnen 5 werkdagen weten hoe en wanneer uw melding wordt afgehandeld. Dat doen we via e-mail."
+      },
+      "is_responsible": false,
+      "can_view": true
+    }
+  ]
+}

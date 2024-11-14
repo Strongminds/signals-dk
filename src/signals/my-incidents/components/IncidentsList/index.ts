@@ -1,0 +1,1 @@
+export { IncidentsList } from './IncidentsList'

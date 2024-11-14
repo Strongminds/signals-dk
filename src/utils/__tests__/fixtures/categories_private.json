@@ -1,0 +1,1196 @@
+{
+  "_links": {
+    "self": {
+      "href": "https://acc.api.data.amsterdam.nl/signals/v1/private/categories/?page_size=10"
+    },
+    "next": {
+      "href": "https://acc.api.data.amsterdam.nl/signals/v1/private/categories/?page=2&page_size=10"
+    },
+    "previous": {
+      "href": null
+    }
+  },
+  "count": 169,
+  "results": [
+    {
+      "_links": {
+        "curies": {
+          "name": "sia",
+          "href": "https://acc.api.data.amsterdam.nl/signals/v1/relations"
+        },
+        "self": {
+          "href": "https://acc.api.data.amsterdam.nl/signals/v1/private/categories/79",
+          "public": "https://acc.api.data.amsterdam.nl/signals/v1/public/terms/categories/afval"
+        },
+        "archives": {
+          "href": "https://acc.api.data.amsterdam.nl/signals/v1/private/categories/79/history"
+        },
+        "sia:status-message-templates": {
+          "href": "https://acc.api.data.amsterdam.nl/signals/v1/private/terms/categories/afval/status-message-templates"
+        }
+      },
+      "icon": null,
+      "_display": "Afval",
+      "id": 79,
+      "name": "Afval",
+      "slug": "afval",
+      "is_active": true,
+      "is_public_accessible": false,
+      "public_name": null,
+      "description": null,
+      "handling_message": "Wij bekijken uw melding en zorgen dat het juiste onderdeel van de gemeente deze gaat behandelen. Heeft u contactgegevens achtergelaten? Dan nemen wij bij onduidelijkheid contact met u op.",
+      "sla": {
+        "n_days": null,
+        "use_calendar_days": null
+      },
+      "departments": [],
+      "note": null
+    },
+    {
+      "_links": {
+        "curies": {
+          "name": "sia",
+          "href": "https://acc.api.data.amsterdam.nl/signals/v1/relations"
+        },
+        "self": {
+          "href": "https://acc.api.data.amsterdam.nl/signals/v1/private/categories/145",
+          "public": "https://acc.api.data.amsterdam.nl/signals/v1/public/terms/categories/civiele-constructies/sub_categories/afwatering-brug"
+        },
+        "archives": {
+          "href": "https://acc.api.data.amsterdam.nl/signals/v1/private/categories/145/history"
+        },
+        "sia:status-message-templates": {
+          "href": "https://acc.api.data.amsterdam.nl/signals/v1/private/terms/categories/civiele-constructies/sub_categories/afwatering-brug/status-message-templates"
+        },
+        "sia:parent": {
+          "href": "https://acc.api.data.amsterdam.nl/signals/v1/private/categories/106",
+          "public": "https://acc.api.data.amsterdam.nl/signals/v1/public/terms/categories/civiele-constructies"
+        }
+      },
+      "icon": null,
+      "_display": "Afwatering brug (Civiele Constructies)",
+      "id": 145,
+      "name": "Afwatering brug",
+      "slug": "afwatering-brug",
+      "is_active": true,
+      "is_public_accessible": false,
+      "public_name": null,
+      "description": "Dit is het verhaal van de brug die moest afwateren.",
+      "handling_message": "Wij beoordelen uw melding. Urgente meldingen pakken we zo snel mogelijk op. Overige meldingen handelen we binnen een week af. We houden u op de hoogte via e-mail.",
+      "sla": {
+        "n_days": 5,
+        "use_calendar_days": false
+      },
+      "departments": [
+        {
+          "id": 6,
+          "code": "ASC",
+          "name": "Actie Service Centrum",
+          "is_intern": true,
+          "is_responsible": false,
+          "can_view": true
+        },
+        {
+          "id": 9,
+          "code": "VOR",
+          "name": "V&OR",
+          "is_intern": true,
+          "is_responsible": true,
+          "can_view": true
+        },
+        {
+          "id": 4,
+          "code": "STW",
+          "name": "Stadswerken",
+          "is_intern": true,
+          "is_responsible": true,
+          "can_view": true
+        },
+        {
+          "id": 22,
+          "code": "MRB",
+          "name": "Marktbureau",
+          "is_intern": false,
+          "is_responsible": false,
+          "can_view": true
+        },
+        {
+          "id": 21,
+          "code": "PRK",
+          "name": "Parkeren",
+          "is_intern": false,
+          "is_responsible": false,
+          "can_view": true
+        },
+        {
+          "id": 24,
+          "code": "STD",
+          "name": "Stadsdelen",
+          "is_intern": false,
+          "is_responsible": false,
+          "can_view": true
+        },
+        {
+          "id": 23,
+          "code": "VTW",
+          "name": "VTW",
+          "is_intern": false,
+          "is_responsible": false,
+          "can_view": true
+        },
+        {
+          "id": 20,
+          "code": "AB",
+          "name": "Amsterdamse Bos",
+          "is_intern": true,
+          "is_responsible": false,
+          "can_view": true
+        }
+      ],
+      "note": "",
+      "configuration": {
+        "show_children_in_filter": true
+      }
+    },
+    {
+      "_links": {
+        "curies": {
+          "name": "sia",
+          "href": "https://acc.api.data.amsterdam.nl/signals/v1/relations"
+        },
+        "self": {
+          "href": "https://acc.api.data.amsterdam.nl/signals/v1/private/categories/10",
+          "public": "https://acc.api.data.amsterdam.nl/signals/v1/public/terms/categories/afval/sub_categories/asbest-accu"
+        },
+        "archives": {
+          "href": "https://acc.api.data.amsterdam.nl/signals/v1/private/categories/10/history"
+        },
+        "sia:status-message-templates": {
+          "href": "https://acc.api.data.amsterdam.nl/signals/v1/private/terms/categories/afval/sub_categories/asbest-accu/status-message-templates"
+        },
+        "sia:parent": {
+          "href": "https://acc.api.data.amsterdam.nl/signals/v1/private/categories/79",
+          "public": "https://acc.api.data.amsterdam.nl/signals/v1/public/terms/categories/afval"
+        }
+      },
+      "icon": null,
+      "_display": "Asbest / accu (Afval)",
+      "id": 10,
+      "name": "Asbest / accu",
+      "slug": "asbest-accu",
+      "is_active": true,
+      "is_public_accessible": false,
+      "public_name": null,
+      "description": "Alles met betrekking tot asbest gerelateerd afval en bijtende/corrosieve vloeistoffen. test 233",
+      "handling_message": "We laten u binnen 3 werkdagen weten wat we hebben gedaan. En anders hoort u wanneer wij uw melding kunnen oppakken.\nWe houden u op de hoogte via e-mail. test",
+      "sla": {
+        "n_days": 4,
+        "use_calendar_days": false
+      },
+      "departments": [
+        {
+          "id": 6,
+          "code": "ASC",
+          "name": "Actie Service Centrum",
+          "is_intern": true,
+          "is_responsible": false,
+          "can_view": true
+        },
+        {
+          "id": 4,
+          "code": "STW",
+          "name": "Stadswerken",
+          "is_intern": true,
+          "is_responsible": false,
+          "can_view": true
+        },
+        {
+          "id": 22,
+          "code": "MRB",
+          "name": "Marktbureau",
+          "is_intern": false,
+          "is_responsible": false,
+          "can_view": true
+        },
+        {
+          "id": 21,
+          "code": "PRK",
+          "name": "Parkeren",
+          "is_intern": false,
+          "is_responsible": false,
+          "can_view": true
+        },
+        {
+          "id": 24,
+          "code": "STD",
+          "name": "Stadsdelen",
+          "is_intern": false,
+          "is_responsible": false,
+          "can_view": true
+        },
+        {
+          "id": 23,
+          "code": "VTW",
+          "name": "VTW",
+          "is_intern": false,
+          "is_responsible": false,
+          "can_view": true
+        },
+        {
+          "id": 16,
+          "code": "FB",
+          "name": "FB",
+          "is_intern": true,
+          "is_responsible": true,
+          "can_view": true
+        },
+        {
+          "id": 5,
+          "code": "AEG",
+          "name": "Afval en Grondstoffen",
+          "is_intern": true,
+          "is_responsible": false,
+          "can_view": true
+        },
+        {
+          "id": 20,
+          "code": "AB",
+          "name": "Amsterdamse Bos",
+          "is_intern": true,
+          "is_responsible": false,
+          "can_view": true
+        },
+        {
+          "id": 2,
+          "code": "THO",
+          "name": "THOR",
+          "is_intern": true,
+          "is_responsible": true,
+          "can_view": true
+        }
+      ],
+      "note": null
+    },
+    {
+      "_links": {
+        "curies": {
+          "name": "sia",
+          "href": "https://acc.api.data.amsterdam.nl/signals/v1/relations"
+        },
+        "self": {
+          "href": "https://acc.api.data.amsterdam.nl/signals/v1/private/categories/34",
+          "public": "https://acc.api.data.amsterdam.nl/signals/v1/public/terms/categories/overlast-in-de-openbare-ruimte/sub_categories/auto-scooter-bromfietswrak"
+        },
+        "archives": {
+          "href": "https://acc.api.data.amsterdam.nl/signals/v1/private/categories/34/history"
+        },
+        "sia:status-message-templates": {
+          "href": "https://acc.api.data.amsterdam.nl/signals/v1/private/terms/categories/overlast-in-de-openbare-ruimte/sub_categories/auto-scooter-bromfietswrak/status-message-templates"
+        },
+        "sia:parent": {
+          "href": "https://acc.api.data.amsterdam.nl/signals/v1/private/categories/81",
+          "public": "https://acc.api.data.amsterdam.nl/signals/v1/public/terms/categories/overlast-in-de-openbare-ruimte"
+        }
+      },
+      "icon": null,
+      "_display": "Auto- / scooter- / bromfiets(wrak) (Overlast in de openbare ruimte)",
+      "id": 34,
+      "name": "Auto- / scooter- / bromfiets(wrak)",
+      "slug": "auto-scooter-bromfietswrak",
+      "is_active": true,
+      "is_public_accessible": false,
+      "public_name": null,
+      "description": "Het wrak van een auto, scooter of bromfiets.",
+      "handling_message": "We laten u binnen 3 weken weten wat we hebben gedaan. En anders hoort u wanneer wij uw melding kunnen oppakken.\nWe houden u op de hoogte via e-mail.",
+      "sla": {
+        "n_days": 21,
+        "use_calendar_days": true
+      },
+      "departments": [
+        {
+          "id": 6,
+          "code": "ASC",
+          "name": "Actie Service Centrum",
+          "is_intern": true,
+          "is_responsible": true,
+          "can_view": true
+        },
+        {
+          "id": 9,
+          "code": "VOR",
+          "name": "V&OR",
+          "is_intern": true,
+          "is_responsible": false,
+          "can_view": true
+        },
+        {
+          "id": 4,
+          "code": "STW",
+          "name": "Stadswerken",
+          "is_intern": true,
+          "is_responsible": false,
+          "can_view": true
+        },
+        {
+          "id": 22,
+          "code": "MRB",
+          "name": "Marktbureau",
+          "is_intern": false,
+          "is_responsible": false,
+          "can_view": true
+        },
+        {
+          "id": 21,
+          "code": "PRK",
+          "name": "Parkeren",
+          "is_intern": false,
+          "is_responsible": false,
+          "can_view": true
+        },
+        {
+          "id": 24,
+          "code": "STD",
+          "name": "Stadsdelen",
+          "is_intern": false,
+          "is_responsible": false,
+          "can_view": true
+        },
+        {
+          "id": 23,
+          "code": "VTW",
+          "name": "VTW",
+          "is_intern": false,
+          "is_responsible": false,
+          "can_view": true
+        },
+        {
+          "id": 20,
+          "code": "AB",
+          "name": "Amsterdamse Bos",
+          "is_intern": true,
+          "is_responsible": false,
+          "can_view": true
+        },
+        {
+          "id": 12,
+          "code": "CCA",
+          "name": "CCA",
+          "is_intern": true,
+          "is_responsible": false,
+          "can_view": true
+        },
+        {
+          "id": 2,
+          "code": "THO",
+          "name": "THOR",
+          "is_intern": true,
+          "is_responsible": true,
+          "can_view": true
+        }
+      ],
+      "note": "Test"
+    },
+    {
+      "_links": {
+        "curies": {
+          "name": "sia",
+          "href": "https://acc.api.data.amsterdam.nl/signals/v1/relations"
+        },
+        "self": {
+          "href": "https://acc.api.data.amsterdam.nl/signals/v1/private/categories/92",
+          "public": "https://acc.api.data.amsterdam.nl/signals/v1/public/terms/categories/wegen-verkeer-straatmeubilair/sub_categories/autom-verzinkbare-palen"
+        },
+        "archives": {
+          "href": "https://acc.api.data.amsterdam.nl/signals/v1/private/categories/92/history"
+        },
+        "sia:status-message-templates": {
+          "href": "https://acc.api.data.amsterdam.nl/signals/v1/private/terms/categories/wegen-verkeer-straatmeubilair/sub_categories/autom-verzinkbare-palen/status-message-templates"
+        },
+        "sia:parent": {
+          "href": "https://acc.api.data.amsterdam.nl/signals/v1/private/categories/80",
+          "public": "https://acc.api.data.amsterdam.nl/signals/v1/public/terms/categories/wegen-verkeer-straatmeubilair"
+        }
+      },
+      "icon": null,
+      "_display": "Autom. Verzinkbare palen (Wegen, verkeer, straatmeubilair)",
+      "id": 92,
+      "name": "Autom. Verzinkbare palen",
+      "slug": "autom-verzinkbare-palen",
+      "is_active": true,
+      "is_public_accessible": false,
+      "public_name": null,
+      "description": "",
+      "handling_message": "Wij handelen uw melding binnen drie weken af. U ontvangt dan geen apart bericht meer.\nEn anders hoort u - via e-mail - wanneer wij uw melding kunnen oppakken.",
+      "sla": {
+        "n_days": 21,
+        "use_calendar_days": true
+      },
+      "departments": [
+        {
+          "id": 6,
+          "code": "ASC",
+          "name": "Actie Service Centrum",
+          "is_intern": true,
+          "is_responsible": false,
+          "can_view": true
+        },
+        {
+          "id": 9,
+          "code": "VOR",
+          "name": "V&OR",
+          "is_intern": true,
+          "is_responsible": true,
+          "can_view": true
+        },
+        {
+          "id": 4,
+          "code": "STW",
+          "name": "Stadswerken",
+          "is_intern": true,
+          "is_responsible": false,
+          "can_view": true
+        },
+        {
+          "id": 22,
+          "code": "MRB",
+          "name": "Marktbureau",
+          "is_intern": false,
+          "is_responsible": false,
+          "can_view": true
+        },
+        {
+          "id": 21,
+          "code": "PRK",
+          "name": "Parkeren",
+          "is_intern": false,
+          "is_responsible": false,
+          "can_view": true
+        },
+        {
+          "id": 23,
+          "code": "VTW",
+          "name": "VTW",
+          "is_intern": false,
+          "is_responsible": false,
+          "can_view": true
+        },
+        {
+          "id": 24,
+          "code": "STD",
+          "name": "Stadsdelen",
+          "is_intern": false,
+          "is_responsible": false,
+          "can_view": true
+        },
+        {
+          "id": 20,
+          "code": "AB",
+          "name": "Amsterdamse Bos",
+          "is_intern": true,
+          "is_responsible": false,
+          "can_view": true
+        },
+        {
+          "id": 12,
+          "code": "CCA",
+          "name": "CCA",
+          "is_intern": true,
+          "is_responsible": false,
+          "can_view": true
+        }
+      ],
+      "note": ""
+    },
+    {
+      "_links": {
+        "curies": {
+          "name": "sia",
+          "href": "https://acc.api.data.amsterdam.nl/signals/v1/relations"
+        },
+        "self": {
+          "href": "https://acc.api.data.amsterdam.nl/signals/v1/private/categories/4",
+          "public": "https://acc.api.data.amsterdam.nl/signals/v1/public/terms/categories/afval/sub_categories/bedrijfsafval"
+        },
+        "archives": {
+          "href": "https://acc.api.data.amsterdam.nl/signals/v1/private/categories/4/history"
+        },
+        "sia:status-message-templates": {
+          "href": "https://acc.api.data.amsterdam.nl/signals/v1/private/terms/categories/afval/sub_categories/bedrijfsafval/status-message-templates"
+        },
+        "sia:parent": {
+          "href": "https://acc.api.data.amsterdam.nl/signals/v1/private/categories/79",
+          "public": "https://acc.api.data.amsterdam.nl/signals/v1/public/terms/categories/afval"
+        }
+      },
+      "icon": null,
+      "_display": "Bedrijfsafval (Afval)",
+      "id": 4,
+      "name": "Bedrijfsafval",
+      "slug": "bedrijfsafval",
+      "is_active": true,
+      "is_public_accessible": false,
+      "public_name": null,
+      "description": "Afval van een bedrijf en andere gebouwen en dingen",
+      "handling_message": "We laten u binnen 5 dagen weten wat we hebben gedaan. En anders hoort u wanneer wij uw melding kunnen oppakken.\nWe houden u op de hoogte via e-mail.",
+      "sla": {
+        "n_days": 5,
+        "use_calendar_days": true
+      },
+      "departments": [
+        {
+          "id": 6,
+          "code": "ASC",
+          "name": "Actie Service Centrum",
+          "is_intern": true,
+          "is_responsible": false,
+          "can_view": true
+        }
+      ],
+      "note": "test"
+    },
+    {
+      "_links": {
+        "curies": {
+          "name": "sia",
+          "href": "https://acc.api.data.amsterdam.nl/signals/v1/relations"
+        },
+        "self": {
+          "href": "https://acc.api.data.amsterdam.nl/signals/v1/private/categories/152",
+          "public": "https://acc.api.data.amsterdam.nl/signals/v1/public/terms/categories/openbaar-groen-en-water/sub_categories/beplanting"
+        },
+        "archives": {
+          "href": "https://acc.api.data.amsterdam.nl/signals/v1/private/categories/152/history"
+        },
+        "sia:status-message-templates": {
+          "href": "https://acc.api.data.amsterdam.nl/signals/v1/private/terms/categories/openbaar-groen-en-water/sub_categories/beplanting/status-message-templates"
+        },
+        "sia:parent": {
+          "href": "https://acc.api.data.amsterdam.nl/signals/v1/private/categories/82",
+          "public": "https://acc.api.data.amsterdam.nl/signals/v1/public/terms/categories/openbaar-groen-en-water"
+        }
+      },
+      "icon": null,
+      "_display": "Beplanting (Openbaar groen en water)",
+      "id": 152,
+      "name": "Beplanting",
+      "slug": "beplanting",
+      "is_active": true,
+      "is_public_accessible": false,
+      "public_name": null,
+      "description": "",
+      "handling_message": "Uw melding wordt ingepland: wij laten u binnen 5 werkdagen weten hoe en wanneer uw melding wordt afgehandeld. Dat doen we via e-mail.",
+      "sla": {
+        "n_days": 5,
+        "use_calendar_days": false
+      },
+      "departments": [
+        {
+          "id": 6,
+          "code": "ASC",
+          "name": "Actie Service Centrum",
+          "is_intern": true,
+          "is_responsible": false,
+          "can_view": true
+        },
+        {
+          "id": 9,
+          "code": "VOR",
+          "name": "V&OR",
+          "is_intern": true,
+          "is_responsible": false,
+          "can_view": true
+        },
+        {
+          "id": 4,
+          "code": "STW",
+          "name": "Stadswerken",
+          "is_intern": true,
+          "is_responsible": true,
+          "can_view": true
+        },
+        {
+          "id": 22,
+          "code": "MRB",
+          "name": "Marktbureau",
+          "is_intern": false,
+          "is_responsible": false,
+          "can_view": true
+        },
+        {
+          "id": 1,
+          "code": "POA",
+          "name": "Port of Amsterdam",
+          "is_intern": false,
+          "is_responsible": false,
+          "can_view": true
+        },
+        {
+          "id": 3,
+          "code": "WAT",
+          "name": "Waternet",
+          "is_intern": false,
+          "is_responsible": false,
+          "can_view": true
+        },
+        {
+          "id": 10,
+          "code": "OVL",
+          "name": "V&OR OVL",
+          "is_intern": true,
+          "is_responsible": false,
+          "can_view": true
+        },
+        {
+          "id": 15,
+          "code": "VTH",
+          "name": "VTH",
+          "is_intern": true,
+          "is_responsible": false,
+          "can_view": true
+        },
+        {
+          "id": 8,
+          "code": "GGD",
+          "name": "GGD",
+          "is_intern": false,
+          "is_responsible": false,
+          "can_view": true
+        },
+        {
+          "id": 14,
+          "code": "OMG",
+          "name": "Omgevingsdienst",
+          "is_intern": true,
+          "is_responsible": false,
+          "can_view": true
+        },
+        {
+          "id": 21,
+          "code": "PRK",
+          "name": "Parkeren",
+          "is_intern": false,
+          "is_responsible": false,
+          "can_view": true
+        },
+        {
+          "id": 24,
+          "code": "STD",
+          "name": "Stadsdelen",
+          "is_intern": false,
+          "is_responsible": false,
+          "can_view": true
+        },
+        {
+          "id": 7,
+          "code": "POL",
+          "name": "Politie",
+          "is_intern": false,
+          "is_responsible": false,
+          "can_view": true
+        },
+        {
+          "id": 23,
+          "code": "VTW",
+          "name": "VTW",
+          "is_intern": false,
+          "is_responsible": false,
+          "can_view": true
+        },
+        {
+          "id": 16,
+          "code": "FB",
+          "name": "FB",
+          "is_intern": true,
+          "is_responsible": false,
+          "can_view": true
+        },
+        {
+          "id": 11,
+          "code": "VRI",
+          "name": "V&OR VRI",
+          "is_intern": true,
+          "is_responsible": false,
+          "can_view": true
+        },
+        {
+          "id": 5,
+          "code": "AEG",
+          "name": "Afval en Grondstoffen",
+          "is_intern": true,
+          "is_responsible": false,
+          "can_view": true
+        },
+        {
+          "id": 17,
+          "code": "VIS",
+          "name": "V&OR - VIS",
+          "is_intern": true,
+          "is_responsible": false,
+          "can_view": true
+        },
+        {
+          "id": 18,
+          "code": "OOV",
+          "name": "Openbare Orde & Veiligheid",
+          "is_intern": true,
+          "is_responsible": false,
+          "can_view": true
+        },
+        {
+          "id": 20,
+          "code": "AB",
+          "name": "Amsterdamse Bos",
+          "is_intern": true,
+          "is_responsible": false,
+          "can_view": true
+        },
+        {
+          "id": 12,
+          "code": "CCA",
+          "name": "CCA",
+          "is_intern": true,
+          "is_responsible": false,
+          "can_view": true
+        },
+        {
+          "id": 2,
+          "code": "THO",
+          "name": "THOR",
+          "is_intern": true,
+          "is_responsible": false,
+          "can_view": true
+        },
+        {
+          "id": 13,
+          "code": "STL",
+          "name": "Stadsloket",
+          "is_intern": true,
+          "is_responsible": false,
+          "can_view": true
+        }
+      ],
+      "note": "Test #3"
+    },
+    {
+      "_links": {
+        "curies": {
+          "name": "sia",
+          "href": "https://acc.api.data.amsterdam.nl/signals/v1/relations"
+        },
+        "self": {
+          "href": "https://acc.api.data.amsterdam.nl/signals/v1/private/categories/93",
+          "public": "https://acc.api.data.amsterdam.nl/signals/v1/public/terms/categories/wegen-verkeer-straatmeubilair/sub_categories/bewegwijzering"
+        },
+        "archives": {
+          "href": "https://acc.api.data.amsterdam.nl/signals/v1/private/categories/93/history"
+        },
+        "sia:status-message-templates": {
+          "href": "https://acc.api.data.amsterdam.nl/signals/v1/private/terms/categories/wegen-verkeer-straatmeubilair/sub_categories/bewegwijzering/status-message-templates"
+        },
+        "sia:parent": {
+          "href": "https://acc.api.data.amsterdam.nl/signals/v1/private/categories/80",
+          "public": "https://acc.api.data.amsterdam.nl/signals/v1/public/terms/categories/wegen-verkeer-straatmeubilair"
+        }
+      },
+      "icon": null,
+      "_display": "Bewegwijzering (Wegen, verkeer, straatmeubilair)",
+      "id": 93,
+      "name": "Bewegwijzering",
+      "slug": "bewegwijzering",
+      "is_active": true,
+      "is_public_accessible": false,
+      "public_name": null,
+      "description": "test",
+      "handling_message": "Wij handelen uw melding binnen drie weken af. U ontvangt dan geen apart bericht meer.\nEn anders hoort u - via e-mail - wanneer wij uw melding kunnen oppakken.",
+      "sla": {
+        "n_days": 21,
+        "use_calendar_days": true
+      },
+      "departments": [
+        {
+          "id": 6,
+          "code": "ASC",
+          "name": "Actie Service Centrum",
+          "is_intern": true,
+          "is_responsible": false,
+          "can_view": true
+        },
+        {
+          "id": 9,
+          "code": "VOR",
+          "name": "V&OR",
+          "is_intern": true,
+          "is_responsible": true,
+          "can_view": true
+        },
+        {
+          "id": 4,
+          "code": "STW",
+          "name": "Stadswerken",
+          "is_intern": true,
+          "is_responsible": false,
+          "can_view": true
+        },
+        {
+          "id": 22,
+          "code": "MRB",
+          "name": "Marktbureau",
+          "is_intern": false,
+          "is_responsible": false,
+          "can_view": true
+        },
+        {
+          "id": 21,
+          "code": "PRK",
+          "name": "Parkeren",
+          "is_intern": false,
+          "is_responsible": false,
+          "can_view": true
+        },
+        {
+          "id": 23,
+          "code": "VTW",
+          "name": "VTW",
+          "is_intern": false,
+          "is_responsible": false,
+          "can_view": true
+        },
+        {
+          "id": 24,
+          "code": "STD",
+          "name": "Stadsdelen",
+          "is_intern": false,
+          "is_responsible": false,
+          "can_view": true
+        },
+        {
+          "id": 20,
+          "code": "AB",
+          "name": "Amsterdamse Bos",
+          "is_intern": true,
+          "is_responsible": false,
+          "can_view": true
+        },
+        {
+          "id": 12,
+          "code": "CCA",
+          "name": "CCA",
+          "is_intern": true,
+          "is_responsible": false,
+          "can_view": true
+        }
+      ],
+      "note": ""
+    },
+    {
+      "_links": {
+        "curies": {
+          "name": "sia",
+          "href": "https://acc.api.data.amsterdam.nl/signals/v1/relations"
+        },
+        "self": {
+          "href": "https://acc.api.data.amsterdam.nl/signals/v1/private/categories/134",
+          "public": "https://acc.api.data.amsterdam.nl/signals/v1/public/terms/categories/overlast-op-het-water/sub_categories/blokkade-van-de-vaarweg"
+        },
+        "archives": {
+          "href": "https://acc.api.data.amsterdam.nl/signals/v1/private/categories/134/history"
+        },
+        "sia:status-message-templates": {
+          "href": "https://acc.api.data.amsterdam.nl/signals/v1/private/terms/categories/overlast-op-het-water/sub_categories/blokkade-van-de-vaarweg/status-message-templates"
+        },
+        "sia:parent": {
+          "href": "https://acc.api.data.amsterdam.nl/signals/v1/private/categories/86",
+          "public": "https://acc.api.data.amsterdam.nl/signals/v1/public/terms/categories/overlast-op-het-water"
+        }
+      },
+      "icon": null,
+      "_display": "Blokkade van de vaarweg (Overlast op het water)",
+      "id": 134,
+      "name": "Blokkade van de vaarweg",
+      "slug": "blokkade-van-de-vaarweg",
+      "is_active": true,
+      "is_public_accessible": false,
+      "public_name": null,
+      "description": "",
+      "handling_message": "Gevaarlijke situaties pakken wij zo snel mogelijk op. We laten u binnen 3 werkdagen weten wat we hebben gedaan. We houden u op de hoogte via e-mail.",
+      "sla": {
+        "n_days": 2,
+        "use_calendar_days": true
+      },
+      "departments": [
+        {
+          "id": 6,
+          "code": "ASC",
+          "name": "Actie Service Centrum",
+          "is_intern": true,
+          "is_responsible": true,
+          "can_view": true
+        },
+        {
+          "id": 9,
+          "code": "VOR",
+          "name": "V&OR",
+          "is_intern": true,
+          "is_responsible": false,
+          "can_view": true
+        },
+        {
+          "id": 4,
+          "code": "STW",
+          "name": "Stadswerken",
+          "is_intern": true,
+          "is_responsible": false,
+          "can_view": true
+        },
+        {
+          "id": 22,
+          "code": "MRB",
+          "name": "Marktbureau",
+          "is_intern": false,
+          "is_responsible": false,
+          "can_view": true
+        },
+        {
+          "id": 3,
+          "code": "WAT",
+          "name": "Waternet",
+          "is_intern": false,
+          "is_responsible": true,
+          "can_view": true
+        },
+        {
+          "id": 1,
+          "code": "POA",
+          "name": "Port of Amsterdam",
+          "is_intern": false,
+          "is_responsible": false,
+          "can_view": true
+        },
+        {
+          "id": 14,
+          "code": "OMG",
+          "name": "Omgevingsdienst",
+          "is_intern": true,
+          "is_responsible": false,
+          "can_view": true
+        },
+        {
+          "id": 10,
+          "code": "OVL",
+          "name": "V&OR OVL",
+          "is_intern": true,
+          "is_responsible": false,
+          "can_view": true
+        },
+        {
+          "id": 21,
+          "code": "PRK",
+          "name": "Parkeren",
+          "is_intern": false,
+          "is_responsible": false,
+          "can_view": true
+        },
+        {
+          "id": 7,
+          "code": "POL",
+          "name": "Politie",
+          "is_intern": false,
+          "is_responsible": false,
+          "can_view": true
+        },
+        {
+          "id": 23,
+          "code": "VTW",
+          "name": "VTW",
+          "is_intern": false,
+          "is_responsible": false,
+          "can_view": true
+        },
+        {
+          "id": 15,
+          "code": "VTH",
+          "name": "VTH",
+          "is_intern": true,
+          "is_responsible": false,
+          "can_view": true
+        },
+        {
+          "id": 11,
+          "code": "VRI",
+          "name": "V&OR VRI",
+          "is_intern": true,
+          "is_responsible": false,
+          "can_view": true
+        },
+        {
+          "id": 24,
+          "code": "STD",
+          "name": "Stadsdelen",
+          "is_intern": false,
+          "is_responsible": false,
+          "can_view": true
+        },
+        {
+          "id": 18,
+          "code": "OOV",
+          "name": "Openbare Orde & Veiligheid",
+          "is_intern": true,
+          "is_responsible": false,
+          "can_view": true
+        },
+        {
+          "id": 20,
+          "code": "AB",
+          "name": "Amsterdamse Bos",
+          "is_intern": true,
+          "is_responsible": false,
+          "can_view": true
+        },
+        {
+          "id": 17,
+          "code": "VIS",
+          "name": "V&OR - VIS",
+          "is_intern": true,
+          "is_responsible": false,
+          "can_view": true
+        },
+        {
+          "id": 12,
+          "code": "CCA",
+          "name": "CCA",
+          "is_intern": true,
+          "is_responsible": false,
+          "can_view": true
+        },
+        {
+          "id": 2,
+          "code": "THO",
+          "name": "THOR",
+          "is_intern": true,
+          "is_responsible": false,
+          "can_view": true
+        },
+        {
+          "id": 13,
+          "code": "STL",
+          "name": "Stadsloket",
+          "is_intern": true,
+          "is_responsible": false,
+          "can_view": true
+        }
+      ],
+      "note": null
+    },
+    {
+      "_links": {
+        "curies": {
+          "name": "sia",
+          "href": "https://acc.api.data.amsterdam.nl/signals/v1/relations"
+        },
+        "self": {
+          "href": "https://acc.api.data.amsterdam.nl/signals/v1/private/categories/113",
+          "public": "https://acc.api.data.amsterdam.nl/signals/v1/public/terms/categories/openbaar-groen-en-water/sub_categories/boom-aanvraag-plaatsing"
+        },
+        "archives": {
+          "href": "https://acc.api.data.amsterdam.nl/signals/v1/private/categories/113/history"
+        },
+        "sia:status-message-templates": {
+          "href": "https://acc.api.data.amsterdam.nl/signals/v1/private/terms/categories/openbaar-groen-en-water/sub_categories/boom-aanvraag-plaatsing/status-message-templates"
+        },
+        "sia:parent": {
+          "href": "https://acc.api.data.amsterdam.nl/signals/v1/private/categories/82",
+          "public": "https://acc.api.data.amsterdam.nl/signals/v1/public/terms/categories/openbaar-groen-en-water"
+        }
+      },
+      "icon": null,
+      "_display": "Boom - aanvraag plaatsing (Openbaar groen en water)",
+      "id": 113,
+      "name": "Boom - aanvraag plaatsing",
+      "slug": "boom-aanvraag-plaatsing",
+      "is_active": true,
+      "is_public_accessible": false,
+      "public_name": null,
+      "description": null,
+      "handling_message": "Uw melding wordt ingepland: wij laten u binnen 5 werkdagen weten hoe en wanneer uw melding wordt afgehandeld. Dat doen we via e-mail.",
+      "sla": {
+        "n_days": 5,
+        "use_calendar_days": false
+      },
+      "departments": [
+        {
+          "id": 6,
+          "code": "ASC",
+          "name": "Actie Service Centrum",
+          "is_intern": true,
+          "is_responsible": false,
+          "can_view": true
+        },
+        {
+          "id": 9,
+          "code": "VOR",
+          "name": "V&OR",
+          "is_intern": true,
+          "is_responsible": true,
+          "can_view": true
+        },
+        {
+          "id": 4,
+          "code": "STW",
+          "name": "Stadswerken",
+          "is_intern": true,
+          "is_responsible": false,
+          "can_view": true
+        },
+        {
+          "id": 22,
+          "code": "MRB",
+          "name": "Marktbureau",
+          "is_intern": false,
+          "is_responsible": false,
+          "can_view": true
+        },
+        {
+          "id": 21,
+          "code": "PRK",
+          "name": "Parkeren",
+          "is_intern": false,
+          "is_responsible": false,
+          "can_view": true
+        },
+        {
+          "id": 24,
+          "code": "STD",
+          "name": "Stadsdelen",
+          "is_intern": false,
+          "is_responsible": false,
+          "can_view": true
+        },
+        {
+          "id": 23,
+          "code": "VTW",
+          "name": "VTW",
+          "is_intern": false,
+          "is_responsible": false,
+          "can_view": true
+        },
+        {
+          "id": 20,
+          "code": "AB",
+          "name": "Amsterdamse Bos",
+          "is_intern": true,
+          "is_responsible": false,
+          "can_view": true
+        },
+        {
+          "id": 12,
+          "code": "CCA",
+          "name": "CCA",
+          "is_intern": true,
+          "is_responsible": false,
+          "can_view": true
+        }
+      ],
+      "note": null
+    }
+  ]
+}

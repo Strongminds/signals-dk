@@ -1,0 +1,366 @@
+{
+  "_links": {
+    "self": {
+      "href": "https://acc.api.data.amsterdam.nl/signals/v1/private/users/255657600"
+    }
+  },
+  "_display": "initial.lastname@amsterdam.nl",
+  "id": 255657600,
+  "username": "initial.lastname@amsterdam.nl",
+  "email": "initial.lastname@amsterdam.nl",
+  "first_name": "Firstname",
+  "last_name": "Lastname",
+  "is_active": true,
+  "is_staff": false,
+  "is_superuser": true,
+  "roles": [
+    {
+      "_links": {
+        "self": {
+          "href": "https://acc.api.data.amsterdam.nl/signals/v1/private/roles/2"
+        }
+      },
+      "_display": "Behandelaar",
+      "id": 2,
+      "name": "Behandelaar",
+      "permissions": [
+        {
+          "_links": {
+            "self": {
+              "href": "https://acc.api.data.amsterdam.nl/signals/v1/private/permissions/110"
+            }
+          },
+          "_display": "signals | signal | Leesrechten algemeen",
+          "id": 110,
+          "name": "Leesrechten algemeen",
+          "codename": "sia_read"
+        },
+        {
+          "_links": {
+            "self": {
+              "href": "https://acc.api.data.amsterdam.nl/signals/v1/private/permissions/164"
+            }
+          },
+          "_display": "signals | signal | Wijzigen van status van een melding",
+          "id": 164,
+          "name": "Wijzigen van status van een melding",
+          "codename": "sia_signal_change_status"
+        },
+        {
+          "_links": {
+            "self": {
+              "href": "https://acc.api.data.amsterdam.nl/signals/v1/private/permissions/162"
+            }
+          },
+          "_display": "signals | signal | Melding aanmaken",
+          "id": 162,
+          "name": "Melding aanmaken",
+          "codename": "sia_signal_create_initial"
+        },
+        {
+          "_links": {
+            "self": {
+              "href": "https://acc.api.data.amsterdam.nl/signals/v1/private/permissions/163"
+            }
+          },
+          "_display": "signals | signal | Notitie toevoegen bij een melding",
+          "id": 163,
+          "name": "Notitie toevoegen bij een melding",
+          "codename": "sia_signal_create_note"
+        },
+        {
+          "_links": {
+            "self": {
+              "href": "https://acc.api.data.amsterdam.nl/signals/v1/private/permissions/161"
+            }
+          },
+          "_display": "signals | signal | Splitsen van een melding",
+          "id": 161,
+          "name": "Splitsen van een melding",
+          "codename": "sia_split"
+        },
+        {
+          "_links": {
+            "self": {
+              "href": "https://acc.api.data.amsterdam.nl/signals/v1/private/permissions/111"
+            }
+          },
+          "_display": "signals | signal | Schrijfrechten algemeen",
+          "id": 111,
+          "name": "Schrijfrechten algemeen",
+          "codename": "sia_write"
+        }
+      ]
+    },
+    {
+      "_links": {
+        "self": {
+          "href": "https://acc.api.data.amsterdam.nl/signals/v1/private/roles/19"
+        }
+      },
+      "_display": "Regievoerder",
+      "id": 19,
+      "name": "Regievoerder",
+      "permissions": [
+        {
+          "_links": {
+            "self": {
+              "href": "https://acc.api.data.amsterdam.nl/signals/v1/private/permissions/168"
+            }
+          },
+          "_display": "signals | category | Bekijk all categorieën (overschrijft categorie rechten van afdeling)",
+          "id": 168,
+          "name": "Bekijk all categorieën (overschrijft categorie rechten van afdeling)",
+          "codename": "sia_can_view_all_categories"
+        },
+        {
+          "_links": {
+            "self": {
+              "href": "https://acc.api.data.amsterdam.nl/signals/v1/private/permissions/110"
+            }
+          },
+          "_display": "signals | signal | Leesrechten algemeen",
+          "id": 110,
+          "name": "Leesrechten algemeen",
+          "codename": "sia_read"
+        },
+        {
+          "_links": {
+            "self": {
+              "href": "https://acc.api.data.amsterdam.nl/signals/v1/private/permissions/165"
+            }
+          },
+          "_display": "signals | signal | Wijzigen van categorie van een melding",
+          "id": 165,
+          "name": "Wijzigen van categorie van een melding",
+          "codename": "sia_signal_change_category"
+        },
+        {
+          "_links": {
+            "self": {
+              "href": "https://acc.api.data.amsterdam.nl/signals/v1/private/permissions/164"
+            }
+          },
+          "_display": "signals | signal | Wijzigen van status van een melding",
+          "id": 164,
+          "name": "Wijzigen van status van een melding",
+          "codename": "sia_signal_change_status"
+        },
+        {
+          "_links": {
+            "self": {
+              "href": "https://acc.api.data.amsterdam.nl/signals/v1/private/permissions/162"
+            }
+          },
+          "_display": "signals | signal | Melding aanmaken",
+          "id": 162,
+          "name": "Melding aanmaken",
+          "codename": "sia_signal_create_initial"
+        },
+        {
+          "_links": {
+            "self": {
+              "href": "https://acc.api.data.amsterdam.nl/signals/v1/private/permissions/163"
+            }
+          },
+          "_display": "signals | signal | Notitie toevoegen bij een melding",
+          "id": 163,
+          "name": "Notitie toevoegen bij een melding",
+          "codename": "sia_signal_create_note"
+        },
+        {
+          "_links": {
+            "self": {
+              "href": "https://acc.api.data.amsterdam.nl/signals/v1/private/permissions/161"
+            }
+          },
+          "_display": "signals | signal | Splitsen van een melding",
+          "id": 161,
+          "name": "Splitsen van een melding",
+          "codename": "sia_split"
+        },
+        {
+          "_links": {
+            "self": {
+              "href": "https://acc.api.data.amsterdam.nl/signals/v1/private/permissions/111"
+            }
+          },
+          "_display": "signals | signal | Schrijfrechten algemeen",
+          "id": 111,
+          "name": "Schrijfrechten algemeen",
+          "codename": "sia_write"
+        },
+        {
+          "_links": {
+            "self": {
+              "href": "https://acc.api.data.amsterdam.nl/signals/v1/private/permissions/97"
+            }
+          },
+          "_display": "signals | status | Doorsturen van een melding (THOR)",
+          "id": 97,
+          "name": "Doorsturen van een melding (THOR)",
+          "codename": "push_to_sigmax"
+        }
+      ]
+    },
+    {
+      "_links": {
+        "self": {
+          "href": "https://acc.api.data.amsterdam.nl/signals/v1/private/roles/1"
+        }
+      },
+      "_display": "Monitor",
+      "id": 1,
+      "name": "Monitor",
+      "permissions": [
+        {
+          "_links": {
+            "self": {
+              "href": "https://acc.api.data.amsterdam.nl/signals/v1/private/permissions/168"
+            }
+          },
+          "_display": "signals | category | Bekijk all categorieën (overschrijft categorie rechten van afdeling)",
+          "id": 168,
+          "name": "Bekijk all categorieën (overschrijft categorie rechten van afdeling)",
+          "codename": "sia_can_view_all_categories"
+        },
+        {
+          "_links": {
+            "self": {
+              "href": "https://acc.api.data.amsterdam.nl/signals/v1/private/permissions/110"
+            }
+          },
+          "_display": "signals | signal | Leesrechten algemeen",
+          "id": 110,
+          "name": "Leesrechten algemeen",
+          "codename": "sia_read"
+        },
+        {
+          "_links": {
+            "self": {
+              "href": "https://acc.api.data.amsterdam.nl/signals/v1/private/permissions/162"
+            }
+          },
+          "_display": "signals | signal | Melding aanmaken",
+          "id": 162,
+          "name": "Melding aanmaken",
+          "codename": "sia_signal_create_initial"
+        },
+        {
+          "_links": {
+            "self": {
+              "href": "https://acc.api.data.amsterdam.nl/signals/v1/private/permissions/163"
+            }
+          },
+          "_display": "signals | signal | Notitie toevoegen bij een melding",
+          "id": 163,
+          "name": "Notitie toevoegen bij een melding",
+          "codename": "sia_signal_create_note"
+        },
+        {
+          "_links": {
+            "self": {
+              "href": "https://acc.api.data.amsterdam.nl/signals/v1/private/permissions/111"
+            }
+          },
+          "_display": "signals | signal | Schrijfrechten algemeen",
+          "id": 111,
+          "name": "Schrijfrechten algemeen",
+          "codename": "sia_write"
+        }
+      ]
+    }
+  ],
+  "permissions": [
+    {
+      "_links": {
+        "self": {
+          "href": "https://acc.api.data.amsterdam.nl/signals/v1/private/permissions/10"
+        }
+      },
+      "_display": "auth | groep | Can add group",
+      "id": 10,
+      "name": "Can add group",
+      "codename": "add_group"
+    },
+    {
+      "_links": {
+        "self": {
+          "href": "https://acc.api.data.amsterdam.nl/signals/v1/private/permissions/11"
+        }
+      },
+      "_display": "auth | groep | Can change group",
+      "id": 11,
+      "name": "Can change group",
+      "codename": "change_group"
+    },
+    {
+      "_links": {
+        "self": {
+          "href": "https://acc.api.data.amsterdam.nl/signals/v1/private/permissions/40"
+        }
+      },
+      "_display": "auth | groep | Can view group",
+      "id": 40,
+      "name": "Can view group",
+      "codename": "view_group"
+    },
+    {
+      "_links": {
+        "self": {
+          "href": "https://acc.api.data.amsterdam.nl/signals/v1/private/permissions/39"
+        }
+      },
+      "_display": "auth | recht | Can view permission",
+      "id": 39,
+      "name": "Can view permission",
+      "codename": "view_permission"
+    },
+    {
+      "_links": {
+        "self": {
+          "href": "https://acc.api.data.amsterdam.nl/signals/v1/private/permissions/13"
+        }
+      },
+      "_display": "auth | gebruiker | Can add user",
+      "id": 13,
+      "name": "Can add user",
+      "codename": "add_user"
+    },
+    {
+      "_links": {
+        "self": {
+          "href": "https://acc.api.data.amsterdam.nl/signals/v1/private/permissions/14"
+        }
+      },
+      "_display": "auth | gebruiker | Can change user",
+      "id": 14,
+      "name": "Can change user",
+      "codename": "change_user"
+    },
+    {
+      "_links": {
+        "self": {
+          "href": "https://acc.api.data.amsterdam.nl/signals/v1/private/permissions/41"
+        }
+      },
+      "_display": "auth | gebruiker | Can view user",
+      "id": 41,
+      "name": "Can view user",
+      "codename": "view_user"
+    }
+  ],
+  "profile": {
+    "note": "een notitie",
+    "departments": [
+      "Actie Service Centrum",
+      "Afval en Grondstoffen",
+      "CCA",
+      "FB"
+    ],
+    "created_at": "2019-10-24T10:25:48.874301+02:00",
+    "updated_at": "2019-10-24T10:25:48.874315+02:00",
+    "notification_on_department_assignment": false,
+    "notification_on_user_assignment": false
+  }
+}

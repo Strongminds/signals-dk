@@ -1,0 +1,193 @@
+/* SPDX-License-Identifier: MPL-2.0 */
+/* Copyright (C) 2018 - 2022 Gemeente Amsterdam */
+.col-md-6,
+.col-sm-12 {
+  position: relative;
+  width: 100%;
+  min-height: 1px;
+  max-width: 100%;
+}
+
+@media (min-width: 576px) {
+  .col-sm-12 {
+    flex: 0 0 100%;
+    max-width: 100%;
+  }
+}
+
+@media (min-width: 760px) {
+  .col-md-6 {
+    flex: 0 0 50%;
+    max-width: 50%;
+  }
+}
+
+.leaflet-fade-anim .leaflet-tile {
+  will-change: unset !important;
+}
+
+.leaflet-zoom-anim .leaflet-zoom-animated {
+  will-change: unset !important;
+}
+
+*,
+:after,
+:before {
+  box-sizing: inherit;
+}
+
+html,
+body {
+  height: 100%;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  -webkit-text-size-adjust: 100%; /* Prevent adjustments of font size after orientation changes in iOS. */
+}
+
+html {
+  font-size: 16px;
+}
+
+body {
+  font-family: Amsterdam Sans, sans-serif;
+  font-weight: 400;
+  line-height: 1.375;
+  overflow-y: scroll;
+  background-color: #e5e5e5;
+  letter-spacing: 0.1px;
+  font-size: 1rem;
+}
+
+ul li {
+  margin: 0;
+  padding: 0;
+  text-indent: 0;
+  list-style-type: none;
+}
+
+p {
+  line-height: 1.5;
+}
+
+table {
+  text-align: left;
+  border-collapse: collapse;
+}
+
+table tr {
+  padding: 0.5rem;
+}
+
+table td,
+table th {
+  padding: 0.5rem;
+}
+
+table td {
+  border-bottom: 1px solid #bebebe;
+  box-shadow: 0 1px 0 1px #ffffff;
+}
+
+table tr:hover {
+  background-color: #f3f3f3;
+}
+
+table tr:hover td {
+  box-shadow: 0 1px 0 1px #f3f3f3;
+}
+
+thead tr:hover {
+  background: inherit;
+}
+
+thead th {
+  border-top: 1px solid #000000;
+  border-bottom: 1px solid #000000;
+}
+
+dd {
+  margin: 0;
+}
+
+fieldset {
+    margin-inline-start: 0;
+    margin-inline-end: 0;
+    padding-block-start: 0;
+    padding-block-end: 0;
+    padding-inline-start: 0;
+    padding-inline-end: 0;
+    border: none;
+    min-inline-size: min-content;
+}
+
+.antwoord {
+  display: block;
+  margin-bottom: 10px;
+  padding: 0 0 0 38px;
+  position: relative;
+}
+
+#app {
+  min-height: 100%;
+  min-width: 100%;
+  background-color: #e5e5e5;
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+}
+
+#spinner {
+  position: absolute;
+  left: calc(50% - 50px);
+  top: 100px;
+  transform: translate(-50%, -50%);
+  fill: #ec0000;
+  transform-origin: 50% 50%;
+  animation: rotate 2s linear infinite;
+  width: 100px;
+  height: 100px;
+}
+
+#spinner-background {
+  min-height: 100%;
+  min-width: 100%;
+  background-color: #fff;
+  height: 100vh;
+}
+
+@keyframes rotate {
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@media print {
+  html,
+  body {
+    height: 100%;
+  }
+
+  @page {
+    size: A4;
+    margin-left: 1cm;
+    margin-right: 1cm;
+  }
+
+  /* Reset the flex model to allow printig on more than one page */
+  .row {
+    display: block;
+  }
+
+  .no-print {
+    display: none !important;
+  }
+
+  .page-break {
+    page-break-after: always;
+  }
+}
