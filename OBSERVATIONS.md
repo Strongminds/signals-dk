@@ -2,7 +2,18 @@
 
 ## General
 
-Vulnerabilities in both frontend/backend packages
+- Ongoing (heavy) development going on simultaneously (eg frontend being revamped to a 'v2')
+
+## Specific items
+
+| Area | Title | Description |
+|------------------|-----------------|-----------------|
+| General    | Vulnerabilities    | Vulnerabilities in both frontend/backend packages    |
+| Frontend   | Copy & paste components    | Eg RadioInput in both 'incident' and 'incident-management'    |
+| Frontend   | Mix of JS & TS    | Eg Wizard step definitions in /signals/incident/definitions/    |
+| Frontend   | Dutch language in code    | Eg Wizard step definitions    |
+
+
 
 ## PR changes that may affect signals (Amsterdam)
 
