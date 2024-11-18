@@ -13,6 +13,7 @@
 | Frontend   | Copy & paste components    | Eg RadioInput in both 'incident' and 'incident-management'    |
 | Frontend   | Mix of JS & TS    | Eg Wizard step definitions in /signals/incident/definitions/    |
 | Frontend   | Dutch language in code    | Eg Wizard step definitions    |
+| Frontend   | Language responsibilities in configuration    | `app.base.json` file has "language" section that belongs in i18next context   |
 
 ## PR changes that may affect signals (Amsterdam)
 
