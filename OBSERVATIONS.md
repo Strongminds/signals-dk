@@ -10,12 +10,24 @@
 | Area | Title | Description |
 |------------------|-----------------|-----------------|
 | General    | Vulnerabilities    | Vulnerabilities in both frontend/backend packages    |
-| Frontend   | Copy & paste components    | Eg RadioInput in both 'incident' and 'incident-management'    |
-| Frontend   | Mix of JS & TS    | Eg Wizard step definitions in /signals/incident/definitions/    |
+| Frontend   | Copy & paste components    | Eg `RadioInput` in both 'incident' and 'incident-management'    |
+| Frontend   | Mix of JS & TS    | Eg Wizard step definitions in `/signals/incident/definitions/`    |
 | Frontend   | Dutch language in code    | Eg Wizard step definitions    |
-| Frontend   | Language responsibilities in configuration    | `app.base.json` file has "language" section that belongs in i18next context   |
+| Frontend   | Language responsibilities in configuration    | `app.base.json` file has "language" section that to some extent belongs in i18next context   |
+| Frontend   | Special strings for mobile | Mobile edition uses its own string in some cases (eg `DetailPanel.tsx`) |
+| Frontend   | Unit tests against hardcoded texts | As opposed to using `data-` attributes for searching DOM elements (eg `GlobalError.test.js`) | 
+| Frontend   | Hardcoded subcategories | `wizard-step-2-vulaan.js` contains categories matched by (string) name |
 
-## PR changes that may affect signals (Amsterdam)
+## PR changes that affects signals (Amsterdam)
+
+https://github.com/Strongminds/signals-dk/pull/3
+
+- Introduced the usage of i18n Ally VS component for easing the translation process
+
+https://github.com/Strongminds/signals-dk/pull/2
+
+- i18next-parser vs enzyme versions of cheerio library locked to i18next-parser version
+- `app.base.json` had language specifics fleshed out brute force (more work on this needed)
 
 https://github.com/Strongminds/signals-dk/pull/1
 
