@@ -23,7 +23,7 @@ permissions:
 jobs:
 
   DEV:
-    uses: Strongminds/signals-aws-infrastructure/.github/workflows/cdk.template.yml
+    uses: Strongminds/signals-aws-infrastructure/.github/workflows/cdk.template.yml@main
     with:
       ENVIRONMENT: dev
       DOMAIN: signalen.dev.os2.strongminds.dk
@@ -33,7 +33,7 @@ jobs:
   QA:
     needs: [ DEV ]
     if: ${{ github.ref == 'refs/heads/main' }}
-    uses: Strongminds/signals-aws-infrastructure/.github/workflows/cdk.template.yml
+    uses: Strongminds/signals-aws-infrastructure/.github/workflows/cdk.template.yml@main
     with:
       ENVIRONMENT: qa
       DOMAIN: signalen.qa.os2.strongminds.dk
@@ -43,7 +43,7 @@ jobs:
   LIVE:
     needs: [ QA ]
     if: ${{ github.ref == 'refs/heads/main' }}
-    uses: Strongminds/signals-aws-infrastructure/.github/workflows/cdk.template.yml
+    uses: Strongminds/signals-aws-infrastructure/.github/workflows/cdk.template.yml@main
     with:
       ENVIRONMENT: live
       DOMAIN: signalen.prod.os2.strongminds.dk
