@@ -1,0 +1,52 @@
+name: CI-CD
+
+on:
+  workflow_dispatch:
+  pull_request:
+    branches:
+      - main
+    types:
+      - opened
+      - reopened
+      - synchronize
+      - ready_for_review
+      - labeled
+      - unlabeled
+  push:
+    branches:
+      - main
+
+permissions:
+  id-token: write
+  contents: read
+
+jobs:
+
+  DEV:
+    uses: Strongminds/signals-aws-infrastructure/.github/workflows/cdk.template.yml@main
+    with:
+      ENVIRONMENT: dev
+      DOMAIN: signalen.dev.os2.strongminds.dk
+      AWS_ACCOUNT_ID: 816069162453
+    secrets: inherit
+
+  QA:
+    needs: [ DEV ]
+    if: ${{ github.ref == 'refs/heads/main' }}
+    uses: Strongminds/signals-aws-infrastructure/.github/workflows/cdk.template.yml@main
+    with:
+      ENVIRONMENT: qa
+      DOMAIN: signalen.qa.os2.strongminds.dk
+      AWS_ACCOUNT_ID: 0
+    secrets: inherit
+
+  LIVE:
+    needs: [ QA ]
+    if: ${{ github.ref == 'refs/heads/main' }}
+    uses: Strongminds/signals-aws-infrastructure/.github/workflows/cdk.template.yml@main
+    with:
+      ENVIRONMENT: live
+      DOMAIN: signalen.prod.os2.strongminds.dk
+      AWS_ACCOUNT_ID: 0
+    secrets: inherit
+
