@@ -47,4 +47,5 @@ jobs:
       AWS_SESSION_TOKEN:  ${{ inputs.AWS_SESSION_TOKEN }}
       AWS_REGION: ${{ inputs.AWS_REGION }}
       CDK_BOOTSTRAP:  ${{ inputs.CDK_BOOTSTRAP }}
+      SUB_TREE_PATH: "aws-infrastructure/"
     secrets: inherit
