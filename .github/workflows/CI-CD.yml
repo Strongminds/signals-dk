@@ -28,6 +28,7 @@ jobs:
       ENVIRONMENT: dev
       DOMAIN: signalen.dev.os2.strongminds.dk
       AWS_ACCOUNT_ID: 816069162453
+      SUB_TREE_PATH: "aws-infrastructure/"
     secrets: inherit
 
   QA:
@@ -38,6 +39,7 @@ jobs:
       ENVIRONMENT: qa
       DOMAIN: signalen.qa.os2.strongminds.dk
       AWS_ACCOUNT_ID: 0
+      SUB_TREE_PATH: "aws-infrastructure/"
     secrets: inherit
 
   LIVE:
@@ -48,5 +50,6 @@ jobs:
       ENVIRONMENT: live
       DOMAIN: signalen.prod.os2.strongminds.dk
       AWS_ACCOUNT_ID: 0
+      SUB_TREE_PATH: "aws-infrastructure/"
     secrets: inherit
 
