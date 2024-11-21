@@ -47,7 +47,7 @@ public class RabbitMqStack : Stack
         RabbitMq.ApplyRemovalPolicy(RemovalPolicy.DESTROY);
         _ = new CfnOutput(this, "RabbitMqEndpoint", new CfnOutputProps
         {
-            Value = RabbitMq.GetAtt("AmqpEndpoints").ToString(),
+            Value = Fn.Select(0, RabbitMq.GetAtt("AmqpEndpoints").ToStringList()),
             ExportName = "RabbitMqEndpoint"
         });
     }
