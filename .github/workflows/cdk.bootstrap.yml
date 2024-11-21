@@ -45,5 +45,6 @@ jobs:
       AWS_ACCESS_KEY_ID:  ${{ inputs.AWS_ACCESS_KEY_ID }}
       AWS_SECRET_ACCESS_KEY:  ${{ inputs.AWS_SECRET_ACCESS_KEY }}
       AWS_SESSION_TOKEN:  ${{ inputs.AWS_SESSION_TOKEN }}
+      AWS_REGION: ${{ inputs.AWS_REGION }}
       CDK_BOOTSTRAP:  ${{ inputs.CDK_BOOTSTRAP }}
     secrets: inherit
