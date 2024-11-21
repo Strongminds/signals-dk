@@ -72,6 +72,7 @@ public class ApplicationStack : Stack
                     }
                 ],
                 Image = ContainerImage.FromRegistry(string.IsNullOrEmpty(backendImageName) ? "signalen/backend:latest" : backendImageName, new RepositoryImageProps()),
+                Command = ["/initialize.sh"],
                 Logging = LogDriver.AwsLogs(new AwsLogDriverProps
                 {
                     LogRetention = RetentionDays.ONE_DAY,
