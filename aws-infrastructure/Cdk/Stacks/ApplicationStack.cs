@@ -4,6 +4,8 @@ using Amazon.CDK.AWS.ElasticLoadBalancingV2;
 using Amazon.CDK.AWS.Logs;
 using Amazon.CDK.AWS.SecretsManager;
 using System.Collections.Generic;
+using System.Linq;
+using Amazon.CDK.AWS.AmazonMQ;
 using NetworkMode = Amazon.CDK.AWS.ECS.NetworkMode;
 using Secret = Amazon.CDK.AWS.ECS.Secret;
 
@@ -136,39 +138,39 @@ public class ApplicationStack : Stack
 
     private static Dictionary<string, Secret> CreteBackendSecretEnvironmentVariables(ApplicationStackProps props)
     {
-        return new Dictionary<string, Amazon.CDK.AWS.ECS.Secret>
+        return new Dictionary<string, Secret>
         {
             {
                 "DATABASE_USER",
-                Amazon.CDK.AWS.ECS.Secret.FromSecretsManager(props.DatabaseSecret, "username")
+                Secret.FromSecretsManager(props.DatabaseSecret, "username")
             },
             {
                 "DATABASE_PASSWORD",
-                Amazon.CDK.AWS.ECS.Secret.FromSecretsManager(props.DatabaseSecret, "password")
+                Secret.FromSecretsManager(props.DatabaseSecret, "password")
             },
             {
                 "DATABASE_HOST_OVERRIDE",
-                Amazon.CDK.AWS.ECS.Secret.FromSecretsManager(props.DatabaseSecret, "host")
+                Secret.FromSecretsManager(props.DatabaseSecret, "host")
             },
             {
                 "DATABASE_PORT_OVERRIDE",
-                Amazon.CDK.AWS.ECS.Secret.FromSecretsManager(props.DatabaseSecret, "port")
+                Secret.FromSecretsManager(props.DatabaseSecret, "port")
             },
             {
                 "EMAIL_HOST_USER",
-                Amazon.CDK.AWS.ECS.Secret.FromSecretsManager(props.MaiSecret, "username")
+                Secret.FromSecretsManager(props.MaiSecret, "username")
             },
             {
                 "EMAIL_HOST_PASSWORD",
-                Amazon.CDK.AWS.ECS.Secret.FromSecretsManager(props.MaiSecret, "password")
+                Secret.FromSecretsManager(props.MaiSecret, "password")
             },
             {
                 "RABBITMQ_USER",
-                Amazon.CDK.AWS.ECS.Secret.FromSecretsManager(props.RabbitSecret, "username")
+                Secret.FromSecretsManager(props.RabbitSecret, "username")
             },
             {
                 "RABBITMQ_PASSWORD",
-                Amazon.CDK.AWS.ECS.Secret.FromSecretsManager(props.RabbitSecret, "password")
+                Secret.FromSecretsManager(props.RabbitSecret, "password")
             },
         };
     }
@@ -212,12 +214,12 @@ public class ApplicationStack : Stack
             { "SYSTEM_MAIL_FEEDBACK_RECEIVED_ENABLED", "True" },
             { "REPORTER_MAIL_HANDLED_NEGATIVE_CONTACT_ENABLED", "True" },
             { "MAINTENANCE_MODE", "False" },
-            { "RABBITMQ_HOST", props.RabbitHost}
+            { "RABBITMQ_HOST", Fn.ImportValue("RabbitMqEndpoint")}
         };
     }
 }
 
-public class ApplicationStackProps(Vpc vpc, ApplicationListener listener, ISecurityGroup[] applicationSecurityGroups, ISecret databaseSecret, ISecret rabbitSecret, ISecret maiSecret, string rabbitHost) : StackProps
+public class ApplicationStackProps(Vpc vpc, ApplicationListener listener, ISecurityGroup[] applicationSecurityGroups, ISecret databaseSecret, ISecret rabbitSecret, ISecret maiSecret, CfnBroker rabbitMq) : StackProps
 {
     public IVpc Vpc { get; init; } = vpc;
     public ApplicationListener Listener { get; } = listener;
@@ -225,5 +227,5 @@ public class ApplicationStackProps(Vpc vpc, ApplicationListener listener, ISecur
     public ISecret DatabaseSecret { get; } = databaseSecret;
     public ISecret RabbitSecret { get; } = rabbitSecret;
     public ISecret MaiSecret { get; } = maiSecret;
-    public string RabbitHost { get; } = rabbitHost;
+    public CfnBroker RabbitMq { get; } = rabbitMq;
 }

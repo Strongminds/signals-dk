@@ -45,6 +45,11 @@ public class RabbitMqStack : Stack
             SubnetIds = props.Vpc.SelectSubnets(new SubnetSelection { SubnetType = SubnetType.PRIVATE_ISOLATED }).SubnetIds.Take(1).ToArray()
         });
         RabbitMq.ApplyRemovalPolicy(RemovalPolicy.DESTROY);
+        _ = new CfnOutput(this, "RabbitMqEndpoint", new CfnOutputProps
+        {
+            Value = RabbitMq.GetAtt("AmqpEndpoints").ToString(),
+            ExportName = "RabbitMqEndpoint"
+        });
     }
 
 }
