@@ -213,7 +213,7 @@ public class ApplicationStack : Stack
             { "SYSTEM_MAIL_FEEDBACK_RECEIVED_ENABLED", "True" },
             { "REPORTER_MAIL_HANDLED_NEGATIVE_CONTACT_ENABLED", "True" },
             { "MAINTENANCE_MODE", "False" },
-            { "RABBITMQ_HOST", Fn.ImportValue("RabbitMqEndpoint")}
+            { "RABBITMQ_HOST",  Fn.Select(0, props.RabbitMq.AttrAmqpEndpoints)}
         };
     }
 }
