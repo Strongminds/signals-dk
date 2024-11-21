@@ -24,6 +24,11 @@ on:
       BACKEND_IMAGE_TARBALL:
         required: false
         type: string
+      SUB_TREE_PATH:
+        description: "Support subtreeing"  
+        type: string
+        default: ""
+        required: false
 
 permissions:
   id-token: write
@@ -59,5 +64,5 @@ jobs:
       
       - name: Deploy CDK Stacks
         run: cdk deploy --all --require-approval never --concurrency 15 --method=direct -c zoneName=${{ inputs.DOMAIN }}  -c frontendImageTarball=${{ inputs.FRONTEND_IMAGE_TARBALL }} -c backendImageTarball=${{ inputs.BACKEND_IMAGE_TARBALL }}
-        working-directory: Cdk
+        working-directory: ${{ inputs.SUB_TREE_PATH }}Cdk
         
