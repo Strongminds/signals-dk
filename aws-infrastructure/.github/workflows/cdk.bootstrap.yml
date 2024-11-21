@@ -24,6 +24,11 @@ on:
         required: true
         type: boolean
         default: true
+      SUB_TREE_PATH:
+        description: "Support subtreeing"  
+        type: string
+        default: ""
+        required: false
   workflow_dispatch:
     inputs:
       AWS_ACCESS_KEY_ID:
@@ -99,9 +104,9 @@ jobs:
       - name: CDK Bootstrapping AWS Account '${{ steps.get-account-number.outputs.CDK_BOOTSTRAP_ACCOUNT_ID }}' in region '${{ github.event.inputs.AWS_REGION }}'
         if: ${{ github.event.inputs.CDK_BOOTSTRAP }}
         run: cdk bootstrap aws://${{ steps.get-account-number.outputs.CDK_BOOTSTRAP_ACCOUNT_ID }}/${{ github.event.inputs.AWS_REGION }}
-        working-directory: Cdk.Bootstrap
+        working-directory: ${{ inputs.SUB_TREE_PATH }}Cdk.Bootstrap
 
       - name: Deploying CDK Bootstrap Stacks in region eu-west-1
         run: cdk deploy --all --require-approval never
-        working-directory: Cdk.Bootstrap
+        working-directory: ${{ inputs.SUB_TREE_PATH }}Cdk.Bootstrap
 
