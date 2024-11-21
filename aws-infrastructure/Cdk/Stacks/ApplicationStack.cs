@@ -50,12 +50,12 @@ public class ApplicationStack : Stack
 
         AddFrontendContainer(props, taskDefinition, service, domainName);
         AddBackendContainer(props, taskDefinition, service, domainName);
-        
+
     }
 
     private static void AddBackendContainer(ApplicationStackProps props, TaskDefinition taskDefinition, BaseService service, string domainName)
     {
-        var backendImageTarball = service.Node.TryGetContext("backendImageTarball") as string;
+        var backendImageName = service.Node.TryGetContext("backendImageName") as string;
         taskDefinition.AddContainer("Backend",
             new ContainerDefinitionOptions
             {
@@ -70,7 +70,7 @@ public class ApplicationStack : Stack
                         HostPort = 8000
                     }
                 ],
-                Image = string.IsNullOrEmpty(backendImageTarball) ? ContainerImage.FromRegistry("signalen/backend:latest", new RepositoryImageProps()) : ContainerImage.FromTarball(backendImageTarball),
+                Image = ContainerImage.FromRegistry(string.IsNullOrEmpty(backendImageName) ? "signalen/backend:latest" : backendImageName, new RepositoryImageProps()),
                 Logging = LogDriver.AwsLogs(new AwsLogDriverProps
                 {
                     LogRetention = RetentionDays.ONE_DAY,
@@ -96,7 +96,7 @@ public class ApplicationStack : Stack
 
     private static void AddFrontendContainer(ApplicationStackProps props, TaskDefinition taskDefinition, BaseService service, string domainName)
     {
-        var frontendImageTarball = service.Node.TryGetContext("frontendImageTarball") as string;
+        var frontendImageName = service.Node.TryGetContext("frontendImageName") as string;
         taskDefinition.AddContainer("Frontend",
             new ContainerDefinitionOptions
             {
@@ -109,7 +109,7 @@ public class ApplicationStack : Stack
                         HostPort = 8080
                     }
                 ],
-                Image = string.IsNullOrEmpty(frontendImageTarball) ? ContainerImage.FromRegistry("signalen/frontend:latest", new RepositoryImageProps()) : ContainerImage.FromTarball(frontendImageTarball),
+                Image = ContainerImage.FromRegistry(string.IsNullOrEmpty(frontendImageName) ? "signalen/frontend:latest" : frontendImageName, new RepositoryImageProps()),
                 Logging = LogDriver.AwsLogs(new AwsLogDriverProps
                 {
                     LogRetention = RetentionDays.ONE_DAY,
