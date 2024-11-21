@@ -17,6 +17,8 @@
 | Frontend   | Special strings for mobile | Mobile edition uses its own string in some cases (eg `DetailPanel.tsx`) |
 | Frontend   | Unit tests against hardcoded texts | As opposed to using `data-` attributes for searching DOM elements (eg `GlobalError.test.js`) | 
 | Frontend   | Hardcoded subcategories | `wizard-step-2-vulaan.js` contains categories matched by (string) name |
+| Backend   | Filters saved by email | Filters are stored in the `signals_storedsignalfilter` table with an email identifier as opposed to an id |
+| Architecture | Business logic in frontend | Business logic stored in UI, eg. `frontend/src/signals/incident-management/definitions/index.js` |
 
 ## PR changes that affects signals (Amsterdam)
 
