@@ -18,10 +18,10 @@ on:
       DOMAIN:
         required: true
         type: string
-      FRONTEND_IMAGE_TARBALL:
+      FRONTEND_IMAGE_NAME:
         required: false
         type: string
-      BACKEND_IMAGE_TARBALL:
+      BACKEND_IMAGE_NAME:
         required: false
         type: string
       SUB_TREE_PATH:
@@ -63,6 +63,6 @@ jobs:
         run: npm install -g aws-cdk        
       
       - name: Deploy CDK Stacks
-        run: cdk deploy --all --require-approval never --concurrency 15 --method=direct -c zoneName=${{ inputs.DOMAIN }}  -c frontendImageTarball=${{ inputs.FRONTEND_IMAGE_TARBALL }} -c backendImageTarball=${{ inputs.BACKEND_IMAGE_TARBALL }}
+        run: cdk deploy --all --require-approval never --concurrency 15 --method=direct -c zoneName=${{ inputs.DOMAIN }}  -c frontendImageName=${{ inputs.FRONTEND_IMAGE_NAME }} -c backendImageName=${{ inputs.BACKEND_IMAGE_NAME }}
         working-directory: ${{ inputs.SUB_TREE_PATH }}Cdk
         
