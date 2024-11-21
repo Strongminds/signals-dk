@@ -72,7 +72,7 @@ public class ApplicationStack : Stack
                     }
                 ],
                 Image = ContainerImage.FromRegistry(string.IsNullOrEmpty(backendImageName) ? "signalen/backend:latest" : backendImageName, new RepositoryImageProps()),
-                Command = ["/initialize.sh"],
+                Command = ["/usr/local/bin/uwsgi", "--master", "--http=:8000", "--module=signals.wsgi:application", "--buffer-size=8192", "--processes=4", "--threads=2", "--static-map=/signals/static=/app/static", " --static-map=/signals/media=/app/media", "--die-on-term", "--lazy-apps"],
                 Logging = LogDriver.AwsLogs(new AwsLogDriverProps
                 {
                     LogRetention = RetentionDays.ONE_DAY,
