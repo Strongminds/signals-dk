@@ -31,25 +31,4 @@ jobs:
       SUB_TREE_PATH: "aws-infrastructure/"
     secrets: inherit
 
-  QA:
-    needs: [ DEV ]
-    if: ${{ github.ref == 'refs/heads/main' }}
-    uses: Strongminds/signals-aws-infrastructure/.github/workflows/cdk.template.yml@main
-    with:
-      ENVIRONMENT: qa
-      DOMAIN: signalen.qa.os2.strongminds.dk
-      AWS_ACCOUNT_ID: 0
-      SUB_TREE_PATH: "aws-infrastructure/"
-    secrets: inherit
-
-  LIVE:
-    needs: [ QA ]
-    if: ${{ github.ref == 'refs/heads/main' }}
-    uses: Strongminds/signals-aws-infrastructure/.github/workflows/cdk.template.yml@main
-    with:
-      ENVIRONMENT: live
-      DOMAIN: signalen.prod.os2.strongminds.dk
-      AWS_ACCOUNT_ID: 0
-      SUB_TREE_PATH: "aws-infrastructure/"
-    secrets: inherit
 

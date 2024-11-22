@@ -25,8 +25,8 @@ public class ApplicationStack : Stack
         {
             Compatibility = Compatibility.FARGATE,
             NetworkMode = NetworkMode.AWS_VPC,
-            MemoryMiB = "512",
-            Cpu = "256",
+            MemoryMiB = "2048", 
+            Cpu = "1024",
             RuntimePlatform = new RuntimePlatform
             {
                 CpuArchitecture = CpuArchitecture.X86_64,
@@ -52,6 +52,68 @@ public class ApplicationStack : Stack
 
         AddFrontendContainer(props, taskDefinition, service, domainName);
         AddBackendContainer(props, taskDefinition, service, domainName);
+        AddCeleryWorkerContainer(props, taskDefinition, service, domainName);
+        AddCeleryFlowerContainer(props, taskDefinition, service, domainName);
+    }
+
+    private static void AddCeleryWorkerContainer(ApplicationStackProps props, TaskDefinition taskDefinition,
+        BaseService service, string domainName)
+    {
+        var backendImageName = service.Node.TryGetContext("backendImageName") as string;
+        taskDefinition.AddContainer("celery-worker",
+            new ContainerDefinitionOptions
+            {
+                Essential = false,
+                Secrets = CreteBackendSecretEnvironmentVariables(props),
+                Environment = CreateBackendEnvironmentVariables(props, domainName),
+                Image = ContainerImage.FromRegistry(
+                    string.IsNullOrEmpty(backendImageName) ? "signalen/backend:latest" : backendImageName,
+                    new RepositoryImageProps()),
+                Command =
+                [
+                    "/usr/local/bin/celery","--app=signals","worker","--loglevel=DEBUG","--concurrency=1"
+                ],
+                HealthCheck = new Amazon.CDK.AWS.ECS.HealthCheck
+                {
+                    Command = ["bash", "-c", "celery --app=signals inspect ping -d celery@$HOSTNAME"]
+                },
+                Logging = LogDriver.AwsLogs(new AwsLogDriverProps
+                {
+                    LogRetention = RetentionDays.ONE_DAY,
+                    Mode = AwsLogDriverMode.NON_BLOCKING,
+                    StreamPrefix = "celery-worker"
+                })
+            });
+    }
+
+    private static void AddCeleryFlowerContainer(ApplicationStackProps props, TaskDefinition taskDefinition,
+        BaseService service, string domainName)
+    {
+        var backendImageName = service.Node.TryGetContext("backendImageName") as string;
+        taskDefinition.AddContainer("celery-flower",
+            new ContainerDefinitionOptions
+            {
+                Essential = false,
+                Secrets = CreteBackendSecretEnvironmentVariables(props),
+                Environment = CreateBackendEnvironmentVariables(props, domainName),
+                Image = ContainerImage.FromRegistry(
+                    string.IsNullOrEmpty(backendImageName) ? "signalen/backend:latest" : backendImageName,
+                    new RepositoryImageProps()),
+                Command =
+                [
+                    "/usr/local/bin/celery","--app=signals","flower","--address=0.0.0.0","--port=8001"
+                ],
+                HealthCheck = new Amazon.CDK.AWS.ECS.HealthCheck
+                {
+                    Command = ["bash", "-c", "celery --app=signals inspect ping -d celery@$HOSTNAME"]
+                },
+                Logging = LogDriver.AwsLogs(new AwsLogDriverProps
+                {
+                    LogRetention = RetentionDays.ONE_DAY,
+                    Mode = AwsLogDriverMode.NON_BLOCKING,
+                    StreamPrefix = "celery-flower"
+                })
+            });
     }
 
     private static void AddBackendContainer(ApplicationStackProps props, TaskDefinition taskDefinition, BaseService service, string domainName)
@@ -222,7 +284,8 @@ public class ApplicationStack : Stack
             { "SYSTEM_MAIL_FEEDBACK_RECEIVED_ENABLED", "True" },
             { "REPORTER_MAIL_HANDLED_NEGATIVE_CONTACT_ENABLED", "True" },
             { "MAINTENANCE_MODE", "False" },
-            { "RABBITMQ_HOST",  Fn.Select(0, props.RabbitMq.AttrAmqpEndpoints)}
+            { "RABBITMQ_HOST",  $"{props.RabbitMq.AttrId}.mq.{Aws.REGION}.amazonaws.com"},
+            { "RABBITMQ_HOST_FULL",  Fn.Select(0, props.RabbitMq.AttrAmqpEndpoints)}
         };
     }
 }
