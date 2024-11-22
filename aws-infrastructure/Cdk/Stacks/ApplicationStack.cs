@@ -25,8 +25,8 @@ public class ApplicationStack : Stack
         {
             Compatibility = Compatibility.FARGATE,
             NetworkMode = NetworkMode.AWS_VPC,
-            MemoryMiB = "512",
-            Cpu = "256",
+            MemoryMiB = "2048", 
+            Cpu = "1024",
             RuntimePlatform = new RuntimePlatform
             {
                 CpuArchitecture = CpuArchitecture.X86_64,
