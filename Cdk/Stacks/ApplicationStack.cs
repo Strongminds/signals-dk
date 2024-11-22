@@ -97,7 +97,7 @@ public class ApplicationStack : Stack
                 {
                     Enabled = false,
                     HealthyHttpCodes = "200-299",
-                    Interval = Duration.Minutes(1),
+                    Interval = Duration.Minutes(2),
                     Timeout = Duration.Minutes(1)
                 }
             })
