@@ -3,6 +3,9 @@ using Amazon.CDK.AWS.ECS;
 using Amazon.CDK.AWS.ElasticLoadBalancingV2;
 using Amazon.CDK.AWS.Logs;
 using Amazon.CDK.AWS.SecretsManager;
+using System.Collections.Generic;
+using Amazon.CDK.AWS.AmazonMQ;
+using HealthCheck = Amazon.CDK.AWS.ElasticLoadBalancingV2.HealthCheck;
 using NetworkMode = Amazon.CDK.AWS.ECS.NetworkMode;
 using Secret = Amazon.CDK.AWS.ECS.Secret;
 
@@ -13,7 +16,6 @@ public class ApplicationStack : Stack
     public ApplicationStack(Construct scope, string id, ApplicationStackProps props) : base(scope, id, props)
     {
         var domainName = scope.Node.TryGetContext("zoneName") as string ?? throw new ArgumentException("zoneName is required");
-        var frontendImageTarball = scope.Node.TryGetContext("frontendImageTarball") as string;
         var cluster = new Cluster(this, "Cluster", new ClusterProps
         {
             Vpc = props.Vpc
@@ -48,26 +50,83 @@ public class ApplicationStack : Stack
             });
 
 
-        taskDefinition.AddContainer("Frontend",
-                new ContainerDefinitionOptions
-                {
-                    Essential = true,
-                    PortMappings =
-                    [
-                        new PortMapping
-                        {
-                            ContainerPort = 8080,
-                            HostPort = 8080
-                        }
-                    ],
-                    Image = string.IsNullOrEmpty(frontendImageTarball) ? ContainerImage.FromRegistry("signalen/frontend:latest", new RepositoryImageProps()) : ContainerImage.FromTarball(frontendImageTarball),
-                    Logging = LogDriver.AwsLogs(new AwsLogDriverProps
+        AddFrontendContainer(props, taskDefinition, service, domainName);
+        AddBackendContainer(props, taskDefinition, service, domainName);
+    }
+
+    private static void AddBackendContainer(ApplicationStackProps props, TaskDefinition taskDefinition, BaseService service, string domainName)
+    {
+        var backendImageName = service.Node.TryGetContext("backendImageName") as string;
+        const int containerPort = 8000;
+        taskDefinition.AddContainer("Backend",
+            new ContainerDefinitionOptions
+            {
+                Essential = true,
+                Secrets = CreteBackendSecretEnvironmentVariables(props),
+                Environment = CreateBackendEnvironmentVariables(props, domainName),
+                PortMappings =
+                [
+                    new PortMapping
                     {
-                        LogRetention = RetentionDays.ONE_DAY,
-                        Mode = AwsLogDriverMode.NON_BLOCKING,
-                        StreamPrefix = "frontend"
-                    })
-                });
+                        ContainerPort = containerPort,
+                        HostPort = containerPort
+                    }
+                ],
+                Image = ContainerImage.FromRegistry(string.IsNullOrEmpty(backendImageName) ? "signalen/backend:latest" : backendImageName, new RepositoryImageProps()),
+                Command = ["/usr/local/bin/uwsgi", "--master", $"--http=0.0.0.0:{containerPort}", "--module=signals.wsgi:application", "--buffer-size=8192", "--processes=4", "--threads=2", "--static-map=/signals/static=/app/static", "--static-map=/signals/media=/app/media", "--die-on-term", "--lazy-apps"],
+                Logging = LogDriver.AwsLogs(new AwsLogDriverProps
+                {
+                    LogRetention = RetentionDays.ONE_DAY,
+                    Mode = AwsLogDriverMode.NON_BLOCKING,
+                    StreamPrefix = "backend"
+                })
+            });
+
+        service.RegisterLoadBalancerTargets(new EcsTarget
+        {
+            ContainerName = "Backend",
+            NewTargetGroupId = "Backend",
+            Listener = ListenerConfig.ApplicationListener(props.Listener, new AddApplicationTargetsProps
+            {
+                Protocol = ApplicationProtocol.HTTP,
+                Conditions = [
+                    ListenerCondition.HostHeaders([$"api.{domainName}"])
+                ],
+                Priority = 20,
+                HealthCheck = new HealthCheck
+                {
+                    Enabled = true,
+                    HealthyHttpCodes = "200,301,404",
+                    Interval = Duration.Minutes(2),
+                    Timeout = Duration.Minutes(1)
+                }
+            })
+        });
+    }
+
+    private static void AddFrontendContainer(ApplicationStackProps props, TaskDefinition taskDefinition, BaseService service, string domainName)
+    {
+        var frontendImageName = service.Node.TryGetContext("frontendImageName") as string;
+        taskDefinition.AddContainer("Frontend",
+            new ContainerDefinitionOptions
+            {
+                Essential = true,
+                PortMappings =
+                [
+                    new PortMapping
+                    {
+                        ContainerPort = 8080,
+                        HostPort = 8080
+                    }
+                ],
+                Image = ContainerImage.FromRegistry(string.IsNullOrEmpty(frontendImageName) ? "signalen/frontend:latest" : frontendImageName, new RepositoryImageProps()),
+                Logging = LogDriver.AwsLogs(new AwsLogDriverProps
+                {
+                    LogRetention = RetentionDays.ONE_DAY,
+                    Mode = AwsLogDriverMode.NON_BLOCKING,
+                    StreamPrefix = "frontend"
+                })
+            });
 
         service.RegisterLoadBalancerTargets(new EcsTarget
         {
@@ -77,17 +136,98 @@ public class ApplicationStack : Stack
             {
                 Protocol = ApplicationProtocol.HTTP,
                 Conditions = [
-                        ListenerCondition.HostHeaders([domainName])
-                    ],
+                    ListenerCondition.HostHeaders([domainName])
+                ],
                 Priority = 10
             })
         });
-
     }
 
+
+    private static Dictionary<string, Secret> CreteBackendSecretEnvironmentVariables(ApplicationStackProps props)
+    {
+        return new Dictionary<string, Secret>
+        {
+            {
+                "DATABASE_USER",
+                Secret.FromSecretsManager(props.DatabaseSecret, "username")
+            },
+            {
+                "DATABASE_PASSWORD",
+                Secret.FromSecretsManager(props.DatabaseSecret, "password")
+            },
+            {
+                "DATABASE_HOST_OVERRIDE",
+                Secret.FromSecretsManager(props.DatabaseSecret, "host")
+            },
+            {
+                "DATABASE_PORT_OVERRIDE",
+                Secret.FromSecretsManager(props.DatabaseSecret, "port")
+            },
+            {
+                "EMAIL_HOST_USER",
+                Secret.FromSecretsManager(props.MaiSecret, "username")
+            },
+            {
+                "EMAIL_HOST_PASSWORD",
+                Secret.FromSecretsManager(props.MaiSecret, "password")
+            },
+            {
+                "RABBITMQ_USER",
+                Secret.FromSecretsManager(props.RabbitSecret, "username")
+            },
+            {
+                "RABBITMQ_PASSWORD",
+                Secret.FromSecretsManager(props.RabbitSecret, "password")
+            },
+        };
+    }
+
+    private static Dictionary<string, string> CreateBackendEnvironmentVariables(ApplicationStackProps props, string domainName)
+    {
+        return new Dictionary<string, string>
+        {
+            { "SECRET_KEY", "insecure" },
+            { "DJANGO_DEBUG", "False" },
+            { "LOGGING_LEVEL", "INFO" },
+            { "ALLOWED_HOSTS", "*" },
+            { "FRONTEND_URL", $"http://{domainName}" },
+            { "DWH_MEDIA_ROOT", "/dwh_media" },
+            { "CORS_ALLOW_ALL_ORIGINS", "True" },
+            { "DATABASE_NAME", "signals" },
+            { "PUB_JWKS", "" },
+            { "JWKS_URL", "http://dex:5556/keys" },
+            { "USER_ID_FIELDS", "email" },
+            { "SIGNALS_AUTH_ALWAYS_OK", "True" },
+            { "TEST_LOGIN", "signals.admin@example.com" },
+            { "SECURE_SSL_REDIRECT", "True" },
+            { "SESSION_COOKIE_SECURE", "True" },
+            { "CSRF_COOKIE_SECURE", "True" },
+            { "ELASTICSEARCH_HOST", "elasticsearch:9200" },
+            { "EMAIL_HOST", $"email.{Aws.REGION}.amazonaws.com" },
+            { "EMAIL_PORT", "465" },
+            { "EMAIL_USE_SSL", "True" },
+            { "MY_SIGNALS_ENABLED", "True" },
+            { "SIGNAL_HISTORY_LOG_ENABLED", "True" },
+            { "OIDC_RP_CLIENT_ID", "signals" },
+            { "OIDC_RP_CLIENT_SECRET", "insecure" },
+            { "OIDC_OP_AUTHORIZATION_ENDPOINT", "http://127.0.0.1:5556/auth" },
+            { "OIDC_OP_TOKEN_ENDPOINT", "http://dex:5556/token" },
+            { "OIDC_OP_USER_ENDPOINT", "http://dex:5556/userinfo" },
+            { "OIDC_OP_JWKS_ENDPOINT", "http://dex:5556/keys" },
+            { "SILK_ENABLED", "False" },
+            { "SILK_PROFILING_ENABLED", "False" },
+            { "SILK_AUTHENTICATION_ENABLED", "False" },
+            { "SESSION_SUPPORT_ON_TOKEN_AUTHENTICATION", "False" },
+            { "SYSTEM_MAIL_FEEDBACK_RECEIVED_ENABLED", "True" },
+            { "REPORTER_MAIL_HANDLED_NEGATIVE_CONTACT_ENABLED", "True" },
+            { "MAINTENANCE_MODE", "False" },
+            { "RABBITMQ_HOST",  Fn.Select(0, props.RabbitMq.AttrAmqpEndpoints)}
+        };
+    }
 }
 
-public class ApplicationStackProps(Vpc vpc, ApplicationListener listener, ISecurityGroup[] applicationSecurityGroups, ISecret databaseSecret, ISecret rabbitSecret, ISecret maiSecret, string rabbitHost) : StackProps
+public class ApplicationStackProps(Vpc vpc, ApplicationListener listener, ISecurityGroup[] applicationSecurityGroups, ISecret databaseSecret, ISecret rabbitSecret, ISecret maiSecret, CfnBroker rabbitMq) : StackProps
 {
     public IVpc Vpc { get; init; } = vpc;
     public ApplicationListener Listener { get; } = listener;
@@ -95,5 +235,5 @@ public class ApplicationStackProps(Vpc vpc, ApplicationListener listener, ISecur
     public ISecret DatabaseSecret { get; } = databaseSecret;
     public ISecret RabbitSecret { get; } = rabbitSecret;
     public ISecret MaiSecret { get; } = maiSecret;
-    public string RabbitHost { get; } = rabbitHost;
+    public CfnBroker RabbitMq { get; } = rabbitMq;
 }

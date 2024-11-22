@@ -8,5 +8,5 @@ var rb = new RabbitMqStack(app, "Rabbit-Mq", new RabbitMqStackProps(vpc.Vpc, vpc
 var email = new EmailStack(app, "Email", new EmailStackProps(dns.HostedZone));
 _ = new ApplicationStack(app, "Application",
     new ApplicationStackProps(vpc.Vpc, lb.Listener, [vpc.ApplicationSecurityGroup], db.DatabaseCredentials,
-        rb.RabbitCredentials, email.MailCredentials, rb.RabbitMq.AttrAmqpEndpoints[0]));
+        rb.RabbitCredentials, email.MailCredentials, rb.RabbitMq));
 app.Synth();
