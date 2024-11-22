@@ -60,7 +60,7 @@ public class ApplicationStack : Stack
         BaseService service, string domainName)
     {
         var backendImageName = service.Node.TryGetContext("backendImageName") as string;
-        taskDefinition.AddContainer("Backend",
+        taskDefinition.AddContainer("celery-worker",
             new ContainerDefinitionOptions
             {
                 Essential = false,
@@ -81,7 +81,7 @@ public class ApplicationStack : Stack
                 {
                     LogRetention = RetentionDays.ONE_DAY,
                     Mode = AwsLogDriverMode.NON_BLOCKING,
-                    StreamPrefix = "backend"
+                    StreamPrefix = "celery-worker"
                 })
             });
     }
@@ -90,7 +90,7 @@ public class ApplicationStack : Stack
         BaseService service, string domainName)
     {
         var backendImageName = service.Node.TryGetContext("backendImageName") as string;
-        taskDefinition.AddContainer("celery-worker",
+        taskDefinition.AddContainer("celery-flower",
             new ContainerDefinitionOptions
             {
                 Essential = false,
@@ -111,7 +111,7 @@ public class ApplicationStack : Stack
                 {
                     LogRetention = RetentionDays.ONE_DAY,
                     Mode = AwsLogDriverMode.NON_BLOCKING,
-                    StreamPrefix = "backend"
+                    StreamPrefix = "celery-flower"
                 })
             });
     }
