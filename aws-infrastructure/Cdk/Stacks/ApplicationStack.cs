@@ -96,7 +96,7 @@ public class ApplicationStack : Stack
                 HealthCheck = new HealthCheck
                 {
                     Enabled = true,
-                    HealthyHttpCodes = "200-299",
+                    HealthyHttpCodes = "404",
                     Interval = Duration.Minutes(2),
                     Timeout = Duration.Minutes(1)
                 }
