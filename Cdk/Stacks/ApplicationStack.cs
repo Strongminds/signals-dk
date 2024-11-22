@@ -101,7 +101,7 @@ public class ApplicationStack : Stack
                     new RepositoryImageProps()),
                 Command =
                 [
-                    "/usr/local/bin/celery","--app=signals","flower","--address=0.0.0.0","--port=8000"
+                    "/usr/local/bin/celery","--app=signals","flower","--address=0.0.0.0","--port=8001"
                 ],
                 HealthCheck = new Amazon.CDK.AWS.ECS.HealthCheck
                 {
