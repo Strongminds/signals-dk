@@ -5,6 +5,7 @@ using Amazon.CDK.AWS.Logs;
 using Amazon.CDK.AWS.SecretsManager;
 using System.Collections.Generic;
 using Amazon.CDK.AWS.AmazonMQ;
+using HealthCheck = Amazon.CDK.AWS.ElasticLoadBalancingV2.HealthCheck;
 using NetworkMode = Amazon.CDK.AWS.ECS.NetworkMode;
 using Secret = Amazon.CDK.AWS.ECS.Secret;
 
@@ -51,12 +52,12 @@ public class ApplicationStack : Stack
 
         AddFrontendContainer(props, taskDefinition, service, domainName);
         AddBackendContainer(props, taskDefinition, service, domainName);
-
     }
 
     private static void AddBackendContainer(ApplicationStackProps props, TaskDefinition taskDefinition, BaseService service, string domainName)
     {
         var backendImageName = service.Node.TryGetContext("backendImageName") as string;
+        const int containerPort = 8000;
         taskDefinition.AddContainer("Backend",
             new ContainerDefinitionOptions
             {
@@ -67,12 +68,12 @@ public class ApplicationStack : Stack
                 [
                     new PortMapping
                     {
-                        ContainerPort = 8000,
-                        HostPort = 8000
+                        ContainerPort = containerPort,
+                        HostPort = containerPort
                     }
                 ],
                 Image = ContainerImage.FromRegistry(string.IsNullOrEmpty(backendImageName) ? "signalen/backend:latest" : backendImageName, new RepositoryImageProps()),
-                Command = ["/usr/local/bin/uwsgi", "--master", "--http=:8000", "--module=signals.wsgi:application", "--buffer-size=8192", "--processes=4", "--threads=2", "--static-map=/signals/static=/app/static", "--static-map=/signals/media=/app/media", "--die-on-term", "--lazy-apps"],
+                Command = ["/usr/local/bin/uwsgi", "--master", $"--http=0.0.0.0:{containerPort}", "--module=signals.wsgi:application", "--buffer-size=8192", "--processes=4", "--threads=2", "--static-map=/signals/static=/app/static", "--static-map=/signals/media=/app/media", "--die-on-term", "--lazy-apps"],
                 Logging = LogDriver.AwsLogs(new AwsLogDriverProps
                 {
                     LogRetention = RetentionDays.ONE_DAY,
@@ -91,7 +92,14 @@ public class ApplicationStack : Stack
                 Conditions = [
                     ListenerCondition.HostHeaders([$"api.{domainName}"])
                 ],
-                Priority = 20
+                Priority = 20,
+                HealthCheck = new HealthCheck
+                {
+                    Enabled = false,
+                    HealthyHttpCodes = "200-299",
+                    Interval = Duration.Minutes(1),
+                    Timeout = Duration.Minutes(1)
+                }
             })
         });
     }
