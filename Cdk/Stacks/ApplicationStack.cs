@@ -52,6 +52,68 @@ public class ApplicationStack : Stack
 
         AddFrontendContainer(props, taskDefinition, service, domainName);
         AddBackendContainer(props, taskDefinition, service, domainName);
+        AddCeleryWorkerContainer(props, taskDefinition, service, domainName);
+        AddCeleryFlowerContainer(props, taskDefinition, service, domainName);
+    }
+
+    private static void AddCeleryWorkerContainer(ApplicationStackProps props, TaskDefinition taskDefinition,
+        BaseService service, string domainName)
+    {
+        var backendImageName = service.Node.TryGetContext("backendImageName") as string;
+        taskDefinition.AddContainer("Backend",
+            new ContainerDefinitionOptions
+            {
+                Essential = false,
+                Secrets = CreteBackendSecretEnvironmentVariables(props),
+                Environment = CreateBackendEnvironmentVariables(props, domainName),
+                Image = ContainerImage.FromRegistry(
+                    string.IsNullOrEmpty(backendImageName) ? "signalen/backend:latest" : backendImageName,
+                    new RepositoryImageProps()),
+                Command =
+                [
+                    "/usr/local/bin/celery","--app=signals","worker","--loglevel=DEBUG","--concurrency=1"
+                ],
+                HealthCheck = new Amazon.CDK.AWS.ECS.HealthCheck
+                {
+                    Command = ["bash", "-c", "celery --app=signals inspect ping -d celery@$HOSTNAME"]
+                },
+                Logging = LogDriver.AwsLogs(new AwsLogDriverProps
+                {
+                    LogRetention = RetentionDays.ONE_DAY,
+                    Mode = AwsLogDriverMode.NON_BLOCKING,
+                    StreamPrefix = "backend"
+                })
+            });
+    }
+
+    private static void AddCeleryFlowerContainer(ApplicationStackProps props, TaskDefinition taskDefinition,
+        BaseService service, string domainName)
+    {
+        var backendImageName = service.Node.TryGetContext("backendImageName") as string;
+        taskDefinition.AddContainer("celery-worker",
+            new ContainerDefinitionOptions
+            {
+                Essential = false,
+                Secrets = CreteBackendSecretEnvironmentVariables(props),
+                Environment = CreateBackendEnvironmentVariables(props, domainName),
+                Image = ContainerImage.FromRegistry(
+                    string.IsNullOrEmpty(backendImageName) ? "signalen/backend:latest" : backendImageName,
+                    new RepositoryImageProps()),
+                Command =
+                [
+                    "/usr/local/bin/celery","--app=signals","flower","--address=0.0.0.0","--port=8000"
+                ],
+                HealthCheck = new Amazon.CDK.AWS.ECS.HealthCheck
+                {
+                    Command = ["bash", "-c", "celery --app=signals inspect ping -d celery@$HOSTNAME"]
+                },
+                Logging = LogDriver.AwsLogs(new AwsLogDriverProps
+                {
+                    LogRetention = RetentionDays.ONE_DAY,
+                    Mode = AwsLogDriverMode.NON_BLOCKING,
+                    StreamPrefix = "backend"
+                })
+            });
     }
 
     private static void AddBackendContainer(ApplicationStackProps props, TaskDefinition taskDefinition, BaseService service, string domainName)
