@@ -1,23 +1,9 @@
 # signals-dk
 Subtree project for the danish version of Signals
 
-## Porting database values
+## Migrations
 
-### Create temp table
-The chosen strategy is to manually export data from the `signals_category` data to CSV format. Then use Google Sheets for translating the `name` and `handling_message` columns into the target language (eg `da`) by using the formula:
-```
-=GOOGLETRANSLATE(A2; "nl"; "da")
-```
-Export the result back into CSV, create a temporary table based on the needed data (columns: `id` `name` `handling_message`) and update the original table like:
-```
-UPDATE signals_category 
-SET
-    name = temp_signals_category_da."name" ,
-    handling_message = temp_signals_category_da.handling_message 
-FROM temp_signals_category_da
-WHERE signals_category.id = temp_signals_category_da.signals_category_id;
-```
-
+Two new database migrations handling translation of `Category` and `Permission` have been added.
 
 ## Git
 
