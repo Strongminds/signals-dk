@@ -284,7 +284,7 @@ public class ApplicationStack : Stack
             { "SYSTEM_MAIL_FEEDBACK_RECEIVED_ENABLED", "True" },
             { "REPORTER_MAIL_HANDLED_NEGATIVE_CONTACT_ENABLED", "True" },
             { "MAINTENANCE_MODE", "False" },
-            { "RABBITMQ_HOST",  $"{props.RabbitMq.AttrId}.mq.{Aws.REGION}.amazonaws.com"},
+            { "RABBITMQ_HOST",  $"{props.RabbitMq.Ref}.mq.{Aws.REGION}.amazonaws.com"},
             { "RABBITMQ_HOST_FULL",  Fn.Select(0, props.RabbitMq.AttrAmqpEndpoints)}
         };
     }
