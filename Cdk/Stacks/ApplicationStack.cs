@@ -284,7 +284,7 @@ public class ApplicationStack : Stack
             { "REPORTER_MAIL_HANDLED_NEGATIVE_CONTACT_ENABLED", "True" },
             { "MAINTENANCE_MODE", "False" },
             { "RABBITMQ_HOST", props.RabbitMqHostname},
-            { "CELERY_BROKER_URL", $"amqps://{props.RabbitSecret.SecretValueFromJson("username").UnsafeUnwrap())}:{props.RabbitSecret.SecretValueFromJson("password").UnsafeUnwrap()}@{props.RabbitMqHostname}:5671"}
+            { "CELERY_BROKER_URL", $"amqps://{props.RabbitSecret.SecretValueFromJson("username").UnsafeUnwrap()}:{props.RabbitSecret.SecretValueFromJson("password").UnsafeUnwrap()}@{props.RabbitMqHostname}:5671"}
         };
     }
 }
