@@ -9,7 +9,7 @@ public sealed class RabbitMqStack : Stack
 {
     public CfnBroker RabbitMq { get; }
     public Secret RabbitCredentials { get; }
-    public string RabitMqHostName { get; }
+    public string RabbitMqHostName { get; }
 
     public RabbitMqStack(Construct scope, string id, RabbitMqStackProps props) : base(scope, id, props)
     {
@@ -46,7 +46,7 @@ public sealed class RabbitMqStack : Stack
             SubnetIds = props.Vpc.SelectSubnets(new SubnetSelection { SubnetType = SubnetType.PRIVATE_ISOLATED }).SubnetIds.Take(1).ToArray()
         });
         RabbitMq.ApplyRemovalPolicy(RemovalPolicy.DESTROY);
-        RabitMqHostName = $"{RabbitMq.Ref}.mq.{Aws.REGION}.amazonaws.com";
+        RabbitMqHostName = $"{RabbitMq.Ref}.mq.{Aws.REGION}.amazonaws.com";
 
         ExportValue(RabbitMq.Ref);
         ExportValue(RabbitMq.AttrAmqpEndpoints);
