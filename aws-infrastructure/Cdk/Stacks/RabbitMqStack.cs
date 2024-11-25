@@ -9,6 +9,7 @@ public sealed class RabbitMqStack : Stack
 {
     public CfnBroker RabbitMq { get; }
     public Secret RabbitCredentials { get; }
+    public Secret RabbitUrl { get; }
     public string RabbitMqHostName { get; }
 
     public RabbitMqStack(Construct scope, string id, RabbitMqStackProps props) : base(scope, id, props)
@@ -47,7 +48,7 @@ public sealed class RabbitMqStack : Stack
         });
         RabbitMq.ApplyRemovalPolicy(RemovalPolicy.DESTROY);
         RabbitMqHostName = $"{RabbitMq.Ref}.mq.{Aws.REGION}.amazonaws.com";
-
+       
         ExportValue(RabbitMq.Ref);
         ExportValue(RabbitMq.AttrAmqpEndpoints);
         ExportValue(RabbitCredentials.SecretArn);

@@ -240,7 +240,7 @@ public class ApplicationStack : Stack
             {
                 "RABBITMQ_PASSWORD",
                 Secret.FromSecretsManager(props.RabbitSecret, "password")
-            },
+            }
         };
     }
 
@@ -283,7 +283,8 @@ public class ApplicationStack : Stack
             { "SYSTEM_MAIL_FEEDBACK_RECEIVED_ENABLED", "True" },
             { "REPORTER_MAIL_HANDLED_NEGATIVE_CONTACT_ENABLED", "True" },
             { "MAINTENANCE_MODE", "False" },
-            { "RABBITMQ_HOST", props.RabbitMqHostname}
+            { "RABBITMQ_HOST", props.RabbitMqHostname},
+            { "CELERY_BROKER_URL", $"amqps://{Secret.FromSecretsManager(props.RabbitSecret, "username")}:{Secret.FromSecretsManager(props.RabbitSecret, "password")}@{props.RabbitMqHostname}:5671"}
         };
     }
 }
