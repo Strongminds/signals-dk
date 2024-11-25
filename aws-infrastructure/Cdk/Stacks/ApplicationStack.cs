@@ -4,7 +4,6 @@ using Amazon.CDK.AWS.ElasticLoadBalancingV2;
 using Amazon.CDK.AWS.Logs;
 using Amazon.CDK.AWS.SecretsManager;
 using System.Collections.Generic;
-using Amazon.CDK.AWS.AmazonMQ;
 using HealthCheck = Amazon.CDK.AWS.ElasticLoadBalancingV2.HealthCheck;
 using NetworkMode = Amazon.CDK.AWS.ECS.NetworkMode;
 using Secret = Amazon.CDK.AWS.ECS.Secret;
@@ -241,7 +240,7 @@ public class ApplicationStack : Stack
             {
                 "RABBITMQ_PASSWORD",
                 Secret.FromSecretsManager(props.RabbitSecret, "password")
-            },
+            }
         };
     }
 
@@ -284,13 +283,13 @@ public class ApplicationStack : Stack
             { "SYSTEM_MAIL_FEEDBACK_RECEIVED_ENABLED", "True" },
             { "REPORTER_MAIL_HANDLED_NEGATIVE_CONTACT_ENABLED", "True" },
             { "MAINTENANCE_MODE", "False" },
-            { "RABBITMQ_HOST",  $"{props.RabbitMq.AttrId}.mq.{Aws.REGION}.amazonaws.com"},
-            { "RABBITMQ_HOST_FULL",  Fn.Select(0, props.RabbitMq.AttrAmqpEndpoints)}
+            { "RABBITMQ_HOST", props.RabbitMqHostname},
+            { "CELERY_BROKER_URL", $"amqps://{props.RabbitSecret.SecretValueFromJson("username").UnsafeUnwrap()}:{props.RabbitSecret.SecretValueFromJson("password").UnsafeUnwrap()}@{props.RabbitMqHostname}:5671"}
         };
     }
 }
 
-public class ApplicationStackProps(Vpc vpc, ApplicationListener listener, ISecurityGroup[] applicationSecurityGroups, ISecret databaseSecret, ISecret rabbitSecret, ISecret maiSecret, CfnBroker rabbitMq) : StackProps
+public class ApplicationStackProps(Vpc vpc, ApplicationListener listener, ISecurityGroup[] applicationSecurityGroups, ISecret databaseSecret, ISecret rabbitSecret, ISecret maiSecret, string rabbitMqHostname) : StackProps
 {
     public IVpc Vpc { get; init; } = vpc;
     public ApplicationListener Listener { get; } = listener;
@@ -298,5 +297,5 @@ public class ApplicationStackProps(Vpc vpc, ApplicationListener listener, ISecur
     public ISecret DatabaseSecret { get; } = databaseSecret;
     public ISecret RabbitSecret { get; } = rabbitSecret;
     public ISecret MaiSecret { get; } = maiSecret;
-    public CfnBroker RabbitMq { get; } = rabbitMq;
+    public string RabbitMqHostname { get; } = rabbitMqHostname;
 }
