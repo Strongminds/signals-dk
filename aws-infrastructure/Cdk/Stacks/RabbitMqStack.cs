@@ -5,10 +5,11 @@ using Amazon.CDK.AWS.SecretsManager;
 
 namespace Cdk.Stacks;
 
-public class RabbitMqStack : Stack
+public sealed class RabbitMqStack : Stack
 {
     public CfnBroker RabbitMq { get; }
     public Secret RabbitCredentials { get; }
+    public string RabitMqHostName { get; }
 
     public RabbitMqStack(Construct scope, string id, RabbitMqStackProps props) : base(scope, id, props)
     {
@@ -45,6 +46,11 @@ public class RabbitMqStack : Stack
             SubnetIds = props.Vpc.SelectSubnets(new SubnetSelection { SubnetType = SubnetType.PRIVATE_ISOLATED }).SubnetIds.Take(1).ToArray()
         });
         RabbitMq.ApplyRemovalPolicy(RemovalPolicy.DESTROY);
+        RabitMqHostName = $"{RabbitMq.Ref}.mq.{Aws.REGION}.amazonaws.com";
+
+        ExportValue(RabbitMq.Ref);
+        ExportValue(RabbitMq.AttrAmqpEndpoints);
+        ExportValue(RabbitCredentials.SecretArn);
     }
 
 }
