@@ -50,7 +50,7 @@ public sealed class RabbitMqStack : Stack
         RabbitMqHostName = $"{RabbitMq.Ref}.mq.{Aws.REGION}.amazonaws.com";
        
         ExportValue(RabbitMq.Ref);
-        ExportValue(RabbitMq.AttrAmqpEndpoints);
+        ExportValue(Fn.Select(0, RabbitMq.AttrAmqpEndpoints));
         ExportValue(RabbitCredentials.SecretArn);
     }
 
