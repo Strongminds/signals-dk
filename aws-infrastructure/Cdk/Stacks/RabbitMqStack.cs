@@ -9,7 +9,6 @@ public sealed class RabbitMqStack : Stack
 {
     public CfnBroker RabbitMq { get; }
     public Secret RabbitCredentials { get; }
-    public Secret RabbitUrl { get; }
     public string RabbitMqHostName { get; }
 
     public RabbitMqStack(Construct scope, string id, RabbitMqStackProps props) : base(scope, id, props)
