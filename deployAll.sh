@@ -1,2 +1,3 @@
 git subtree push --prefix=frontend signals-frontend main
-git subtree push --prefix=backend signals-backend main
+# TODO: Fix subtree conflict on squashed commits
+#git subtree push --prefix=backend signals-backend main
