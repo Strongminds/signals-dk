@@ -19,7 +19,7 @@ on:
 
 jobs:
   build_and_push:
-    name: Build a new Docker image for the release (and a latest) and push it to Docker Hub
+    name: Build a new Docker image for the release (and latest) and push it to Docker Hub
     runs-on: ubuntu-latest
 
     steps:
@@ -36,7 +36,7 @@ jobs:
         id: meta
         uses: docker/metadata-action@v5
         with:
-          images: signalen/backend
+          images: ${{ secrets.DOCKERHUB_USERNAME }}/signalen/backend
           flavor: |
             latest=${{ github.event_name == 'release' }} # generate 'latest' tag for releases
 
@@ -46,5 +46,7 @@ jobs:
         with:
           context: ${{ inputs.SUB_TREE_PATH }}
           target: prod
-          tags: ${{ inputs.release_tag }}
+          tags: |
+            ${{ secrets.DOCKERHUB_USERNAME }}/signalen/backend:${{ inputs.release_tag }}
+            ${{ secrets.DOCKERHUB_USERNAME }}/signalen/backend:latest
           labels: ${{ steps.meta.outputs.labels }}

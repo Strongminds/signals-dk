@@ -42,6 +42,7 @@ jobs:
     with:
       ENVIRONMENT: dev
       FRONTEND_IMAGE_NAME: "strongminds/signalen-frontend:${{ github.sha }}"
+      BACKEND_IMAGE_NAME: "strongminds/signalen-backend:${{ github.sha }}"
       DOMAIN: signalen.dev.os2.strongminds.dk
       AWS_ACCOUNT_ID: 816069162453
       SUB_TREE_PATH: "aws-infrastructure/"
