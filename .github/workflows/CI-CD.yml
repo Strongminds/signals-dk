@@ -29,12 +29,20 @@ jobs:
       SUB_TREE_PATH: "frontend/"
     secrets: inherit
 
+  BACKEND:
+    uses: Strongminds/signals-backend/.github/workflows/build_and_push_to_docker_hub.yml@main
+    with:
+      release_tag: "${{ github.sha }}"
+      SUB_TREE_PATH: "backend/"
+    secrets: inherit
+
   DEV:
     uses: Strongminds/signals-aws-infrastructure/.github/workflows/cdk.template.yml@main
-    needs: FRONTEND
+    needs: [ FRONTEND, BACKEND ]
     with:
       ENVIRONMENT: dev
       FRONTEND_IMAGE_NAME: "strongminds/signalen-frontend:${{ github.sha }}"
+      BACKEND_IMAGE_NAME: "strongminds/signalen-backend:${{ github.sha }}"
       DOMAIN: signalen.dev.os2.strongminds.dk
       AWS_ACCOUNT_ID: 816069162453
       SUB_TREE_PATH: "aws-infrastructure/"
