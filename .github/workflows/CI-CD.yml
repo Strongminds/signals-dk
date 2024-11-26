@@ -29,6 +29,13 @@ jobs:
       SUB_TREE_PATH: "frontend/"
     secrets: inherit
 
+  BACKEND:
+    uses: Strongminds/signals-backend/.github/workflows/build_and_push_to_docker_hub.yml@main
+    with:
+      release_tag: "${{ github.sha }}"
+      SUB_TREE_PATH: "backend/"
+    secrets: inherit
+
   DEV:
     uses: Strongminds/signals-aws-infrastructure/.github/workflows/cdk.template.yml@main
     needs: FRONTEND
