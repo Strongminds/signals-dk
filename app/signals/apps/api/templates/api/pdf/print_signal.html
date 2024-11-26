@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>Melding {{ signal.get_id_display }} </title>
+    <style type="text/css">
+        * {
+            font-family: Avenir Next LT W01 Demi,arial,sans-serif;
+            font-weight: normal;
+            font-size: 14px;
+        }
+
+        .divider {
+            border-bottom: 1px #000 solid;
+            width: 100%;
+            height: 1px;
+        }
+
+        .header {
+            width: 100%;
+            top: 0;
+            margin: 0;
+            font-size: 0.8em;
+        }
+
+        .header p {
+            text-align: right;
+            color: #5B6270;
+        }
+
+        .header p span{
+            color: #5B6270;
+        }
+
+        .results {
+            border-collapse: collapse;
+        }
+
+        .results td {
+            vertical-align: top;
+            padding: 6px 2px;
+            word-wrap: break-word;
+            overflow-wrap: break-word;
+        }
+
+        .history .description {
+            margin-top: 15px;
+            font-style: italic;
+        }
+
+        .history .changed {
+            color: gray;
+        }
+
+        .history .divider {
+            margin-top: 15px;
+        }
+
+        h1 {
+            color: #000;
+            font-size: 1.6em;
+            font-weight: bold;
+        }
+
+        h2 {
+            color: #000;
+            font-size: 1.2em;
+            font-weight: bold;
+        }
+
+        table {
+            max-width: 100%;
+        }
+
+        @page {
+            size: A4;
+            margin: 1.27cm;
+        }
+    </style>
+</head>
+<body>
+    <div id="header_content">
+        <table class="header" width="100%">
+            <tr>
+                <td width="40%">
+                  <p style="text-align: left;">
+                    <span>
+                        <img src="{{ logo_src }}" style="height:100px">
+                    </span>
+                  </p>
+                </td>
+                <td width="60%" style="vertical-align: top;">
+                    <p>
+                        <span style="line-height:1.3em">Geprint door {% if not user.is_anonymous %}{{ user.username }}{% else %}Signalen Systeem{% endif %}<br>
+                        {% now "l, j F Y H:i" %}</span>
+                    </p>
+                </td>
+            </tr>
+        </table>
+    </div>
+
+    <h1>{{ signal.get_id_display }}</h1>
+    <div style="width: 680px; height: 250px; background-color: lightgray; margin-bottom: 25px; position:relative; top:0px; left:0px;">
+        {% if img_data_uri %}
+        <img src="{{img_data_uri}}" style="position:relative; top:0px; left:0px;"/>
+        {% else %}
+        <img src="https://map.data.amsterdam.nl/maps/topografie?request=GetMap&format=image%2Fpng&version=1.1.1&layers=basiskaart&srs=EPSG%3A28992&width=680&height=250&bbox={{ bbox }}" style="position:relative; top:0px; left:0px;"/>
+        {% endif %}
+        <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACcAAAAnCAYAAACMo1E1AAAABHNCSVQICAgIfAhkiAAAAAlwSFlzAAAOxAAADsQBlSsOGwAAABl0RVh0U29mdHdhcmUAd3d3Lmlua3NjYXBlLm9yZ5vuPBoAAAVHSURBVFiFxZhbbFRVFIa/PZcidSiEDm06tKZSIrXcHoTyIoHQB0EhlGLkyYToXF6sJmJorFFIG2OIRklMA1pMwAhiCKG10QpYEhSEBwhTCBAi2FJCip2ZlpZe5r58qHPa0xmmM9Oif3KStc5ee63//OvsfS6KDDEA1iBsZPQoFchXMAvoAe4rOBeBlnlwXkEkkxoq3Qn9MDcEO4G3gZmTxQfN5nuGaHRnfiTygwJ5YuQ8sBY4psCazjwA75w57kGl1q7o6+ufdnJeeB34BjDrElitmCsqMBYWonJyiPb0EHa7CV+8CBF9N72zZw9dXbCg/LUrV26kWndSeGCtF4JekNjRt2SJBJqaRMJhSYRIT48M1dSIb+ZMGT/PnZc3snvbtuemhdgA5HrAM77AI7tdJBBISGoiwu3t0ltcrCP4U1mZp7q6OmfK5HzwmY7Y9u0pkdKp2NkpvXl5Wo4HBoPs3rr1+FRVs3phZHwrU1VsIgItLTr1fi4ri9rt9heS1TckGwzCK8BTMT+7vh6ysuIDIxG4dAna2qC3N2GurI0bMa9erfnPd3Yqk9G4M6k6yeCFY7Er9VmtiW/+zk6RZctEYPSwWEQOHUqonr+xUadeXWXlUHV19YzH1U+qHFAaM8zr1oHRGB9ht8PVq2P+4CA4nXD7dlyouaJC51v7+7ODweCLmZKzxQxjcXH8qN8/2sqJCATg9On4YkVFYBgrOWt4GCBB4tTIPa1ZMxKobzDoiulgMsWfMxpR5rE9PCsUQkRs8YGpkfs7ZkQ7OuJHs7Jgy5b48zk5sGFD3OloVxcSCGj+YHY2JHkpmIycO2aE2tpGb/mJ2LcP1q8f8202OHoUCgvjQoOnTun8+/PmAXRmRE7B2Zgd7e4m7HbHB1mt0NoK3d1w8ybcvZtQNYBQa6tm+7Oy6M7NJRKJnE/G4bHwQZEHorGlP1Rbm9EGLCIS7e3VPWdPLlokTqfzWrL6SZXLhXvAuZgfaGzU3TPpIHDwIDIyovntCxeilPouY3L/4kjMiHo8hJqaMiLnP3BAsx9lZ/OXzRY1Go1HkkyZHAOQ61HKH2tH/5o1abc0eOaM7slwYvlycblcCTZIPSZVLgd8BpGDMT909izh9va0LtC/d69mRwwG/li8GBH5csrkAKLwuYx7/x+pr0+ZWNjtJtjSovnXSkrot1hu2Wy2H1NOMhk80KK1RikJud0ptXSgslLX0l1VVeJwON5IpWZKygEIfDrmCCN1dZPOCbe3E2xu1vw7NhvdVuuDUCg0tYWQCD1K/ZaOegNVVTrVPtm0SRwOxzup1ktZOQCTyPuaM4l6kevXCY7bdm7Pn09HQcF9i8XydTo104JXqZM69S5fTkm1jzdvFpfL9WY6tdJSDkBEPiC2ckUY3rEjLiZ84QLBEyc0/1ZREXfz8/8sKCg4lG69tNEDx8erEmhuHpMsGpWH5eXamEcp2VVVJS6X69UnTgzgITzrVUr7yO4rKdG+yvyHD+va+UtpqTidzt/J4L9M2m0FmAMdiHwR8yN37uDfvx/x+xmurdXigmYzp1esiCil3iLNnzhTgg9yPEppfwJ8ubkyVFOjU+37lSvF5XI1ZFojI+UAcmGA0cUBgPh8jOzZo433WyycW7q0z2QyffSfkwOwwgFRKsHrMbSuWkXIZPqwoaHBl2n+KZFTEEXk3Ynnu/LyuFZScsNms301lfzTAi80jd866isrxW63r/u/eQHQC894lBrygrSObh3fTkfeKbU1hrnQpUTqQibTyK/l5X0Gg+G96cg7bRAw3zMaX3Y4HC9NV85/AIN7HGt0EIJyAAAAAElFTkSuQmCC" alt="marker" tabindex="0" style="position: absolute; left: 320px; top: 85px; width: 40px; height: 40px;" />
+    </div>
+
+    <h2>Melding</h2>
+    <table class="results" style="page-break-after: always; page-break-before: avoid; -pdf-page-break: avoid; margin: 30px 0 30px 0;">
+        {% if signal.is_child %}
+        <tr>
+            <td>Hoofdmelding</td>
+            <td>: {{ signal.parent.get_id_display }}</td>
+        </tr>
+        {% endif %}
+        <tr>
+            <td style="width: 200px;">Toelichting</td>
+            <td>: {{ signal.text }}</td>
+        </tr>
+        <tr>
+            <td>Overlast</td>
+            <td>: {{ signal.incident_date_start|date:"d-m-Y" }} {{ signal.incident_date_start|date:"H:i" }}</td>
+        </tr>
+        <tr>
+            <td>Stadsdeel</td>
+            {% if signal.location.stadsdeel %}
+            <td>: {{ signal.location.get_stadsdeel_display }}</td>
+            {% else %}
+            <td>: {% if signal.location.area_name %}{{ signal.location.area_name }}{% else %}{{ signal.location.area_code }}{% endif %}</td>
+            {% endif %}
+        </tr>
+        <tr>
+            <td>Adres</td>
+            <td>: {{ signal.location.address_text }}</td>
+        </tr>
+        <tr>
+            <td>Gemeld op</td>
+            <td>: {{ signal.created_at|date:"d-m-Y" }} {{ signal.created_at|date:"H:i" }}</td>
+        </tr>
+        <tr>
+            <td>Hoofdcategorie</td>
+            <td>: {{ signal.category_assignment.category.parent.name }}</td>
+        </tr>
+        <tr>
+            <td>Subcategorie</td>
+            <td>: {{ signal.category_assignment.category.name }}</td>
+        </tr>
+        <tr>
+            <td>Urgentie</td>
+            <td>: {{ signal.priority.get_priority_display }}</td>
+        </tr>
+        <tr>
+            <td>Bron</td>
+            <td>: {{ signal.source }}</td>
+        </tr>
+    </table>
+
+    {% include 'api/pdf/extra_properties.html' with signal=signal %}
+
+    <div class="divider">&nbsp;</div>
+    <h2>Melder</h2>
+    <table class="results" style="page-break-after: avoid; page-break-before: avoid; -pdf-page-break: avoid; margin: 30px 0 30px 0;">
+        <tr>
+            <td style="width: 200px;">E-mail</td>
+            <td>: {{ reporter_email|default:"Onbekend" }}</td>
+        </tr>
+        <tr>
+            <td>Telefoonnummer</td>
+            <td>: {{ reporter_phone|default:"Onbekend" }}</td>
+        </tr>
+        <tr>
+            <td>Verklaring contactgegevens delen</td>
+            <td>: {{ signal.reporter.sharing_allowed|yesno:"Toegestaan,Niet toegestaan" }}</td>
+        </tr>
+    </table>
+
+    <div class="divider">&nbsp;</div>
+    <h2>Foto's</h2>
+    {% if attachment_images %}
+        {% for data_uri, att_filename, user_email, created_at in attachment_images %}
+            {% if data_uri %}
+                <p>
+                    <img src="{{ data_uri|safe }}" style="object-fit: contain; width:680px; max-height:500px;" alt=""><br>
+                    {{ att_filename}} op {{ created_at | date:"d-m-Y" }} {{ created_at | date:"H:i" }} door
+                    {% if user_email %}{{ user_email }}{% else %}melder{% endif %}
+                </p>
+            {% else %}
+                <p>Image not available</p>
+            {% endif %}
+        {% endfor %}
+        <br>
+    {% else %}
+        <p>Er zijn geen foto's beschikbaar omdat de melder in Signalen geen foto's heeft meegeleverd.</p>
+    {% endif %}
+
+
+    <div class="divider">&nbsp;</div>
+    <h2>Geschiedenis</h2>
+    {% for history in signal.history_log.all %}
+    <table class="history" style="page-break-after: avoid; page-break-before: avoid; -pdf-page-break: avoid; margin: 30px 0 30px 0;">
+        <tr>
+            <td class="changed" style="width: 200px; vertical-align:top; overflow-wrap: break-word;">Gewijzigd op {{ history.created_at|date:"d-m-Y" }} om {{ history.created_at|date:"H:i:s" }} door {{ history.who|default:"Signalen systeem" }}</td>
+            <td class="title" style="vertical-align:top">
+                {{ history.get_action }}<br>
+                {% if history.get_description %}
+                    "{{ history.get_description }}"
+                {% endif %}
+            </td>
+        </tr>
+    </table>
+    {% endfor %}
+
+</body>
+</html>
