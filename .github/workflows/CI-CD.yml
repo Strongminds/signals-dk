@@ -38,7 +38,7 @@ jobs:
 
   DEV:
     uses: Strongminds/signals-aws-infrastructure/.github/workflows/cdk.template.yml@main
-    needs: FRONTEND, BACKEND
+    needs: [ FRONTEND, BACKEND ]
     with:
       ENVIRONMENT: dev
       FRONTEND_IMAGE_NAME: "strongminds/signalen-frontend:${{ github.sha }}"
