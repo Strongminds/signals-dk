@@ -25,13 +25,16 @@ jobs:
   FRONTEND:
     uses: Strongminds/signals-frontend/.github/workflows/build_and_push_to_docker_hub.yml@main
     with:
-      DOCKERHUB_USERNAME: ${{ secrets.DOCKERHUB_USERNAME }}
-      DOCKERHUB_PASSWORD: ${{ secrets.DOCKERHUB_PASSWORD }}
+      release_tag: "${{ github.sha }}"
+      SUB_TREE_PATH: "frontend/"
+    secrets: inherit
 
   DEV:
     uses: Strongminds/signals-aws-infrastructure/.github/workflows/cdk.template.yml@main
+    needs: FRONTEND
     with:
       ENVIRONMENT: dev
+      FRONTEND_IMAGE_NAME: "strongminds/signalen-frontend:${{ github.sha }}"
       DOMAIN: signalen.dev.os2.strongminds.dk
       AWS_ACCOUNT_ID: 816069162453
       SUB_TREE_PATH: "aws-infrastructure/"
