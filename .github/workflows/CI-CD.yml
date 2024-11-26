@@ -22,6 +22,12 @@ permissions:
 
 jobs:
 
+  FRONTEND:
+    uses: Strongminds/signals-frontend/.github/workflows/ci-cd.template.yml@main
+    with:
+      ENVIRONMENT: dev
+    secrets: inherit
+
   DEV:
     uses: Strongminds/signals-aws-infrastructure/.github/workflows/cdk.template.yml@main
     with:
