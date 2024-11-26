@@ -47,6 +47,6 @@ jobs:
           context: ${{ inputs.SUB_TREE_PATH }}
           target: prod
           tags: |
-            ${{ secrets.DOCKERHUB_USERNAME }}/signalen/backend:${{ inputs.release_tag }}
-            ${{ secrets.DOCKERHUB_USERNAME }}/signalen/backend:latest
+            ${{ secrets.DOCKERHUB_USERNAME }}/signalen-backend:${{ inputs.release_tag }}
+            ${{ secrets.DOCKERHUB_USERNAME }}/signalen-backend:latest
           labels: ${{ steps.meta.outputs.labels }}
