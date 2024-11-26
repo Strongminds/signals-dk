@@ -25,7 +25,7 @@ jobs:
   FRONTEND:
     uses: Strongminds/frontend/.github/workflows/build_and_push_to_docker_hub.yml@main
     with:
-      ENVIRONMENT: dev
+      FRONTEND_IMAGE_NAME: "signalen/frontend:latest"
     secrets: inherit
 
   DEV:
