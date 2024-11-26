@@ -30,7 +30,7 @@ jobs:
 
   DEV:
     uses: Strongminds/signals-aws-infrastructure/.github/workflows/cdk.template.yml@main
-    depends-on: FRONTEND
+    needs: FRONTEND
     with:
       ENVIRONMENT: dev
       DOMAIN: signalen.dev.os2.strongminds.dk
