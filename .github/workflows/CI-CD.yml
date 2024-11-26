@@ -23,7 +23,7 @@ permissions:
 jobs:
 
   FRONTEND:
-    uses: Strongminds/signals-frontend/.github/workflows/ci-cd.template.yml@main
+    uses: Strongminds/frontend/.github/workflows/build_and_push_to_docker_hub.yml@main
     with:
       ENVIRONMENT: dev
     secrets: inherit
