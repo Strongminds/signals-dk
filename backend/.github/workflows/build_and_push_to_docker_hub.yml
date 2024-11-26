@@ -13,7 +13,8 @@ on:
       DOCKERHUB_USERNAME:
         required: true
       DOCKERHUB_PASSWORD:
-        required: true  release:
+        required: true  
+  release:
     types: [ published ]
 
 jobs:
