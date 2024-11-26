@@ -25,11 +25,12 @@ jobs:
   FRONTEND:
     uses: Strongminds/signals-frontend/.github/workflows/build_and_push_to_docker_hub.yml@main
     with:
-      release_tag: ${{ github.sha }}
+      release_tag: "${{ github.sha }}"
     secrets: inherit
 
   DEV:
     uses: Strongminds/signals-aws-infrastructure/.github/workflows/cdk.template.yml@main
+    depends-on: FRONTEND
     with:
       ENVIRONMENT: dev
       DOMAIN: signalen.dev.os2.strongminds.dk
