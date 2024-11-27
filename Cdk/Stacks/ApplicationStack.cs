@@ -210,7 +210,7 @@ public class ApplicationStack : Stack
         return new Dictionary<string, string>
         {
             { "CONFIG", "app.aarhus.json" },
-        }
+        };
     }
 
     private static Dictionary<string, Secret> CreateBackendSecretEnvironmentVariables(ApplicationStackProps props)
