@@ -172,6 +172,7 @@ public class ApplicationStack : Stack
             new ContainerDefinitionOptions
             {
                 Essential = true,
+                Environment = CreateFrontendEnvironmentVariables(props, domainName),
                 PortMappings =
                 [
                     new PortMapping
@@ -204,8 +205,15 @@ public class ApplicationStack : Stack
         });
     }
 
+    private static Dictionary<string, string> CreateFrontendEnvironmentVariables()
+    {
+        return new Dictionary<string, string>
+        {
+            { "CONFIG", "app.aarhus.json" },
+        }
+    }
 
-    private static Dictionary<string, Secret> CreteBackendSecretEnvironmentVariables(ApplicationStackProps props)
+    private static Dictionary<string, Secret> CreateBackendSecretEnvironmentVariables(ApplicationStackProps props)
     {
         return new Dictionary<string, Secret>
         {
