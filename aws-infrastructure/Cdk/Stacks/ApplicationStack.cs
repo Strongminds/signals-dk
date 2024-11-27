@@ -53,6 +53,7 @@ public class ApplicationStack : Stack
         AddBackendContainer(props, taskDefinition, service, domainName);
         AddCeleryWorkerContainer(props, taskDefinition, service, domainName);
         AddCeleryFlowerContainer(props, taskDefinition, service, domainName);
+        AddDatabaseMigrationContainer(props, taskDefinition, service, domainName);
     }
 
     private static void AddCeleryWorkerContainer(ApplicationStackProps props, TaskDefinition taskDefinition,
@@ -86,6 +87,29 @@ public class ApplicationStack : Stack
     }
 
     private static void AddCeleryFlowerContainer(ApplicationStackProps props, TaskDefinition taskDefinition,
+        BaseService service, string domainName)
+    {
+        var backendImageName = service.Node.TryGetContext("backendImageName") as string;
+        taskDefinition.AddContainer("migration-worker",
+            new ContainerDefinitionOptions
+            {
+                Essential = false,
+                Secrets = CreteBackendSecretEnvironmentVariables(props),
+                Environment = CreateBackendEnvironmentVariables(props, domainName),
+                Image = ContainerImage.FromRegistry(
+                    string.IsNullOrEmpty(backendImageName) ? "signalen/backend:latest" : backendImageName,
+                    new RepositoryImageProps()),
+                Command = ["python", "manage.py", "migrate","--noinput"],
+                Logging = LogDriver.AwsLogs(new AwsLogDriverProps
+                {
+                    LogRetention = RetentionDays.ONE_DAY,
+                    Mode = AwsLogDriverMode.NON_BLOCKING,
+                    StreamPrefix = "migration-worker"
+                })
+            });
+    }
+
+    private static void AddDatabaseMigrationContainer(ApplicationStackProps props, TaskDefinition taskDefinition,
         BaseService service, string domainName)
     {
         var backendImageName = service.Node.TryGetContext("backendImageName") as string;
