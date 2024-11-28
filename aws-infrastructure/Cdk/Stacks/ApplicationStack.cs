@@ -235,7 +235,7 @@ public class ApplicationStack : Stack
         service.RegisterLoadBalancerTargets(new EcsTarget
         {
             ContainerName = "DexIdp",
-            NewTargetGroupId = "Frontend",
+            NewTargetGroupId = "DexIdp",
             Listener = ListenerConfig.ApplicationListener(props.Listener, new AddApplicationTargetsProps
             {
                 Protocol = ApplicationProtocol.HTTP,
