@@ -100,7 +100,7 @@ public class ApplicationStack : Stack
                     string.IsNullOrEmpty(backendImageName) ? "signalen/backend:latest" : backendImageName,
                     new RepositoryImageProps()),
                 //Command = ["python", "manage.py", "migrate","--noinput"],
-                Command = ["/app/initialize.sh"],
+                Command = ["/migrate.sh"],
                 Logging = LogDriver.AwsLogs(new AwsLogDriverProps
                 {
                     LogRetention = RetentionDays.ONE_DAY,
