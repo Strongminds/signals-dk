@@ -9,6 +9,7 @@ namespace Cdk.Stacks;
 public class EmailStack : Stack
 {
     public Secret MailCredentials { get; }
+    public string FromDomain { get; }
 
     internal EmailStack(Construct scope, string id, EmailStackProps props) : base(scope, id, props)
     {
@@ -59,6 +60,7 @@ public class EmailStack : Stack
             DkimSigning = true,
             Identity = Identity.Domain($"mail.{props.HostedZone.ZoneName}")
         });
+        FromDomain = emailIdentity.EmailIdentityName;
         for (var i = 0; i < emailIdentity.DkimRecords.Length; i++)
         {
             var dkimRecord = emailIdentity.DkimRecords[i];

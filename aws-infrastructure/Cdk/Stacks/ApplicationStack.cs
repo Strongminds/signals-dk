@@ -292,6 +292,7 @@ public class ApplicationStack : Stack
             { "EMAIL_HOST", $"email.{Aws.REGION}.amazonaws.com" },
             { "EMAIL_PORT", "465" },
             { "EMAIL_USE_SSL", "True" },
+            { "DEFAULT_FROM_EMAIL",  $"Meddelelser fra Aarhus kommune <noreply@{props.MailFrom}>" },
             { "MY_SIGNALS_ENABLED", "True" },
             { "SIGNAL_HISTORY_LOG_ENABLED", "True" },
             { "OIDC_RP_CLIENT_ID", "signals" },
@@ -313,7 +314,7 @@ public class ApplicationStack : Stack
     }
 }
 
-public class ApplicationStackProps(Vpc vpc, ApplicationListener listener, ISecurityGroup[] applicationSecurityGroups, ISecret databaseSecret, ISecret rabbitSecret, ISecret maiSecret, string rabbitMqHostname) : StackProps
+public class ApplicationStackProps(Vpc vpc, ApplicationListener listener, ISecurityGroup[] applicationSecurityGroups, ISecret databaseSecret, ISecret rabbitSecret, ISecret maiSecret, string rabbitMqHostname, string mailFrom) : StackProps
 {
     public IVpc Vpc { get; init; } = vpc;
     public ApplicationListener Listener { get; } = listener;
@@ -322,4 +323,5 @@ public class ApplicationStackProps(Vpc vpc, ApplicationListener listener, ISecur
     public ISecret RabbitSecret { get; } = rabbitSecret;
     public ISecret MaiSecret { get; } = maiSecret;
     public string RabbitMqHostname { get; } = rabbitMqHostname;
+    public string MailFrom { get; } = mailFrom;
 }
