@@ -53,6 +53,7 @@ public class ApplicationStack : Stack
         AddBackendContainer(props, taskDefinition, service, domainName);
         AddCeleryWorkerContainer(props, taskDefinition, service, domainName);
         AddCeleryFlowerContainer(props, taskDefinition, service, domainName);
+        AddDatabaseMigrationContainer(props, taskDefinition, service, domainName);
     }
 
     private static void AddCeleryWorkerContainer(ApplicationStackProps props, TaskDefinition taskDefinition,
@@ -86,6 +87,30 @@ public class ApplicationStack : Stack
     }
 
     private static void AddCeleryFlowerContainer(ApplicationStackProps props, TaskDefinition taskDefinition,
+        BaseService service, string domainName)
+    {
+        var backendImageName = service.Node.TryGetContext("backendImageName") as string;
+        taskDefinition.AddContainer("migration-worker",
+            new ContainerDefinitionOptions
+            {
+                Essential = false,
+                Secrets = CreateBackendSecretEnvironmentVariables(props),
+                Environment = CreateBackendEnvironmentVariables(props, domainName),
+                Image = ContainerImage.FromRegistry(
+                    string.IsNullOrEmpty(backendImageName) ? "signalen/backend:latest" : backendImageName,
+                    new RepositoryImageProps()),
+                //Command = ["python", "manage.py", "migrate","--noinput"],
+                Command = ["/migrate.sh"],
+                Logging = LogDriver.AwsLogs(new AwsLogDriverProps
+                {
+                    LogRetention = RetentionDays.ONE_DAY,
+                    Mode = AwsLogDriverMode.NON_BLOCKING,
+                    StreamPrefix = "migration-worker"
+                })
+            });
+    }
+
+    private static void AddDatabaseMigrationContainer(ApplicationStackProps props, TaskDefinition taskDefinition,
         BaseService service, string domainName)
     {
         var backendImageName = service.Node.TryGetContext("backendImageName") as string;
@@ -267,6 +292,7 @@ public class ApplicationStack : Stack
             { "EMAIL_HOST", $"email.{Aws.REGION}.amazonaws.com" },
             { "EMAIL_PORT", "465" },
             { "EMAIL_USE_SSL", "True" },
+            { "DEFAULT_FROM_EMAIL",  $"Meddelelser fra Aarhus kommune <noreply@{props.MailFrom}>" },
             { "MY_SIGNALS_ENABLED", "True" },
             { "SIGNAL_HISTORY_LOG_ENABLED", "True" },
             { "OIDC_RP_CLIENT_ID", "signals" },
@@ -288,7 +314,7 @@ public class ApplicationStack : Stack
     }
 }
 
-public class ApplicationStackProps(Vpc vpc, ApplicationListener listener, ISecurityGroup[] applicationSecurityGroups, ISecret databaseSecret, ISecret rabbitSecret, ISecret maiSecret, string rabbitMqHostname) : StackProps
+public class ApplicationStackProps(Vpc vpc, ApplicationListener listener, ISecurityGroup[] applicationSecurityGroups, ISecret databaseSecret, ISecret rabbitSecret, ISecret maiSecret, string rabbitMqHostname, string mailFrom) : StackProps
 {
     public IVpc Vpc { get; init; } = vpc;
     public ApplicationListener Listener { get; } = listener;
@@ -297,4 +323,5 @@ public class ApplicationStackProps(Vpc vpc, ApplicationListener listener, ISecur
     public ISecret RabbitSecret { get; } = rabbitSecret;
     public ISecret MaiSecret { get; } = maiSecret;
     public string RabbitMqHostname { get; } = rabbitMqHostname;
+    public string MailFrom { get; } = mailFrom;
 }
