@@ -50,6 +50,7 @@ public class ApplicationStack : Stack
 
 
         AddFrontendContainer(props, taskDefinition, service, domainName);
+        AddDexContainer(props, taskDefinition, service, domainName);
         AddBackendContainer(props, taskDefinition, service, domainName);
         AddCeleryWorkerContainer(props, taskDefinition, service, domainName);
         AddCeleryFlowerContainer(props, taskDefinition, service, domainName);
@@ -192,6 +193,48 @@ public class ApplicationStack : Stack
         service.RegisterLoadBalancerTargets(new EcsTarget
         {
             ContainerName = "Frontend",
+            NewTargetGroupId = "Frontend",
+            Listener = ListenerConfig.ApplicationListener(props.Listener, new AddApplicationTargetsProps
+            {
+                Protocol = ApplicationProtocol.HTTP,
+                Conditions = [
+                    ListenerCondition.HostHeaders([domainName])
+                ],
+                Priority = 10
+            })
+        });
+    }
+
+    private static void AddDexContainer(ApplicationStackProps props, TaskDefinition taskDefinition, FargateService service, string domainName)
+    {
+        taskDefinition.AddContainer("Frontend",
+            new ContainerDefinitionOptions
+            {
+                Essential = true,
+                PortMappings =
+                [
+                    new PortMapping
+                    {
+                        ContainerPort = 5556,
+                        HostPort = 5556,
+                    }
+                ],
+                Image = ContainerImage.FromRegistry("ghcr.io/dexidp/dex:v2.37.0"),
+                Logging = LogDriver.AwsLogs(new AwsLogDriverProps
+                {
+                    LogRetention = RetentionDays.ONE_DAY,
+                    Mode = AwsLogDriverMode.NON_BLOCKING,
+                    StreamPrefix = "frontend"
+                }),
+                Environment = new Dictionary<string, string>
+                {
+                    { "DEX_LOG_LEVEL", "debug" }
+                }
+            });
+
+        service.RegisterLoadBalancerTargets(new EcsTarget
+        {
+            ContainerName = "Dex",
             NewTargetGroupId = "Frontend",
             Listener = ListenerConfig.ApplicationListener(props.Listener, new AddApplicationTargetsProps
             {
