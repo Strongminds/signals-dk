@@ -207,7 +207,7 @@ public class ApplicationStack : Stack
 
     private static void AddDexContainer(ApplicationStackProps props, TaskDefinition taskDefinition, FargateService service, string domainName)
     {
-        taskDefinition.AddContainer("DexIdP",
+        taskDefinition.AddContainer("DexIdp",
             new ContainerDefinitionOptions
             {
                 Essential = true,
