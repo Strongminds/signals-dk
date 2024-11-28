@@ -42,7 +42,8 @@ RUN set -eux;  \
     rm -rf /var/lib/apt/lists/*
 
 COPY app/requirements /app/requirements
-
+COPY docker-compose/scripts/initialize.sh /app/initialize.sh
+ 
 RUN set -eux; \
     pip install --no-cache -r /app/requirements/requirements.txt; \
     pip install --no-cache tox; \

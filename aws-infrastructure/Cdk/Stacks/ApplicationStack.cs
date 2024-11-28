@@ -94,12 +94,13 @@ public class ApplicationStack : Stack
             new ContainerDefinitionOptions
             {
                 Essential = false,
-                Secrets = CreteBackendSecretEnvironmentVariables(props),
+                Secrets = CreateBackendSecretEnvironmentVariables(props),
                 Environment = CreateBackendEnvironmentVariables(props, domainName),
                 Image = ContainerImage.FromRegistry(
                     string.IsNullOrEmpty(backendImageName) ? "signalen/backend:latest" : backendImageName,
                     new RepositoryImageProps()),
-                Command = ["python", "manage.py", "migrate","--noinput"],
+                //Command = ["python", "manage.py", "migrate","--noinput"],
+                Command = ["/app/initialize.sh"],
                 Logging = LogDriver.AwsLogs(new AwsLogDriverProps
                 {
                     LogRetention = RetentionDays.ONE_DAY,
