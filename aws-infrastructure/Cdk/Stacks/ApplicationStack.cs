@@ -64,7 +64,7 @@ public class ApplicationStack : Stack
             new ContainerDefinitionOptions
             {
                 Essential = false,
-                Secrets = CreteBackendSecretEnvironmentVariables(props),
+                Secrets = CreateBackendSecretEnvironmentVariables(props),
                 Environment = CreateBackendEnvironmentVariables(props, domainName),
                 Image = ContainerImage.FromRegistry(
                     string.IsNullOrEmpty(backendImageName) ? "signalen/backend:latest" : backendImageName,
@@ -117,7 +117,7 @@ public class ApplicationStack : Stack
             new ContainerDefinitionOptions
             {
                 Essential = false,
-                Secrets = CreteBackendSecretEnvironmentVariables(props),
+                Secrets = CreateBackendSecretEnvironmentVariables(props),
                 Environment = CreateBackendEnvironmentVariables(props, domainName),
                 Image = ContainerImage.FromRegistry(
                     string.IsNullOrEmpty(backendImageName) ? "signalen/backend:latest" : backendImageName,
@@ -147,7 +147,7 @@ public class ApplicationStack : Stack
             new ContainerDefinitionOptions
             {
                 Essential = true,
-                Secrets = CreteBackendSecretEnvironmentVariables(props),
+                Secrets = CreateBackendSecretEnvironmentVariables(props),
                 Environment = CreateBackendEnvironmentVariables(props, domainName),
                 PortMappings =
                 [
@@ -228,8 +228,7 @@ public class ApplicationStack : Stack
         });
     }
 
-
-    private static Dictionary<string, Secret> CreteBackendSecretEnvironmentVariables(ApplicationStackProps props)
+    private static Dictionary<string, Secret> CreateBackendSecretEnvironmentVariables(ApplicationStackProps props)
     {
         return new Dictionary<string, Secret>
         {
