@@ -28,22 +28,22 @@ public class EmailStack : Stack
             ]
 
         });
-        _ = new TxtRecord(this, "SPFRecord", new TxtRecordProps
+        _ = new TxtRecord(this, "RootSPFRecord", new TxtRecordProps
         {
             Zone = props.HostedZone,
-            RecordName = $"mail.{props.HostedZone.ZoneName}",
+            RecordName = $"{props.HostedZone.ZoneName}",
             Values = ["v=spf1 include:amazonses.com -all"]
         });
-        _ = new TxtRecord(this, "DmarcRecord", new TxtRecordProps
-        {
-            Zone = props.HostedZone,
-            RecordName = $"_dmarc.mail.{props.HostedZone.ZoneName}",
-            Values = ["v=DMARC1; p=reject;"]
-        });
-        _ = new MxRecord(this, "MXRecord", new MxRecordProps
+        _ = new TxtRecord(this, "FromSPFRecord", new TxtRecordProps
         {
             Zone = props.HostedZone,
             RecordName = $"mail.{props.HostedZone.ZoneName}",
+            Values = ["v=spf1 include:amazonses.com ~all"]
+        });
+        _ = new MxRecord(this, "RootMXRecord", new MxRecordProps
+        {
+            Zone = props.HostedZone,
+            RecordName = $"{props.HostedZone.ZoneName}",
             Values =
             [
                 new MxRecordValue
@@ -53,12 +53,39 @@ public class EmailStack : Stack
                 }
             ]
         });
+        _ = new MxRecord(this, "FromMXRecord", new MxRecordProps
+        {
+            Zone = props.HostedZone,
+            RecordName = $"mail.{props.HostedZone.ZoneName}",
+            Values =
+            [
+                new MxRecordValue
+                {
+                    Priority = 10,
+                    HostName = "feedback-smtp.eu-west-1.amazonaws.com"
+                }
+            ]
+        });
+
+        _ = new TxtRecord(this, "RootDmarcRecord", new TxtRecordProps
+        {
+            Zone = props.HostedZone,
+            RecordName = $"_dmarc.{props.HostedZone.ZoneName}",
+            Values = ["v=DMARC1; p=reject;"]
+        });
+        _ = new TxtRecord(this, "FromDmarcRecord", new TxtRecordProps
+        {
+            Zone = props.HostedZone,
+            RecordName = $"_dmarc.mail.{props.HostedZone.ZoneName}",
+            Values = ["v=DMARC1; p=reject;"]
+        });
 
         var emailIdentity = new EmailIdentity(this, "Email", new EmailIdentityProps
         {
             DkimIdentity = DkimIdentity.EasyDkim(EasyDkimSigningKeyLength.RSA_2048_BIT),
             DkimSigning = true,
-            Identity = Identity.Domain($"mail.{props.HostedZone.ZoneName}")
+            Identity = Identity.Domain($"{props.HostedZone.ZoneName}"),
+            MailFromDomain = $"mail.{props.HostedZone.ZoneName}"
         });
         FromDomain = emailIdentity.EmailIdentityName;
         for (var i = 0; i < emailIdentity.DkimRecords.Length; i++)
