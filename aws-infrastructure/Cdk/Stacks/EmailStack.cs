@@ -47,7 +47,7 @@ public class EmailStack : Stack
                 new MxRecordValue
                 {
                     Priority = 10,
-                    HostName = "feedback-smtp.eu-west-1.amazonaws.com"
+                    HostName = "feedback-smtp.eu-west-1.amazonses.com"
                 }
             ]
         });
