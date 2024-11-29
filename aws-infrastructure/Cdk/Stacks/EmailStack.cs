@@ -13,21 +13,6 @@ public class EmailStack : Stack
 
     internal EmailStack(Construct scope, string id, EmailStackProps props) : base(scope, id, props)
     {
-        _ = new CaaRecord(this, "Caa", new CaaRecordProps
-        {
-            Zone = props.HostedZone,
-            RecordName = $"mail.{props.HostedZone.ZoneName}",
-            Values =
-            [
-                new CaaRecordValue
-                {
-                    Flag = 0,
-                    Tag = CaaTag.ISSUE,
-                    Value = "amazon.com"
-                }
-            ]
-
-        });
         _ = new TxtRecord(this, "RootSPFRecord", new TxtRecordProps
         {
             Zone = props.HostedZone,
@@ -99,33 +84,16 @@ public class EmailStack : Stack
             });
         }
 
-        var smtpGroup = new Group(this, "SmtpGroup", new GroupProps
-        {
-            ManagedPolicies =
-            [
-                new ManagedPolicy(this, "SendRawEmail", new ManagedPolicyProps
-                {
-                    Statements =
-                    [
-                        new PolicyStatement(new PolicyStatementProps
-                        {
-                            Actions = ["ses:SendRawEmail"],
-                            Effect = Effect.ALLOW,
-                            Resources = ["*"]
-                        })
-                    ]
-                })
-            ]
-        });
         var user = new User(this, "SmtpUser", new UserProps
         {
-            Groups = [smtpGroup, Group.FromGroupName(this, "AWSSESSendingGroupDoNotRename", "AWSSESSendingGroupDoNotRename")]
+            Groups = [Group.FromGroupName(this, "AWSSESSendingGroupDoNotRename", "AWSSESSendingGroupDoNotRename")]
         });
         var accessKey = new AccessKey(this, "SmtpUserAccessKey", new AccessKeyProps
         {
             Status = AccessKeyStatus.ACTIVE,
             User = user,
         });
+        
         MailCredentials = new Secret(this, "SmtpSecret", new SecretProps
         {
             SecretObjectValue = new Dictionary<string, SecretValue>
