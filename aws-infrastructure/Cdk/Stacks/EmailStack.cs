@@ -13,37 +13,22 @@ public class EmailStack : Stack
 
     internal EmailStack(Construct scope, string id, EmailStackProps props) : base(scope, id, props)
     {
-        _ = new CaaRecord(this, "Caa", new CaaRecordProps
+        _ = new TxtRecord(this, "RootSPFRecord", new TxtRecordProps
         {
             Zone = props.HostedZone,
-            RecordName = $"mail.{props.HostedZone.ZoneName}",
-            Values =
-            [
-                new CaaRecordValue
-                {
-                    Flag = 0,
-                    Tag = CaaTag.ISSUE,
-                    Value = "amazon.com"
-                }
-            ]
-
-        });
-        _ = new TxtRecord(this, "SPFRecord", new TxtRecordProps
-        {
-            Zone = props.HostedZone,
-            RecordName = $"mail.{props.HostedZone.ZoneName}",
+            RecordName = $"{props.HostedZone.ZoneName}",
             Values = ["v=spf1 include:amazonses.com -all"]
         });
-        _ = new TxtRecord(this, "DmarcRecord", new TxtRecordProps
-        {
-            Zone = props.HostedZone,
-            RecordName = $"_dmarc.mail.{props.HostedZone.ZoneName}",
-            Values = ["v=DMARC1; p=reject;"]
-        });
-        _ = new MxRecord(this, "MXRecord", new MxRecordProps
+        _ = new TxtRecord(this, "FromSPFRecord", new TxtRecordProps
         {
             Zone = props.HostedZone,
             RecordName = $"mail.{props.HostedZone.ZoneName}",
+            Values = ["v=spf1 include:amazonses.com ~all"]
+        });
+        _ = new MxRecord(this, "RootMXRecord", new MxRecordProps
+        {
+            Zone = props.HostedZone,
+            RecordName = $"{props.HostedZone.ZoneName}",
             Values =
             [
                 new MxRecordValue
@@ -53,12 +38,39 @@ public class EmailStack : Stack
                 }
             ]
         });
+        _ = new MxRecord(this, "FromMXRecord", new MxRecordProps
+        {
+            Zone = props.HostedZone,
+            RecordName = $"mail.{props.HostedZone.ZoneName}",
+            Values =
+            [
+                new MxRecordValue
+                {
+                    Priority = 10,
+                    HostName = "feedback-smtp.eu-west-1.amazonses.com"
+                }
+            ]
+        });
+
+        _ = new TxtRecord(this, "RootDmarcRecord", new TxtRecordProps
+        {
+            Zone = props.HostedZone,
+            RecordName = $"_dmarc.{props.HostedZone.ZoneName}",
+            Values = ["v=DMARC1; p=reject;"]
+        });
+        _ = new TxtRecord(this, "FromDmarcRecord", new TxtRecordProps
+        {
+            Zone = props.HostedZone,
+            RecordName = $"_dmarc.mail.{props.HostedZone.ZoneName}",
+            Values = ["v=DMARC1; p=reject;"]
+        });
 
         var emailIdentity = new EmailIdentity(this, "Email", new EmailIdentityProps
         {
             DkimIdentity = DkimIdentity.EasyDkim(EasyDkimSigningKeyLength.RSA_2048_BIT),
             DkimSigning = true,
-            Identity = Identity.Domain($"mail.{props.HostedZone.ZoneName}")
+            Identity = Identity.Domain($"{props.HostedZone.ZoneName}"),
+            MailFromDomain = $"mail.{props.HostedZone.ZoneName}"
         });
         FromDomain = emailIdentity.EmailIdentityName;
         for (var i = 0; i < emailIdentity.DkimRecords.Length; i++)
@@ -72,33 +84,16 @@ public class EmailStack : Stack
             });
         }
 
-        var smtpGroup = new Group(this, "SmtpGroup", new GroupProps
-        {
-            ManagedPolicies =
-            [
-                new ManagedPolicy(this, "SendRawEmail", new ManagedPolicyProps
-                {
-                    Statements =
-                    [
-                        new PolicyStatement(new PolicyStatementProps
-                        {
-                            Actions = ["ses:SendRawEmail"],
-                            Effect = Effect.ALLOW,
-                            Resources = ["*"]
-                        })
-                    ]
-                })
-            ]
-        });
         var user = new User(this, "SmtpUser", new UserProps
         {
-            Groups = [smtpGroup]
+            Groups = [Group.FromGroupName(this, "AWSSESSendingGroupDoNotRename", "AWSSESSendingGroupDoNotRename")]
         });
         var accessKey = new AccessKey(this, "SmtpUserAccessKey", new AccessKeyProps
         {
             Status = AccessKeyStatus.ACTIVE,
             User = user,
         });
+        
         MailCredentials = new Secret(this, "SmtpSecret", new SecretProps
         {
             SecretObjectValue = new Dictionary<string, SecretValue>
