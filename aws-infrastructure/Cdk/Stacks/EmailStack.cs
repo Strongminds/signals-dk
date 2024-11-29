@@ -119,7 +119,7 @@ public class EmailStack : Stack
         });
         var user = new User(this, "SmtpUser", new UserProps
         {
-            Groups = [smtpGroup]
+            Groups = [smtpGroup, Group.FromGroupName(this, "AWSSESSendingGroupDoNotRename", "AWSSESSendingGroupDoNotRename")]
         });
         var accessKey = new AccessKey(this, "SmtpUserAccessKey", new AccessKeyProps
         {
