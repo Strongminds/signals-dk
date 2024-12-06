@@ -2,6 +2,7 @@
 # Copyright (C) 2021 - 2023 Gemeente Amsterdam
 import typing
 
+from app.signals.apps.email_integrations.translations import TranslationKey
 from signals.apps.email_integrations.actions.abstract import AbstractSignalStatusAction
 from signals.apps.email_integrations.models import EmailTemplate
 from signals.apps.email_integrations.rules import SignalCreatedRule
@@ -14,7 +15,7 @@ class SignalCreatedAction(AbstractSignalStatusAction):
     rule: AbstractRule = SignalCreatedRule()
 
     key: str = EmailTemplate.SIGNAL_CREATED
-    subject: str = 'Bedankt voor uw melding {formatted_signal_id}'
+    subject: str = TranslationKey.email_acknowledgment_message + ' {formatted_signal_id}'
 
     note: str = 'Automatische e-mail bij registratie van de melding is verzonden aan de melder.'
 
