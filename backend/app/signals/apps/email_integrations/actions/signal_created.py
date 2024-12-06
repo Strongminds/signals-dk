@@ -16,8 +16,7 @@ class SignalCreatedAction(AbstractSignalStatusAction):
 
     key: str = EmailTemplate.SIGNAL_CREATED
     subject: str = translate(TranslationKey.email_acknowledgment_message) + ' {formatted_signal_id}'
-
-    note: str = 'Automatische e-mail bij registratie van de melding is verzonden aan de melder.'
+    note: str = translate(TranslationKey.email_automated_email_confirmation_message)
 
     def get_additional_context(self, signal: Signal, dry_run: bool = False) -> dict:
         assert signal.category_assignment is not None
