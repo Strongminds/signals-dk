@@ -25,7 +25,7 @@
 | Architecture | Business logic in frontend | Business logic stored in UI, eg. `frontend/src/signals/incident-management/definitions/index.js` |
 | Architecture | Localization in database | Localization should be handled on the backend frontiers, in the application layer |
 
-## PR changes that affects signals (Amsterdam)
+## Major changes
 
 https://github.com/Strongminds/signals-dk/pull/3
 
